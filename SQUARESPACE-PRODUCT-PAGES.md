@@ -245,3 +245,76 @@ issued.
 2. Correct the lead time to what is true today.
 3. Decide the introductory price and the lock liability before more sell.
 4. Let a title sell out and read the waitlist. That number prices the next run.
+
+---
+
+## 9. Images: what actually protects them
+
+### The measured problem
+
+Checked on the live site, 2 Sept. **All eight artworks are uploaded to
+Squarespace at 1800 x 2700.** The CDN serves whatever was uploaded, so:
+
+```
+<any artwork image URL>?format=original   ->  1800 x 2700
+<any artwork image URL>?format=2500w      ->  1800 x 2700
+```
+
+No right click, no developer tools, no saving a page. A URL parameter. At
+150dpi that file prints to roughly 12 x 18 inches, which is a perfectly good
+free version of a $7.99 product.
+
+Right-click blocking does nothing about this, and neither does anything else
+in this repo.
+
+### The fix, in order of how much it matters
+
+1. **Re-upload every artwork image capped at 1400px on the long edge.**
+   Squarespace cannot serve a size that was never uploaded, so this is the
+   only step that changes what a determined person can take. 1400px still
+   looks sharp at every size the site displays. Delete the 1800px originals
+   from the image manager afterwards; replacing the file in a product does
+   not always remove the old asset from the CDN.
+2. **Keep print-resolution masters off the server entirely.** They should
+   reach a customer only through the digital download product.
+3. Only then, the deterrents below.
+
+### What is now in the code
+
+`data-protect` was on 79 of 178 images. It is now on all 178, so every image
+on every page gets the same treatment: right click suppressed, dragging
+suppressed, iOS long-press "Save Image" suppressed via `-webkit-touch-callout`,
+text selection off, and images hidden from print stylesheets.
+
+**Be clear-eyed about what that buys.** It stops a casual save. It does not
+stop view-source, the network tab, a screenshot, or the URL trick above, and
+it cannot — anything a browser renders, the visitor already has. It is a speed
+bump on the honest majority, not a lock. That is exactly why step 1 is the
+only one that counts.
+
+---
+
+## 10. The series is five books, not three
+
+Corrected 2 Sept. Sarah J. Maas has published five: *Thorns and Roses*,
+*Mist and Fury*, *Wings and Ruin*, *Frost and Starlight* and *Silver Flames*.
+Books six and seven are announced for **27 October 2026** and **12 January
+2027**. Three editions are bound; the other two are in progress.
+
+The $85 lock now covers **every edition in the series, including ones not yet
+made, with no end date.** It previously said the opposite ("titles added later
+are not included"), which would have read as a trapdoor to anyone who bought
+book one expecting the series.
+
+Two things follow from that, and both are commercial rather than technical:
+
+- **The liability is now open-ended and compounding.** Every $85 buyer holds a
+  claim on six or more future editions at $85. The new wording protects the
+  one thing that matters operationally: it holds *the price, not a copy*, so a
+  sell-out or a pause is not a broken promise. Keep that sentence.
+- **Book six lands 27 October, about eight weeks out.** A new ACOTAR release
+  is the single largest demand spike this shop will see, and it will arrive
+  while three editions are already outrunning capacity. Decide before then
+  whether the introductory price is still running, because every lock sold
+  between now and October is capacity committed at $85 into the busiest
+  period of the year.

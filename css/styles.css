@@ -17,15 +17,47 @@
   --ink-mute:     #6a6157;  /* was #7c7166: 4.26:1 on paper, 3.83:1 on the
                               deep panels, both under AA. Now 5.5 and 4.9. */
   --rule:         #ded7c9;
-  --foil:         #a9853f;
-  --foil-lift:    #c9a65c;
   --night:        #12100e;
+
+  /* ---- THE GOLD SYSTEM --------------------------------------------------
+     One material under five lighting conditions, not five unrelated
+     yellows. #ffe48c is the reference: the foil with the light on it.
+     Every value below sits on hue 44-46 at high chroma, which is what
+     keeps the system clear of bronze, ochre, mustard and antique brass.
+     ---------------------------------------------------------------------- */
+  --gold:        #ffe48c;   /* the reference. Full strength on any dark ground */
+  --gold-light:  #fff0bd;   /* the lit edge of a fold                          */
+  --gold-glint:  #fffaea;   /* near cream. Specular points only                */
+  --gold-deep:   #e3ad2a;   /* the shadow side of the same foil                */
+  --gold-line:   #c9971d;   /* hairlines and marks on paper. Never text        */
+  --gold-ink:    #805e00;   /* gold TEXT on paper: 5.3:1, and 4.8:1 on deep.
+                               Same hue and chroma as --gold, in shadow.       */
+
+  /* Light travelling across foil. The stops are deliberately uneven so a
+     sweep never reads as a symmetrical CSS gradient. */
+  --gold-foil-gradient: linear-gradient(100deg,
+      #e3ad2a 0%, #ffe48c 17%, #fff0bd 29%, #ffe48c 41%,
+      #e6b52f 57%, #ffe48c 73%, #fff6d6 85%, #ffe48c 100%);
+
+  /* The same material at a fraction of the amplitude, for interface
+     elements. On a 12rem button the full gradient above reads as a ramp,
+     which is exactly the generic CSS gold everyone recognises. This one
+     only lifts and dips a little either side of #ffe48c. */
+  --gold-foil-soft: linear-gradient(100deg,
+      #f9d878 0%, #ffe48c 22%, #fff1c1 38%, #ffe48c 55%,
+      #f6d271 72%, #ffe48c 88%, #fff3c8 100%);
+
+  /* Legacy names, aliased so no existing markup breaks. Nothing new should
+     use them: --foil and --accent are one value, --foil-lift and
+     --accent-lift are the other. */
+  --foil:         var(--gold-ink);
+  --foil-lift:    var(--gold);
 
   /* Per world. Overridden by [data-world] blocks below. Derived from the
      average colour of the artwork that belongs to each book. */
   --world-bg:     #2f343c;
   --world-ink:    #f5f2ec;
-  --world-accent: #a9853f;
+  --world-accent: var(--gold);
 
   --measure: 34rem;
   --gutter: clamp(1.25rem, 5vw, 4.5rem);
@@ -45,12 +77,12 @@
 .gfb-site [data-world="acomaf"] {
   --world-bg: #1b2340;
   --world-ink: #eceaf4;
-  --world-accent: #c98f4f;
+  --world-accent: var(--gold);
 }
 .gfb-site [data-world="acowar"] {
   --world-bg: #241d20;
   --world-ink: #f2ece6;
-  --world-accent: #b08a52;
+  --world-accent: var(--gold-deep);
 }
 
 /* --------------------------------------------------------------------------
@@ -127,7 +159,13 @@ body.gfb-site {
   margin: 0 0 1.1rem;
   display: block;
 }
-.gfb-eyebrow--foil { color: var(--accent); }  /* --foil is 3.06:1 here, under AA */
+.gfb-eyebrow--foil { color: var(--gold-ink); }  /* on paper: 5.3:1 */
+/* On any dark ground the same label runs at full strength. The .gfb-site
+   prefix beats the white scene eyebrow rule further down the file. */
+.gfb-site .gfb-section--dark .gfb-eyebrow--foil,
+.gfb-site .gfb-scene__body .gfb-eyebrow--foil,
+.gfb-site .gfb-inhand .gfb-eyebrow--foil,
+.gfb-site .gfb-footer .gfb-eyebrow--foil { color: var(--gold); }
 .gfb-eyebrow--world { color: var(--world-accent); }
 
 .gfb-site .gfb-note,
@@ -559,7 +597,7 @@ body.gfb-site {
 .gfb-card__was { text-decoration: line-through; color: var(--ink-mute); }
 .gfb-card__flag {
   font-size: 0.64rem; letter-spacing: 0.14em; text-transform: uppercase;
-  color: var(--accent);  /* --foil is 3.06:1 here, under AA */
+  color: var(--gold-ink);  /* 5.3:1 on paper, 4.8:1 on the deep panels */
 }
 
 /* --------------------------------------------------------------------------
@@ -642,7 +680,7 @@ body.gfb-site {
 }
 .gfb-site .gfb-quote figcaption { font-size: 0.78rem; color: var(--ink-mute); margin: 0; }
 .gfb-site .gfb-world__meta { margin: 0.5rem 0 0; }
-.gfb-site .gfb-stars { color: var(--foil); font-size: 0.8rem; letter-spacing: 0.2em; margin: 0 0 0.75rem; }
+.gfb-site .gfb-stars { color: var(--gold-ink); font-size: 0.8rem; letter-spacing: 0.2em; margin: 0 0 0.75rem; }
 
 /* --------------------------------------------------------------------------
    15. EDITORIAL SPLIT
@@ -845,9 +883,8 @@ body.gfb-site {
    text and image rows, and a light contact panel over an illustration.
    ========================================================================== */
 .gfb-site {
-  --accent: #8a6720;        /* was #9a7526. White on this fill was 4.29:1,
-                               under AA; now 5.2:1. As text on paper, 4.65:1. */
-  --accent-lift: #d3aa56;   /* foil, on night */
+  --accent: var(--gold-ink);    /* legacy alias. Gold text on paper, 5.3:1 */
+  --accent-lift: var(--gold);   /* legacy alias. Gold on night, 15.1:1     */
 }
 
 /* ---- 21.1 Hero ---------------------------------------------------------- */
@@ -1047,28 +1084,48 @@ body.gfb-site {
 }
 
 /* ---- 21.5 Buttons in the edition language ------------------------------- */
+/* A struck block of foil, not a brass fill. The label stays ink, which is
+   what keeps it at 14.8:1 wherever the light sits on the foil. The dark
+   edge is the shadow a stamp leaves in the paper, and it is also what
+   gives the button a 4.9:1 boundary against cream. */
 .gfb-btn--foil {
-  background: var(--accent);
-  border-color: var(--accent);
-  color: #fff;
+  background-color: var(--gold);
+  background-image: var(--gold-foil-soft);
+  background-size: 200% 100%;
+  background-position: 26% 0;
+  border-color: var(--gold-ink);
+  color: var(--ink);
   font-size: 0.72rem;
   letter-spacing: 0.16em;
   padding: 0.78rem 1.35rem;
+  transition: background-position 0.85s var(--ease), color 0.28s var(--ease),
+              border-color 0.28s var(--ease);
 }
-.gfb-btn--foil:hover { background: transparent; color: var(--accent); }
-.gfb-btn--foil:hover > span { color: var(--accent); }
+.gfb-btn--foil > span { color: var(--ink); }
+/* Hover moves the light across the foil instead of emptying the button. */
+.gfb-btn--foil:hover,
+.gfb-btn--foil:focus-visible {
+  background-color: var(--gold);
+  background-position: 68% 0;
+  color: var(--ink);
+}
+.gfb-btn--foil:hover > span,
+.gfb-btn--foil:focus-visible > span { color: var(--ink); }
 a.gfb-btn--foil > span::after { content: " \2192"; }
 
+/* On night the block already reads bright, so its edge steps back. */
 .gfb-section--dark .gfb-btn--foil,
+.gfb-inhand .gfb-btn--foil,
 .gfb-edition .gfb-btn--foil {
-  background: var(--accent-lift);
-  border-color: var(--accent-lift);
+  border-color: var(--gold-deep);
   color: var(--night);
 }
-.gfb-section--dark .gfb-btn--foil:hover,
-.gfb-edition .gfb-btn--foil:hover { background: transparent; color: var(--accent-lift); }
+.gfb-section--dark .gfb-btn--foil > span,
+.gfb-inhand .gfb-btn--foil > span,
+.gfb-edition .gfb-btn--foil > span,
 .gfb-section--dark .gfb-btn--foil:hover > span,
-.gfb-edition .gfb-btn--foil:hover > span { color: var(--accent-lift); }
+.gfb-inhand .gfb-btn--foil:hover > span,
+.gfb-edition .gfb-btn--foil:hover > span { color: var(--night); }
 
 /* ---- 21.6 Contact panel over artwork ------------------------------------ */
 .gfb-contact { position: relative; isolation: isolate; padding-block: clamp(3rem, 7vw, 6rem); }
@@ -1116,7 +1173,7 @@ textarea.gfb-input { min-height: 8rem; resize: vertical; }
   margin-bottom: 0.2rem;
 }
 .gfb-deets span { color: var(--ink-soft); font-size: 0.92rem; }
-.gfb-deets a { text-decoration: none; border-bottom: 1px solid var(--rule); }
+.gfb-deets a { text-decoration: none; border-bottom: 1px solid var(--gold-line); }
 
 /* ---- 21.7 Back to top --------------------------------------------------- */
 .gfb-totop {
@@ -1125,16 +1182,21 @@ textarea.gfb-input { min-height: 8rem; resize: vertical; }
   z-index: 80;
   width: 2.6rem; height: 2.6rem;
   display: grid; place-items: center;
-  background: var(--accent);
-  color: #fff;
-  border: 0;
+  background-color: var(--gold);
+  background-image: var(--gold-foil-soft);
+  background-size: 230% 100%;
+  background-position: 26% 0;
+  color: var(--ink);
+  border: 1px solid var(--gold-ink);
   cursor: pointer;
   opacity: 0;
   transform: translateY(0.75rem);
-  transition: opacity 0.3s var(--ease), transform 0.3s var(--ease);
+  transition: opacity 0.3s var(--ease), transform 0.3s var(--ease),
+              background-position 0.8s var(--ease);
   pointer-events: none;
 }
 .gfb-totop.is-up { opacity: 1; transform: none; pointer-events: auto; }
+.gfb-totop:hover { background-position: 70% 0; }
 .gfb-totop svg { width: 0.85rem; height: 0.85rem; fill: none; stroke: currentColor; stroke-width: 2; }
 @media (max-width: 61.99rem) { .gfb-totop { bottom: 5rem; } }
 
@@ -1192,7 +1254,7 @@ textarea.gfb-input { min-height: 8rem; resize: vertical; }
   max-width: 16ch;
 }
 .gfb-inhand__panel p { color: rgba(255,255,255,0.82); }
-.gfb-inhand__panel .gfb-eyebrow { color: var(--accent-lift); }
+.gfb-inhand__panel .gfb-eyebrow { color: var(--gold-deep); }
 
 .gfb-spec-row {
   list-style: none;
@@ -1217,7 +1279,9 @@ textarea.gfb-input { min-height: 8rem; resize: vertical; }
   font-size: 1.5rem;
   letter-spacing: 0;
   text-transform: none;
-  color: var(--accent-lift);
+  /* Deep gold, not full strength: four bright figures beside a bright
+     headline turns the panel into a yellow grid. 9.3:1 on night. */
+  color: var(--gold-deep);
   font-weight: 400;
   line-height: 1.1;
   margin-bottom: 0.15rem;
@@ -1353,10 +1417,23 @@ textarea.gfb-input { min-height: 8rem; resize: vertical; }
   font-size: clamp(2.1rem, 3.9vw, 3.4rem);
   line-height: 1.02;
   letter-spacing: -0.02em;
-  color: var(--accent-lift);
+  color: var(--gold);
   margin: 0;
   max-width: 15ch;
   text-wrap: balance;
+}
+/* The only display type on the site made of foil rather than of a gold
+   colour. The gradient is nearly flat: it reads as one gold with light
+   lying across it, not as a two-tone gradient. Sweep at 26.2. */
+@supports ((-webkit-background-clip: text) or (background-clip: text)) {
+  .gfb-inhand__title {
+    background-image: var(--gold-foil-gradient);
+    background-size: 300% 100%;
+    background-position: 24% 0;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
 }
 
 .gfb-inhand--hero .gfb-lede { color: rgba(255,255,255,0.84); }
@@ -1390,3 +1467,149 @@ textarea.gfb-input { min-height: 8rem; resize: vertical; }
 
 /* The proof band is now its own strip rather than a child of the old hero. */
 .gfb-proof { border-top: 0; }
+
+
+/* ==========================================================================
+   26. FOIL AND GLINT
+   Section 1 holds the colour of the gold. This holds the material: light
+   moving across it, and the few points where it catches. Everything here
+   is decorative, invisible to assistive technology and additive - delete
+   the section and the site still works, it is just flatter.
+
+   Count, deliberately: one sweep on the hero title, four marks on the hero
+   photograph, one mark in the footer of every page, one beside the label of
+   the first collection portal. Most of the site has none, which is the point.
+   ========================================================================== */
+
+/* -- 26.1 Glint shapes ----------------------------------------------------
+   Two four-point stars with unequal arms, drawn rather than generated, so
+   neither reads as the other one rotated, plus a soft pinpoint. Three
+   shapes is the whole vocabulary. */
+.gfb-site {
+  --glint-a: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 1C17.1 10.8 19.4 13.6 30 16 19.6 17.9 17.2 20.4 16 26 14.9 20.6 12.6 18.1 4 16 12.8 14 15 11 16 1Z' fill='%23fff2c8'/%3E%3C/svg%3E");
+  --glint-b: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 0.5C16.7 11.4 18 14.6 24 16 18.1 17.4 16.7 20.3 16 30 15.3 20.5 14 17.5 6.5 16 13.9 14.5 15.3 11.2 16 0.5Z' fill='%23ffe9a8'/%3E%3C/svg%3E");
+  --glint-point: radial-gradient(circle,
+      rgba(255,250,234,0.95) 0%, rgba(255,228,140,0.5) 40%, rgba(255,228,140,0) 72%);
+}
+
+/* -- 26.2 The foil sweep --------------------------------------------------
+   One element on the site does this. Light crosses the headline over about
+   two and a half seconds, then nothing happens for the next thirty-one.
+   If you are watching for it you will see it. If you are reading, you will
+   catch it once and wonder whether you did. */
+@supports ((-webkit-background-clip: text) or (background-clip: text)) {
+  .gfb-inhand__title { animation: gfb-foil-sweep 34s var(--ease) 7s infinite; }
+}
+@keyframes gfb-foil-sweep {
+  0%, 92%, 100% { background-position: 24% 0; }
+  96%           { background-position: 79% 0; }
+}
+
+/* -- 26.3 Glints on the photograph ---------------------------------------
+   Placed against the real foil in the hero frame rather than scattered:
+   the title on the front cover, the spine, the foiled quote on the back
+   panel and the gilded page edges. All four sit in the middle band of the
+   picture, which is the part that survives the crop at every width. */
+.gfb-inhand--hero .gfb-inhand__figure::before,
+.gfb-inhand--hero .gfb-inhand__figure::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background-repeat: no-repeat;
+  opacity: 0;
+}
+/* The foiled title on the front cover. The one clear glint. */
+.gfb-inhand--hero .gfb-inhand__figure::before {
+  background-image: var(--glint-a);
+  background-size: 15px 15px;
+  background-position: 81% 47%;
+  animation: gfb-glint-early 19s linear 5s infinite;
+}
+/* The spine, the foiled quote and the gilt edge: three sizes, none of them
+   aligned to each other or to the one above. */
+.gfb-inhand--hero .gfb-inhand__figure::after {
+  background-image: var(--glint-b), var(--glint-point), var(--glint-point);
+  background-size: 10px 10px, 4px 4px, 3px 3px;
+  background-position: 54% 50%, 30% 52%, 74% 34%;
+  animation: gfb-glint-late 29s linear 13s infinite;
+}
+/* Nineteen and twenty-nine seconds: the two never settle into a rhythm.
+   Each is dark for roughly nine tenths of its cycle. */
+@keyframes gfb-glint-early {
+  0%, 86%, 100% { opacity: 0; }
+  90% { opacity: 0.9; }
+  93% { opacity: 0.5; }
+  96% { opacity: 0.72; }
+}
+@keyframes gfb-glint-late {
+  0%, 88%, 100% { opacity: 0; }
+  92% { opacity: 0.68; }
+  97% { opacity: 0.26; }
+}
+
+/* -- 26.4 Single marks ----------------------------------------------------
+   Neither of these moves. A fleck of foil that sits still is easier to
+   believe than one that blinks. */
+.gfb-footer h2 { position: relative; }
+.gfb-footer h2::after {
+  content: "";
+  display: inline-block;
+  width: 0.4em; height: 0.4em;
+  margin-left: 0.34em;
+  vertical-align: 0.44em;
+  background: var(--glint-a) center / contain no-repeat;
+  opacity: 0.9;
+}
+/* One portal in each pair carries a glint, sitting on the gold label rather
+   than floating over the drawing, where it would be lost in the artwork.
+   The rest carry none. */
+.gfb-worlds .gfb-world:nth-child(odd) .gfb-eyebrow--world::after {
+  content: "";
+  display: inline-block;
+  width: 0.95em; height: 0.95em;
+  margin-left: 0.55em;
+  vertical-align: -0.04em;
+  background: var(--glint-a) center / contain no-repeat;
+  opacity: 0.95;
+}
+
+/* -- 26.5 Small screens ---------------------------------------------------
+   A phone shows a third of the page at a time, so the same number of marks
+   reads as three times as many. The cluster and the portal mark go; the
+   single glint on the cover and the footer fleck stay. */
+@media (max-width: 47.99rem) {
+  .gfb-inhand--hero .gfb-inhand__figure::after,
+  .gfb-worlds .gfb-world .gfb-eyebrow--world::after { display: none; }
+}
+/* The phone crop re-frames the photograph, so the one remaining glint moves
+   with it and stays on the foiled cover title. */
+@media (max-width: 55.99rem) {
+  .gfb-inhand--hero .gfb-inhand__figure::before { background-position: 80% 55%; }
+}
+
+/* -- 26.6 Motion and contrast preferences --------------------------------
+   Section 17 sets every animation to 0.001ms, which for an infinite
+   keyframe would strobe. These are switched off by name instead, and the
+   glints stay as still marks. */
+@media (prefers-reduced-motion: reduce) {
+  .gfb-inhand__title { animation-name: none !important; }
+  .gfb-inhand--hero .gfb-inhand__figure::before,
+  .gfb-inhand--hero .gfb-inhand__figure::after {
+    animation-name: none !important;
+    opacity: 0.5;
+  }
+}
+@media (forced-colors: active) {
+  .gfb-inhand__title {
+    background-image: none;
+    color: CanvasText;
+    -webkit-text-fill-color: currentColor;
+  }
+  .gfb-btn--foil, .gfb-totop { background-image: none; }
+  .gfb-inhand--hero .gfb-inhand__figure::before,
+  .gfb-inhand--hero .gfb-inhand__figure::after,
+  .gfb-footer h2::after,
+  .gfb-worlds .gfb-world .gfb-eyebrow--world::after { display: none; }
+}

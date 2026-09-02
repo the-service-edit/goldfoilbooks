@@ -63,8 +63,20 @@
   --gutter: clamp(1.25rem, 5vw, 4.5rem);
   --rhythm: clamp(4.5rem, 11vh, 9rem);
 
-  --serif: "Fraunces", "Iowan Old Style", Georgia, "Times New Roman", serif;
-  --sans:  "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  /* Cinzel Decorative is an inscriptional Roman display face: capitals only
+     (its lowercase codepoints draw capital forms), no italic, weights 400
+     and 700. Everything below that assumed a lowercase book serif has been
+     re-set for capitals: positive tracking, more leading, no synthesised
+     obliques.
+
+     --display and --serif are the same face today. They are separate tokens
+     so the decorative caps can be pulled back to the wordmark, the drop cap
+     and the section labels in one edit if they start shouting over the copy:
+     point --serif at "Cinzel", the same skeleton without the flourishes, and
+     leave --display where it is. */
+  --display: "Cinzel Decorative", "Trajan Pro", Georgia, serif;
+  --serif:   "Cinzel Decorative", "Trajan Pro", Georgia, serif;
+  --sans:    "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
 
   --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
 }
@@ -99,7 +111,9 @@ body.gfb-site {
   font-family: var(--sans);
   font-size: 1rem;
   line-height: 1.65;
-  font-synthesis-weight: none;
+  /* Cinzel Decorative has no italic. Without this the browser draws a
+     slanted fake, which on an inscriptional face looks broken. */
+  font-synthesis: none;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 }
@@ -109,9 +123,10 @@ body.gfb-site {
 .gfb-site :where(h1, h2, h3, h4) {
   font-family: var(--serif);
   font-weight: 400;
-  font-variation-settings: "SOFT" 0, "WONK" 1, "opsz" 90;
-  line-height: 1.04;
-  letter-spacing: -0.018em;
+  /* Capitals want air, not the negative tracking a lowercase serif wants,
+     and the swashes want room between the lines. */
+  line-height: 1.14;
+  letter-spacing: 0.015em;
   margin: 0;
   text-wrap: balance;
 }
@@ -237,7 +252,6 @@ body.gfb-site {
 
 .gfb-logo {
   font-family: var(--serif);
-  font-variation-settings: "SOFT" 0, "WONK" 0, "opsz" 40;
   font-size: 1.05rem;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -580,7 +594,6 @@ body.gfb-site {
 .gfb-card__title {
   font-family: var(--serif);
   font-size: 1.05rem;
-  font-variation-settings: "SOFT" 0, "WONK" 0, "opsz" 20;
   line-height: 1.25;
   margin: 0 0 0.3rem;
 }
@@ -617,7 +630,6 @@ body.gfb-site {
 .gfb-price {
   font-family: var(--serif);
   font-size: 1.9rem;
-  font-variation-settings: "SOFT" 0, "WONK" 0, "opsz" 40;
   margin: 0.35rem 0 0.15rem;
   font-variant-numeric: tabular-nums;
 }
@@ -671,12 +683,14 @@ body.gfb-site {
    -------------------------------------------------------------------------- */
 .gfb-quotes { display: grid; gap: clamp(1.75rem, 4vw, 3rem); }
 @media (min-width: 48rem) { .gfb-quotes { grid-template-columns: repeat(2, 1fr); } }
+/* A customer sentence set in decorative capitals cannot be read, so both
+   review quotes stay in the paragraph face. */
 .gfb-quote blockquote {
   margin: 0 0 1rem;
-  font-family: var(--serif);
-  font-size: clamp(1.15rem, 1.9vw, 1.45rem);
-  font-variation-settings: "SOFT" 0, "WONK" 0, "opsz" 30;
-  line-height: 1.4;
+  font-family: var(--sans);
+  font-style: italic;
+  font-size: clamp(1.1rem, 1.8vw, 1.35rem);
+  line-height: 1.5;
 }
 .gfb-site .gfb-quote figcaption { font-size: 0.78rem; color: var(--ink-mute); margin: 0; }
 .gfb-site .gfb-world__meta { margin: 0.5rem 0 0; }
@@ -948,10 +962,9 @@ body.gfb-site {
 }
 .gfb-edition__title {
   font-family: var(--serif);
-  font-variation-settings: "SOFT" 0, "WONK" 1, "opsz" 120;
-  font-size: clamp(2.5rem, 6.4vw, 5rem);
-  line-height: 0.98;
-  letter-spacing: -0.02em;
+  font-size: clamp(2.3rem, 5.8vw, 4.4rem);
+  line-height: 1.16;
+  letter-spacing: 0.02em;
   color: var(--accent-lift);
   margin: 0;
   max-width: 14ch;
@@ -995,7 +1008,7 @@ body.gfb-site {
   min-height: 10.5rem;
 }
 .gfb-proof__quote {
-  font-family: var(--serif);
+  font-family: var(--sans);
   font-style: italic;
   font-size: 0.98rem;
   line-height: 1.45;
@@ -1075,7 +1088,6 @@ body.gfb-site {
 
 .gfb-dropcap::first-letter {
   font-family: var(--serif);
-  font-variation-settings: "SOFT" 0, "WONK" 0, "opsz" 144;
   float: left;
   font-size: 3.4em;
   line-height: 0.82;
@@ -1275,7 +1287,6 @@ textarea.gfb-input { min-height: 8rem; resize: vertical; }
 .gfb-spec-row b {
   display: block;
   font-family: var(--serif);
-  font-variation-settings: "SOFT" 0, "WONK" 0, "opsz" 40;
   font-size: 1.5rem;
   letter-spacing: 0;
   text-transform: none;
@@ -1412,11 +1423,10 @@ textarea.gfb-input { min-height: 8rem; resize: vertical; }
 
 .gfb-inhand__title {
   font-family: var(--serif);
-  font-variation-settings: "SOFT" 0, "WONK" 1, "opsz" 120;
   font-weight: 400;
-  font-size: clamp(2.1rem, 3.9vw, 3.4rem);
-  line-height: 1.02;
-  letter-spacing: -0.02em;
+  font-size: clamp(2rem, 3.6vw, 3.1rem);
+  line-height: 1.18;
+  letter-spacing: 0.02em;
   color: var(--gold);
   margin: 0;
   max-width: 15ch;

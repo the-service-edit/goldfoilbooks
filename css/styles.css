@@ -251,12 +251,24 @@ body.gfb-site {
 }
 
 .gfb-logo {
-  font-family: var(--serif);
-  font-size: 1.05rem;
-  letter-spacing: 0.16em;
+  font-family: var(--display);
+  /* The wordmark is the only piece of brand on the header bar, so it is
+     allowed to be the largest thing on it. Tracking eases off as it grows:
+     0.16em is right at 17px and far too loose at 26px. */
+  font-size: clamp(1.25rem, 0.95rem + 0.85vw, 1.65rem);
+  letter-spacing: 0.11em;
   text-transform: uppercase;
   text-decoration: none;
   white-space: nowrap;
+  line-height: 1;
+}
+/* Between the burger breakpoint and a comfortable desktop the six nav items
+   and a bigger wordmark compete for the same row. The wordmark wins; the nav
+   tightens. */
+@media (min-width: 56rem) and (max-width: 68rem) {
+  .gfb-logo { font-size: 1.28rem; letter-spacing: 0.09em; }
+  .gfb-nav { gap: 1rem; }
+  .gfb-nav a { font-size: 0.75rem; letter-spacing: 0.07em; }
 }
 
 .gfb-nav { display: flex; align-items: baseline; gap: clamp(1rem, 2.4vw, 2.1rem); }
@@ -608,6 +620,44 @@ body.gfb-site {
 }
 .gfb-card__price { color: var(--ink); font-variant-numeric: tabular-nums; }
 .gfb-card__was { text-decoration: line-through; color: var(--ink-mute); }
+
+/* The standard price, shown beside the price actually being charged. Always
+   quieter and never larger than the live price: the number the customer pays
+   is the one that has to read first. */
+.gfb-site .gfb-was {
+  text-decoration: line-through;
+  text-decoration-thickness: from-font;
+  color: var(--ink-mute);
+  font-weight: 400;
+  margin-left: 0.45em;
+  font-variant-numeric: tabular-nums;
+}
+.gfb-site .gfb-price .gfb-was { font-size: 0.62em; }
+.gfb-section--dark .gfb-was,
+.gfb-inhand .gfb-was,
+.gfb-footer .gfb-was { color: rgba(255,255,255,0.5); }
+
+/* Says why the two numbers differ. Without it a struck price is a claim
+   about the past; with it, it is a statement about the current offer. */
+.gfb-site .gfb-offer-note {
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold-ink);
+  margin: 0 0 0.5rem;
+  display: block;
+}
+.gfb-section--dark .gfb-offer-note,
+.gfb-inhand .gfb-offer-note { color: var(--gold-deep); }
+
+/* Visually hidden, still read aloud. A struck number with no label is
+   ambiguous in a screen reader. */
+.gfb-site .gfb-vh {
+  position: absolute; width: 1px; height: 1px;
+  margin: -1px; padding: 0; border: 0;
+  clip-path: inset(50%); overflow: hidden; white-space: nowrap;
+}
 .gfb-card__flag {
   font-size: 0.64rem; letter-spacing: 0.14em; text-transform: uppercase;
   color: var(--gold-ink);  /* 5.3:1 on paper, 4.8:1 on the deep panels */

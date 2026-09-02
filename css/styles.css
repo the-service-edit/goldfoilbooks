@@ -1673,3 +1673,99 @@ textarea.gfb-input { min-height: 8rem; resize: vertical; }
   .gfb-footer h2::after,
   .gfb-worlds .gfb-world .gfb-eyebrow--world::after { display: none; }
 }
+
+
+/* ==========================================================================
+   27. SOLD OUT AND WAITLIST
+   SQUARESPACE: 7.1 renders its own waitlist form on a sold-out product once
+   inventory hits zero and Product Waitlists is switched on. These are the
+   states around that form, not a replacement for it - the card label, the
+   stock line, and the panel the native form sits in.
+
+   Nothing here is applied to a live product. A sold-out label on something
+   that is actually available is a false scarcity claim, which sits in the
+   same part of the Australian Consumer Law as a false was-price.
+   ========================================================================== */
+
+/* -- The catalogue card ---------------------------------------------------
+   The drawing stays legible. It is the reason someone joins the list. */
+.gfb-card--soldout .gfb-card__media { position: relative; }
+.gfb-card--soldout .gfb-card__media img { opacity: 0.62; }
+.gfb-card--soldout .gfb-card__media::after {
+  content: "Sold out";
+  position: absolute;
+  left: 0; bottom: 0;
+  z-index: 2;
+  font-family: var(--sans);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--paper);
+  background: var(--night);
+  padding: 0.42rem 0.7rem;
+}
+/* Sold out is information, not an offer, so it never runs in gold. */
+.gfb-card--soldout .gfb-card__price { color: var(--ink-mute); }
+.gfb-card--soldout .gfb-was { display: none; }
+
+/* -- The product page stock line ----------------------------------------- */
+.gfb-site .gfb-stock--out b { color: var(--ink-mute); }
+
+/* The series lock. This is the reason to buy today, so it sits directly under
+   the price rather than in the fine print - but it is a sentence, not a
+   banner. Gold would make it read as a promotion; it is a term of sale. */
+.gfb-site .gfb-lock {
+  font-family: var(--sans);
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: var(--ink);
+  margin: 0.55rem 0 0.35rem;
+  padding-left: 0.75rem;
+  border-left: 2px solid var(--gold-line);
+  max-width: 30rem;
+}
+.gfb-section--dark .gfb-lock,
+.gfb-inhand .gfb-lock { color: rgba(255,255,255,0.86); border-left-color: var(--gold-deep); }
+/* Sold out: there is nothing to lock in. */
+.gfb-pdp__buy:has(.gfb-stock--out) .gfb-lock { display: none; }
+
+/* A sold-out edition cannot be bought at the introductory price and cannot be
+   put on Afterpay, so both come off with the stock line. :has() keeps the
+   sold-out swap to one line of markup instead of four. */
+.gfb-pdp__buy:has(.gfb-stock--out) .gfb-offer-note,
+.gfb-pdp__buy:has(.gfb-stock--out) .gfb-was,
+.gfb-pdp__buy:has(.gfb-stock--out) .gfb-price + .gfb-note { display: none; }
+
+/* -- The waitlist panel ---------------------------------------------------
+   Ink, not foil. Gold is reserved for the action that takes money; joining a
+   list is not that, and dressing it up as though it were reads as a bait. */
+.gfb-waitlist {
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  padding-block: 1.25rem;
+  margin-block: 0.25rem 1.5rem;
+}
+.gfb-waitlist__head {
+  font-family: var(--display);
+  font-size: 1.15rem;
+  letter-spacing: 0.04em;
+  margin: 0 0 0.4rem;
+}
+.gfb-site .gfb-waitlist__note {
+  font-family: var(--sans);
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: var(--ink-soft);
+  margin: 0 0 1rem;
+  max-width: 34rem;
+}
+/* SQUARESPACE: the native waitlist form drops in here. Until then the block
+   below is inert markup, kept so the spacing is designed rather than
+   inherited from whatever Squarespace injects. */
+.gfb-waitlist form { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+.gfb-waitlist .gfb-input { flex: 1 1 13rem; }
+.gfb-section--dark .gfb-waitlist,
+.gfb-inhand .gfb-waitlist { border-color: rgba(255,255,255,0.18); }
+.gfb-section--dark .gfb-waitlist__note,
+.gfb-inhand .gfb-waitlist__note { color: rgba(255,255,255,0.78); }

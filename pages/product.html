@@ -89,7 +89,33 @@
           <span class="gfb-offer-note">Introductory price</span>
           <p class="gfb-price">$85.00 <span class="gfb-was"><span class="gfb-vh">Standard price </span>$110.00</span></p>
           <p class="gfb-note" style="margin:0 0 0.35rem;">or 4 interest-free payments of A$21.25 with Afterpay</p>
+          <p class="gfb-lock">Order at $85.00 and every book in this series stays $85.00 for you, after the standard price starts.</p>
           <span class="gfb-stock"><b>In stock</b> &middot; made to order &middot; free shipping Australia-wide</span>
+
+          <!-- ==================================================================
+               SOLD OUT STATE. Not active. Swap the stock line above for the
+               one below and add gfb-card--soldout to this book's cards on
+               shop.html when the edition is genuinely unavailable.
+
+               <span class="gfb-stock gfb-stock--out"><b>Sold out</b> &middot; next binding not yet scheduled</span>
+
+               <div class="gfb-waitlist">
+                 <p class="gfb-waitlist__head">Join the waitlist</p>
+                 <p class="gfb-waitlist__note">One email when the next one is bound. Nothing else, and no list to unsubscribe from afterwards.</p>
+                 SQUARESPACE: delete this form. On 7.1 the native waitlist form
+                 renders here automatically once inventory reaches zero and
+                 Product Waitlists is enabled in Commerce settings. Signups
+                 collect under Commerce > Waitlists.
+                 <form>
+                   <label class="gfb-vh" for="wl-email">Email address</label>
+                   <input class="gfb-input" id="wl-email" type="email" name="email" placeholder="Email address" required>
+                   <button class="gfb-btn gfb-btn--solid" type="submit"><span>Notify me</span></button>
+                 </form>
+               </div>
+
+               The Add to cart button above is removed in this state. Squarespace
+               replaces it on its own; in the prototype, delete it by hand.
+               ================================================================== -->
 
           <!-- SQUARESPACE ADD TO CART: replace this block with the native
                product block's quantity selector and add to cart button. -->
@@ -133,6 +159,24 @@
               book unique.</p>
             </div>
           </details>
+          <details class="gfb-disclosure">
+            <summary>The $85 series price</summary>
+            <div class="gfb-disclosure__body">
+              <p>Buy any edition while the introductory price is running and that
+                 price is held for you on the other books in the same series,
+                 whenever you come back for them. It is not time limited at your
+                 end: the standard $110.00 applies to new customers, not to you.</p>
+              <!-- CONFIRM BEFORE PUBLISHING: how the price is honoured. The
+                   sentence below assumes a code sent with the dispatch email.
+                   If it is instead "email me and I will invoice you", change
+                   it. Do not publish a mechanism that has not been decided. -->
+              <p>Your code arrives with your dispatch email. One book per code,
+                 reusable across the remaining titles in the series.</p>
+              <p>It covers this series only, and it does not stack with other
+                 discounts.</p>
+            </div>
+          </details>
+
           <details class="gfb-disclosure">
             <summary>Important information</summary>
             <div class="gfb-disclosure__body">

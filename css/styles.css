@@ -295,6 +295,14 @@ body.gfb-site {
 
 .gfb-burger {
   display: none;
+  /* BUGFIX 2 Sept. The open nav is position:fixed z-index:99 and covers the
+     whole viewport, including the button that closes it. The button was
+     position:static, so elementFromPoint at the Close button returned the nav,
+     not the button: on a phone the menu could be opened and then not closed
+     except by following a link or reloading. Escape worked, which no phone
+     has. This lifts the control above its own overlay. */
+  position: relative;
+  z-index: 100;
   background: none; border: 0; color: inherit;
   font: inherit; font-size: 0.8rem; letter-spacing: 0.09em;
   text-transform: uppercase; cursor: pointer; padding: 0.35rem 0;
@@ -1355,6 +1363,8 @@ textarea.gfb-input { min-height: 8rem; resize: vertical; }
 .gfb-inhand__panel p { color: rgba(255,255,255,0.82); }
 .gfb-inhand__panel .gfb-eyebrow { color: var(--gold-deep); }
 
+/* UNUSED since 2 Sept: the four-figure grid was removed from the hero.
+   Kept so it is easy to restore; safe to delete. */
 .gfb-spec-row {
   list-style: none;
   display: grid;
@@ -1388,6 +1398,13 @@ textarea.gfb-input { min-height: 8rem; resize: vertical; }
 /* A lifestyle figure inside an editorial column. */
 .gfb-figure { margin: 0; }
 .gfb-figure img { width: 100%; }
+/* BUGFIX 2 Sept. .gfb-detail-row figcaption has a dark-ground override and
+   .gfb-figure figcaption did not, so every "Where it lives" caption on the
+   eight artwork pages was --ink-mute #6a6157 on #12100e: 3.13:1 at 11.5px,
+   a real AA failure. 9.06:1 now. */
+.gfb-section--dark .gfb-figure figcaption,
+.gfb-section--dark figure figcaption { color: rgba(245,242,236,0.72); }
+
 .gfb-figure figcaption {
   font-size: 0.72rem;
   letter-spacing: 0.12em;

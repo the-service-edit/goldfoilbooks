@@ -949,6 +949,9 @@ body.gfb-site {
 .gfb-site {
   --accent: var(--gold-ink);    /* legacy alias. Gold text on paper, 5.3:1 */
   --accent-lift: var(--gold);   /* legacy alias. Gold on night, 15.1:1     */
+  /* Large-scale gold display text on cream, 3:1 not 4.5:1. Not for body copy.
+     Unused by default: the drop cap ships in ink. See section 21. */
+  --gold-display: #a1862f;      /* 3.15:1 on paper, 2.72:1 on paper-deep */
 }
 
 /* ---- 21.1 Hero ---------------------------------------------------------- */
@@ -1136,13 +1139,28 @@ body.gfb-site {
   margin-inline: auto;
 }
 
+/* The drop cap was --accent, which resolves to --gold-ink #805e00. That token
+   exists to clear 4.5:1 for gold BODY text on cream, and at that luminance it
+   reads brown, which is the whole fault the gold rewrite was fixing.
+
+   A drop cap at 3.4em is large-scale text, so the bar is 3:1, not 4.5:1. The
+   brightest hue-45 gold that clears 3:1 on #f5f2ec is about #a1862f, and it
+   still reads brass rather than gold. That is the governing constraint doing
+   its job: bright gold and cream are mutually exclusive, and the drop cap is
+   the one place on the site that asked gold to work on paper.
+
+   So it is ink. A Cinzel Decorative capital at 3.4em is already the ornament;
+   it does not need a compromised colour to carry it, and the brand's gold
+   keeps its one clear job on dark grounds. 16.68:1.
+
+   To put gold back, change --ink below to --gold-display. Nothing else moves. */
 .gfb-dropcap::first-letter {
   font-family: var(--serif);
   float: left;
   font-size: 3.4em;
   line-height: 0.82;
   padding: 0.06em 0.12em 0 0;
-  color: var(--accent);
+  color: var(--ink);
 }
 
 /* ---- 21.5 Buttons in the edition language ------------------------------- */
@@ -1199,12 +1217,26 @@ a.gfb-btn--foil > span::after { content: " \2192"; }
 .gfb-contact::before {
   content: "";
   position: absolute; inset: 0; z-index: -1;
-  background: linear-gradient(to right, rgba(245,242,236,0.97) 0%, rgba(245,242,236,0.9) 55%, rgba(245,242,236,0.7) 100%);
+  /* Was a flat 0.97 -> 0.90 -> 0.70 wash, which buried the artwork. The veil
+     now only does the one job it has to: keep the CONTACT rulehead, which is
+     the only text sitting directly on the image, above 4.5:1.
+
+     Measured against this artwork at the crop it is shown at, ink on the
+     rulehead band needs the veil at 0.55 or heavier (5.68:1); 0.45 fails at
+     4.17:1. So it is heavy at the top where that heading sits and lifts as it
+     falls, which is also where the flowers are. Everything else on this panel
+     sits on the panel, not the photograph. */
+  background: linear-gradient(to bottom,
+    rgba(245,242,236,0.74) 0%,
+    rgba(245,242,236,0.60) 14%,
+    rgba(245,242,236,0.44) 46%,
+    rgba(245,242,236,0.38) 100%);
 }
 .gfb-contact__panel {
   display: grid;
   gap: clamp(2rem, 4vw, 3.5rem);
-  background: rgba(255,255,255,0.72);
+  background: rgba(255,255,255,0.94);  /* was 0.72, over a 0.9 wash. The panel
+     now holds the contrast instead of the whole photograph. */
   border: 1px solid var(--rule);
   padding: clamp(1.5rem, 3.5vw, 3rem);
 }
@@ -1218,7 +1250,7 @@ a.gfb-btn--foil > span::after { content: " \2192"; }
   font-size: 0.9rem;
   padding: 0.8rem 0.9rem;
   border: 1px solid var(--rule);
-  background: rgba(255,255,255,0.82);
+  background: rgba(255,255,255,0.96);
   color: var(--ink);
 }
 .gfb-input::placeholder { color: var(--ink-mute); }
@@ -1769,3 +1801,79 @@ textarea.gfb-input { min-height: 8rem; resize: vertical; }
 .gfb-inhand .gfb-waitlist { border-color: rgba(255,255,255,0.18); }
 .gfb-section--dark .gfb-waitlist__note,
 .gfb-inhand .gfb-waitlist__note { color: rgba(255,255,255,0.78); }
+
+/* --------------------------------------------------------------------------
+   22. PRODUCT CARD CALL TO ACTION
+   The whole card is already the link, so this is a <span>, not a <button>:
+   an interactive element nested inside an anchor is invalid HTML and breaks
+   keyboard navigation. It adds perceived affordance, not a second target.
+
+   Outline rather than foil on purpose. Three filled gold buttons across a
+   grid compete with the covers, and the cover is the product. The button
+   fills on card hover, so intent is what makes it loud, not rest state.
+
+   #16120e on #f5f2ec is 16.68:1 at rest and 16.68:1 filled.
+   -------------------------------------------------------------------------- */
+.gfb-site .gfb-card__cta {
+  display: inline-flex;
+  margin-top: 0.9rem;
+  padding: 0.68rem 1.25rem;
+  font-size: 0.72rem;
+  color: var(--ink);
+}
+.gfb-site .gfb-card:hover .gfb-card__cta,
+.gfb-site .gfb-card:focus-visible .gfb-card__cta { background: var(--ink); }
+.gfb-site .gfb-card:hover .gfb-card__cta > span,
+.gfb-site .gfb-card:focus-visible .gfb-card__cta > span { color: var(--paper); }
+
+/* Sold out is not a destination. Keep the card readable, drop the invitation. */
+.gfb-site .gfb-card--soldout .gfb-card__cta { opacity: 0.45; }
+
+@media (max-width: 40rem) {
+  .gfb-site .gfb-card__cta { width: 100%; justify-content: center; }
+}
+
+/* --------------------------------------------------------------------------
+   23. SOCIAL MARKS
+   Inline SVG, no icon font and no external request, so these survive being
+   pasted into a Squarespace Code Block. Each mark is drawn the way that
+   platform actually draws it: Instagram is a line mark, TikTok and YouTube
+   are solid, so forcing one style on all three would make all three wrong.
+
+   currentColor throughout, so the footer and the light sections inherit
+   correctly. Hit area is padded to 44px; the icon stays 22px.
+   -------------------------------------------------------------------------- */
+.gfb-site .gfb-social {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin: 1.5rem 0 0 -0.7rem;
+  padding: 0;
+  list-style: none;
+}
+.gfb-site .gfb-social a {
+  display: inline-flex;
+  padding: 0.7rem;
+  color: var(--ink);
+  /* The contact panel and the footer both underline their links. An underline
+     under a 22px glyph reads as a stray rule, so it is cleared here. */
+  text-decoration: none;
+  border-bottom: 0;
+  transition: color 0.28s var(--ease);
+}
+.gfb-site .gfb-social a:hover,
+.gfb-site .gfb-social a:focus-visible { color: var(--gold-ink); }
+.gfb-site .gfb-social svg { display: block; width: 22px; height: 22px; }
+.gfb-site .gfb-social svg [stroke] { vector-effect: non-scaling-stroke; }
+
+/* On dark grounds the ink mark would disappear and gold-ink would read brown,
+   so both ends of the interaction move up to the bright end of the palette. */
+.gfb-footer .gfb-social a,
+.gfb-section--dark .gfb-social a { color: rgba(245,242,236,0.78); }
+.gfb-footer .gfb-social a:hover,
+.gfb-footer .gfb-social a:focus-visible,
+.gfb-section--dark .gfb-social a:hover { color: var(--gold); }
+
+/* Inside the contact panel the row sits under a label, so it loses the
+   top margin and tucks left to stay on the text grid. */
+.gfb-contact__panel .gfb-social { margin-top: 0.35rem; }

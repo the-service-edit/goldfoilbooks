@@ -195,6 +195,40 @@ complete, readable, navigable site.
 
 ---
 
+## The hero
+
+The hero is the lifestyle photograph: the object at human scale, in real light,
+with the full cover wrap open. The subject fills the portrait frame, so the copy
+takes its own dark panel beside it rather than fighting the picture. Phones put
+the photograph first and the words directly beneath it, so the fixed header sits
+over sofa and wall rather than over the headline.
+
+This replaced an earlier hero built around a product cut-out, which did not
+survive contact with the real photography. That note is kept below because the
+same trap applies anywhere a product shot meets a dark ground.
+
+## The old hero, and a photography note
+
+The product photographs are shot on a light seamless backdrop. That is correct
+for a shop listing and wrong for a near black hero: a light photo dropped onto a
+dark ground reads as a white rectangle, and feathering its edge only turns it
+into a halo. Two decisions follow.
+
+**Desktop** owns the light ground rather than hiding it. The photo is cropped in
+tight on the book and mounted on a warm card, so it reads as a print resting
+against the scene. Deliberate, and it holds up.
+
+**Phones** drop the product photo from the hero entirely. Stacked above the copy
+it filled the screen and pushed the headline, the price and the buttons below
+the fold, which is fatal for traffic arriving from Instagram. Phones now lead
+with the illustration and the words, and meet the object immediately below in
+the edition rows and the In your hands band.
+
+**The real fix, when you want it:** one cut out PNG of each book with a
+transparent background, or a reshoot of the hero book against a dark ground.
+Then the book floats on the hero exactly as it does on the reference site, and
+the mounting block in section 24 of the stylesheet can be deleted.
+
 ## Responsive
 
 Built and visually checked at 1440, 1280, 1024, 768, 430, 390, 375 and 320px

@@ -1255,3 +1255,136 @@ textarea.gfb-input { min-height: 8rem; resize: vertical; }
 @media print {
   [data-protect] { visibility: hidden; }
 }
+
+/* ==========================================================================
+   24. EDITION HERO, CORRECTED
+   Two problems with the first version, both visible only once the real
+   product photography loaded.
+
+   1. The photographs are shot on a light seamless backdrop. Dropped onto a
+      near black hero they read as a white rectangle, not as an object. The
+      reference site could stack a book against a dark ground because it uses
+      a cut out render with no background. Until there is a cut out or a dark
+      ground reshoot, the honest move is to present the photo as a mounted
+      print rather than pretend it is floating.
+
+   2. On phones the photo stacked above the copy, so it filled the screen and
+      pushed the headline, the price and the button below the fold. Someone
+      arriving from Instagram saw a white box and no message. Phones now lead
+      with the illustration and the words. The object appears immediately
+      below in the edition rows and again in the In your hands band.
+   ========================================================================== */
+
+/* --- Desktop: the photograph becomes a physical print ---------------------
+   The product shots are taken on a light seamless. Floating one on a near
+   black hero reads as a white rectangle, and feathering the edge only turns
+   it into a halo. So the light ground is owned instead of hidden: the photo
+   is cropped in tight on the book and mounted on a warm card, which reads as
+   a print resting against the wall of the scene. The moment a cut out PNG or
+   a dark ground reshoot exists, delete this block and let the book float. */
+@media (min-width: 56rem) {
+  .gfb-edition .gfb-shot {
+    display: block;
+    width: 100%;
+    max-width: 22.5rem;
+    padding: 0.9rem;
+    background: #ece7dd;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.62), 0 2px 6px rgba(0,0,0,0.4);
+  }
+  .gfb-edition .gfb-shot__frame {
+    display: block;
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+    background: #ece7dd;
+  }
+  .gfb-edition .gfb-shot img {
+    max-width: none;
+    width: 100%;
+    height: 100%;
+    margin-inline: 0;
+    object-fit: cover;
+    object-position: var(--shot-crop, 50% 46%);
+    transform: scale(var(--shot-zoom, 1.28));
+    transform-origin: 50% 46%;
+    filter: none;
+  }
+}
+
+/* --- Phones and small tablets: world first, object later ------------------ */
+@media (max-width: 55.99rem) {
+  .gfb-edition .gfb-shot { display: none; }
+
+  .gfb-edition__bg { opacity: 0.66; }
+
+  .gfb-edition::after {
+    background: linear-gradient(
+      to bottom,
+      rgba(8,9,12,0.62) 0%,
+      rgba(8,9,12,0.28) 26%,
+      rgba(8,9,12,0.62) 56%,
+      rgba(8,9,12,0.92) 82%,
+      rgba(8,9,12,0.96) 100%
+    );
+  }
+
+  .gfb-edition__stage {
+    min-height: 76svh;
+    align-content: end;
+    padding-block: 7rem 2.5rem;
+    gap: 0;
+  }
+  .gfb-edition__title { max-width: 11ch; }
+  .gfb-edition__body { margin-top: 1.1rem; }
+}
+
+/* ==========================================================================
+   25. HERO VARIANT
+   The In your hands band, promoted to the top of the page. Same structure,
+   hero scale: taller frame, foil title, meta line and buttons.
+   ========================================================================== */
+.gfb-inhand--hero .gfb-inhand__panel { padding-top: clamp(6.5rem, 13vh, 9rem); }
+
+.gfb-inhand__title {
+  font-family: var(--serif);
+  font-variation-settings: "SOFT" 0, "WONK" 1, "opsz" 120;
+  font-weight: 400;
+  font-size: clamp(2.1rem, 3.9vw, 3.4rem);
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  color: var(--accent-lift);
+  margin: 0;
+  max-width: 15ch;
+  text-wrap: balance;
+}
+
+.gfb-inhand--hero .gfb-lede { color: rgba(255,255,255,0.84); }
+
+.gfb-site .gfb-inhand__meta {
+  margin: 1.75rem 0 0;
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.55);
+  max-width: none;
+}
+.gfb-inhand__meta b { color: var(--accent-lift); font-weight: 500; }
+
+@media (min-width: 56rem) {
+  .gfb-inhand--hero .gfb-inhand__figure { min-height: min(90svh, 50rem); }
+  .gfb-inhand--hero .gfb-inhand__photo { object-position: var(--focal-desktop, 50% 38%); }
+}
+
+/* Phones: the photo leads, then the words. The hero must still deliver the
+   headline, the price and a button inside the first screen and a half. */
+@media (max-width: 55.99rem) {
+  /* Photo first. It carries the object, and the fixed header sits over the
+     sofa and wall at the top of the frame rather than over the headline. */
+  .gfb-inhand--hero .gfb-inhand__figure { order: -1; }
+  .gfb-inhand--hero .gfb-inhand__photo { aspect-ratio: 4 / 5; object-position: 50% 22%; }
+  .gfb-inhand--hero .gfb-inhand__panel { padding-top: 2.25rem; padding-bottom: 3rem; }
+  .gfb-inhand--hero .gfb-spec-row { margin-top: 1.5rem; }
+  .gfb-inhand--hero .gfb-inhand__title { font-size: clamp(1.9rem, 8vw, 2.6rem); max-width: 13ch; }
+}
+
+/* The proof band is now its own strip rather than a child of the old hero. */
+.gfb-proof { border-top: 0; }

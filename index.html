@@ -1,687 +1,479 @@
 <!DOCTYPE html>
 <html lang="en-AU">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CVBS · A new digital experience</title>
-<link rel="icon" href="assets/brand/logo.png">
-<style>
-/* ============ CVBS PRESENTATION ============ */
-@font-face{font-family:'Inter';font-style:normal;font-weight:400;font-display:swap;src:url(assets/fonts/inter-latin-400-normal.woff2) format('woff2')}
-@font-face{font-family:'Inter';font-style:normal;font-weight:500;font-display:swap;src:url(assets/fonts/inter-latin-500-normal.woff2) format('woff2')}
-@font-face{font-family:'Inter';font-style:normal;font-weight:600;font-display:swap;src:url(assets/fonts/inter-latin-600-normal.woff2) format('woff2')}
-@font-face{font-family:'Inter';font-style:normal;font-weight:700;font-display:swap;src:url(assets/fonts/inter-latin-700-normal.woff2) format('woff2')}
-:root{
-  --teal:#3BC9D9; --teal-deep:#28A8B6; --navy:#0A2C52; --navy-deep:#061E3B;
-  --blue:#0366C6; --stone:#EEF6F7; --stone-deep:#DFEFF1; --line:#D6E7E9;
-  --ink:#0D1F2D; --muted:#6E747B; --gold:#E0B341; --white:#fff;
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gold Foil Books | Hand-drawn, handbound book rebinds made in Australia</title>
+<meta name="description" content="Handbound collector's editions of the books you love, with original cover art and illustrated endpapers drawn by hand in Procreate. Made in Wollongong, Australia. Free shipping Australia-wide.">
+<link rel="canonical" href="https://www.goldfoilbooks.com.au/">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Gold Foil Books | Hand-drawn, handbound book rebinds">
+<meta property="og:description" content="Original hand-drawn covers and endpapers, gold foil, painted edges. Handbound in Wollongong, Australia.">
+<meta property="og:image" content="assets/artwork/the-hunt-1000.jpg">
+
+<!-- SQUARESPACE HEADER INTEGRATION -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Gold Foil Books",
+  "url": "https://www.goldfoilbooks.com.au/",
+  "description": "Handbound collector's edition book rebinds with original hand-drawn artwork.",
+  "address": { "@type": "PostalAddress", "addressLocality": "Wollongong", "addressCountry": "AU" },
+  "sameAs": [
+    "https://instagram.com/goldfoilbooks",
+    "https://www.tiktok.com/@goldfoilbooks",
+    "https://www.youtube.com/@GoldFoilBooks"
+  ]
 }
-*{margin:0;padding:0;box-sizing:border-box}
-html,body{height:100%;overflow:hidden;background:var(--navy-deep)}
-body{font-family:'Inter',system-ui,-apple-system,sans-serif;color:var(--ink);-webkit-font-smoothing:antialiased}
-img{display:block;max-width:100%}
-button{font-family:inherit}
-
-/* ---- deck chrome ---- */
-#deck{position:fixed;inset:0}
-.slide{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;opacity:0;visibility:hidden;transform:translateY(14px);transition:opacity .55s ease,transform .55s ease,visibility 0s .55s;background:var(--white);overflow:hidden}
-.slide.on{opacity:1;visibility:visible;transform:none;transition:opacity .55s ease,transform .55s ease}
-.slide.dark{background:var(--navy-deep);color:var(--white)}
-.slide.stone{background:var(--stone)}
-.pad{padding:min(7vh,64px) min(6vw,88px)}
-.scrollwrap{overflow-y:auto;max-height:100%;scrollbar-width:thin}
-.center{align-items:center;text-align:center}
-
-#progress{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--teal),var(--teal-deep));width:0;z-index:60;transition:width .4s ease}
-#hud{position:fixed;bottom:18px;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:0 26px;z-index:60;pointer-events:none;font-size:11px;letter-spacing:.18em;text-transform:uppercase}
-#hud .sec{color:var(--muted);font-weight:600;transition:color .3s}
-#hud .cnt{color:var(--muted);font-weight:600;font-variant-numeric:tabular-nums}
-.dark-hud #hud .sec,.dark-hud #hud .cnt{color:rgba(255,255,255,.55)}
-.navbtn{position:fixed;top:50%;transform:translateY(-50%);width:46px;height:46px;border-radius:50%;border:1px solid var(--line);background:rgba(255,255,255,.85);backdrop-filter:blur(10px);color:var(--navy);font-size:17px;cursor:pointer;z-index:60;display:flex;align-items:center;justify-content:center;transition:all .25s;opacity:.85}
-.navbtn:hover{background:var(--teal);border-color:var(--teal);color:#fff}
-#prev{left:18px}#next{right:18px}
-.dark-hud .navbtn{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.18);color:#fff}
-.dark-hud .navbtn:hover{background:var(--teal);border-color:var(--teal)}
-#helphint{position:fixed;bottom:16px;left:50%;transform:translateX(-50%);z-index:60;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);opacity:0;transition:opacity .6s;pointer-events:none}
-#helphint.show{opacity:.8}
-.dark-hud #helphint{color:rgba(255,255,255,.5)}
-
-/* ---- type ---- */
-.eyebrow{display:flex;align-items:center;gap:12px;text-transform:uppercase;letter-spacing:.24em;font-size:12px;font-weight:600;color:var(--teal-deep);margin-bottom:22px}
-.eyebrow::before{content:"";width:26px;height:2px;background:var(--teal)}
-.dark .eyebrow{color:var(--teal)}
-.center .eyebrow{justify-content:center}
-h1{font-weight:700;letter-spacing:-.03em;line-height:1.04;font-size:clamp(38px,5.6vw,76px)}
-h2{font-weight:700;letter-spacing:-.03em;line-height:1.08;font-size:clamp(28px,3.6vw,50px)}
-h3{font-weight:600;letter-spacing:-.02em;font-size:clamp(17px,1.5vw,21px)}
-.accent{color:var(--teal)}
-.accent-d{color:var(--teal-deep)}
-.lede{font-size:clamp(16px,1.45vw,20px);line-height:1.65;color:var(--muted);font-weight:400;max-width:64ch}
-.dark .lede{color:rgba(255,255,255,.72)}
-.small{font-size:13.5px;line-height:1.6;color:var(--muted)}
-.dark .small{color:rgba(255,255,255,.6)}
-
-/* ---- components ---- */
-.browser{border-radius:12px;overflow:hidden;box-shadow:0 30px 80px -20px rgba(6,30,59,.45);border:1px solid var(--line);background:#fff}
-.browser .bar{display:flex;align-items:center;gap:8px;background:#EDF1F4;padding:9px 14px;border-bottom:1px solid var(--line)}
-.browser .bar i{width:10px;height:10px;border-radius:50%;background:#D3DCE3}
-.browser .bar i:nth-child(1){background:#F2B8B5}.browser .bar i:nth-child(2){background:#F2DCA9}.browser .bar i:nth-child(3){background:#B5D9BE}
-.browser .url{flex:1;margin-left:8px;background:#fff;border:1px solid var(--line);border-radius:6px;font-size:11px;color:var(--muted);padding:4px 12px;text-align:left;white-space:nowrap;overflow:hidden}
-.browser .view{position:relative;overflow:hidden;background:#fff}
-.pan .view img{width:100%;transition:transform 7s cubic-bezier(.4,0,.2,1)}
-.pan:hover .view img{transform:translateY(var(--pan,-70%))}
-.phone{border-radius:34px;border:8px solid #10233B;overflow:hidden;box-shadow:0 26px 70px -18px rgba(6,30,59,.5);background:#fff;position:relative}
-.phone .view{overflow:hidden;position:relative}
-.tag{position:absolute;top:14px;left:14px;z-index:5;background:var(--navy);color:#fff;font-size:10.5px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;padding:6px 12px;border-radius:100px}
-.tag.aft{background:var(--teal-deep)}
-
-/* before/after slider */
-.ba{position:relative;user-select:none;overflow:hidden;border-radius:12px;box-shadow:0 30px 80px -20px rgba(6,30,59,.45);border:1px solid var(--line)}
-.ba img{width:100%;pointer-events:none}
-.ba .after{position:absolute;inset:0;overflow:hidden}
-.ba .after img{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:top left}
-.ba .handle{position:absolute;top:0;bottom:0;width:2px;background:#fff;box-shadow:0 0 0 1px rgba(6,30,59,.2);cursor:ew-resize;z-index:6}
-.ba .handle::after{content:"◂ ▸";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:#fff;color:var(--navy);border-radius:100px;font-size:11px;letter-spacing:2px;padding:9px 13px;white-space:nowrap;box-shadow:0 8px 24px rgba(6,30,59,.35);font-weight:700}
-.ba .lbl{position:absolute;top:14px;z-index:5;font-size:10.5px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;padding:6px 12px;border-radius:100px;color:#fff}
-.ba .lbl.b{left:14px;background:rgba(10,44,82,.85)}
-.ba .lbl.a{right:14px;background:var(--teal-deep)}
-
-/* cards */
-.grid{display:grid;gap:18px}
-.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:26px 26px 24px;text-align:left}
-.dark .card{background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.12)}
-.card .num{font-size:11px;font-weight:700;letter-spacing:.2em;color:var(--teal-deep);margin-bottom:12px}
-.dark .card .num{color:var(--teal)}
-.card h3{margin-bottom:8px}
-.card p{font-size:13.5px;line-height:1.62;color:var(--muted)}
-.dark .card p{color:rgba(255,255,255,.65)}
-
-/* flow arrows */
-.flow{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
-.flow .step{background:#fff;border:1px solid var(--line);border-radius:100px;padding:10px 20px;font-size:14px;font-weight:600;color:var(--navy);white-space:nowrap}
-.flow .step.hi{background:var(--teal-deep);border-color:var(--teal-deep);color:#fff}
-.flow .arr{color:var(--teal-deep);font-size:15px}
-.dark .flow .step{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.16);color:#fff}
-.dark .flow .arr{color:var(--teal)}
-.flow.faded .step{background:transparent;color:var(--muted);border-style:dashed}
-
-/* video underlay statement slides */
-.vwrap{position:absolute;inset:0;overflow:hidden}
-.vwrap video,.vwrap img.poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.vwrap::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,rgba(6,30,59,.94) 0%,rgba(6,30,59,.82) 45%,rgba(6,30,59,.55) 100%)}
-.vcontent{position:relative;z-index:2}
-
-/* pills / chips */
-.chip{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);background:#fff;border-radius:100px;padding:8px 16px;font-size:13px;font-weight:600;color:var(--navy)}
-.chip i{width:7px;height:7px;border-radius:50%;background:var(--teal)}
-.dark .chip{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.16);color:#fff}
-
-/* stepper (homepage anatomy) */
-.anat{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:44px;align-items:center}
-.anat .shotbox{position:relative}
-.anat .shotbox .view{height:min(62vh,560px)}
-.anat .shotbox .view img{width:100%;transition:transform .9s cubic-bezier(.55,.06,.28,.99)}
-.steps{display:flex;flex-direction:column;gap:6px;max-height:min(64vh,580px);overflow-y:auto;padding-right:6px;scrollbar-width:thin}
-.stp{border:1px solid var(--line);border-left:3px solid transparent;background:#fff;border-radius:10px;padding:13px 16px;cursor:pointer;transition:all .25s;text-align:left}
-.stp:hover{border-color:var(--teal)}
-.stp.on{border-left-color:var(--teal);box-shadow:0 10px 30px -12px rgba(6,30,59,.18)}
-.stp .t{font-weight:600;font-size:14.5px;color:var(--navy);display:flex;gap:10px;align-items:baseline}
-.stp .t em{font-style:normal;font-size:10.5px;color:var(--teal-deep);letter-spacing:.16em;font-weight:700}
-.stp .d{display:none;font-size:12.8px;color:var(--muted);line-height:1.6;margin-top:8px}
-.stp.on .d{display:block}
-.stp .d b{color:var(--navy);font-weight:600}
-
-/* page purpose cards */
-.pgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-.pcard{background:#fff;border:1px solid var(--line);border-radius:13px;padding:20px;display:flex;flex-direction:column;gap:10px;text-align:left}
-.pcard .nm{font-weight:700;font-size:15px;color:var(--navy);letter-spacing:-.01em}
-.pcard .row{font-size:12.3px;line-height:1.5;color:var(--muted)}
-.pcard .row b{display:block;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--teal-deep);margin-bottom:3px;font-weight:700}
-.pcard .row.q{font-style:italic;color:var(--ink)}
-
-/* journeys */
-.jz{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;text-align:left}
-.jz .j{background:#fff;border:1px solid var(--line);border-radius:14px;padding:24px}
-.jz .q{font-size:15.5px;font-weight:600;color:var(--navy);line-height:1.4;margin-bottom:6px}
-.jz .who{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--teal-deep);font-weight:700;margin-bottom:16px}
-.jz ol{list-style:none;display:flex;flex-direction:column}
-.jz li{font-size:13.5px;color:var(--muted);padding:7px 0 7px 22px;position:relative;line-height:1.45}
-.jz li::before{content:"";position:absolute;left:6px;top:14px;width:7px;height:7px;border-radius:50%;background:var(--stone-deep);border:2px solid var(--teal-deep)}
-.jz li:not(:last-child)::after{content:"";position:absolute;left:11px;top:24px;bottom:-8px;width:1px;background:var(--line)}
-.jz li.end{color:var(--navy);font-weight:600}
-.jz li.end::before{background:var(--teal)}
-
-/* details grid */
-.dgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.dcard{background:#fff;border:1px solid var(--line);border-radius:13px;overflow:hidden;text-align:left}
-.dcard .im{height:150px;overflow:hidden;border-bottom:1px solid var(--line);background:var(--stone)}
-.dcard .im img{width:100%;height:100%;object-fit:cover;object-position:var(--pos,top center)}
-.dcard .tx{padding:16px 18px}
-.dcard .tx b{font-size:13.5px;color:var(--navy);display:block;margin-bottom:5px;font-weight:600}
-.dcard .tx p{font-size:12.3px;line-height:1.55;color:var(--muted)}
-
-/* ecosystem map */
-.eco{display:flex;flex-direction:column;align-items:center;gap:0}
-.eco .hub{background:var(--navy);color:#fff;border-radius:14px;padding:18px 42px;font-weight:700;font-size:18px;letter-spacing:-.01em;box-shadow:0 18px 50px -12px rgba(6,30,59,.5)}
-.eco .tier{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
-.eco .node{background:#fff;border:1px solid var(--line);border-radius:11px;padding:12px 18px;font-size:13px;font-weight:600;color:var(--navy)}
-.eco .node span{display:block;font-size:10.8px;font-weight:500;color:var(--muted);margin-top:2px}
-.eco .link{width:1px;height:26px;background:var(--line)}
-
-/* toggle */
-.tgl{display:inline-flex;border:1px solid var(--line);border-radius:100px;overflow:hidden;background:#fff}
-.tgl button{border:0;background:transparent;padding:8px 20px;font-size:12.5px;font-weight:600;color:var(--muted);cursor:pointer;letter-spacing:.04em}
-.tgl button.on{background:var(--navy);color:#fff}
-
-/* misc layout helpers */
-.two{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
-.logo{height:40px;width:auto}
-.klist{display:flex;gap:34px;flex-wrap:wrap;justify-content:center}
-.k{text-align:center}
-.k .kv{font-size:clamp(26px,3vw,40px);font-weight:700;letter-spacing:-.03em;color:var(--navy)}
-.dark .k .kv{color:#fff}
-.k .kv span{color:var(--teal)}
-.k .kl{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:4px;font-weight:600}
-.dark .k .kl{color:rgba(255,255,255,.55)}
-@media (prefers-reduced-motion: reduce){ *{transition:none!important;animation:none!important} }
-</style>
+</script>
 </head>
-<body>
-<div id="progress"></div>
-<div id="hud"><span class="sec"></span><span class="cnt"></span></div>
-<button class="navbtn" id="prev" aria-label="Previous">←</button>
-<button class="navbtn" id="next" aria-label="Next">→</button>
-<div id="helphint">← → to navigate · F for fullscreen</div>
-<main id="deck">
 
-<!-- ================= 01 · COVER ================= -->
-<section class="slide dark center" data-sec="Opening">
-  <div class="vwrap"><video muted loop playsinline autoplay preload="metadata" poster="assets/brand/hero-video-poster.jpg"><source src="assets/video/hero.mp4" type="video/mp4"></video></div>
-  <div class="vcontent pad center" style="display:flex;flex-direction:column;align-items:center;gap:0">
-    <img class="logo" src="assets/brand/logo-white.png" alt="CVBS" style="height:52px;margin-bottom:38px">
-    <h1 style="max-width:15ch">A new digital experience, built around <span class="accent">how people find venues</span>.</h1>
-    <p class="lede" style="margin-top:26px;max-width:56ch">The new CVBS website wasn't designed simply to look more modern. It was rebuilt to make the service easier to understand, venues easier to discover, expertise easier to trust and enquiries easier to make.</p>
-    <p class="small" style="margin-top:44px;letter-spacing:.2em;text-transform:uppercase;font-weight:600">Conference Venues &amp; Booking Services · August 2026</p>
-  </div>
-</section>
+<body class="gfb-site">
+<a class="gfb-skip" href="#main">Skip to content</a>
 
-<!-- ================= 02 · TRANSITION ================= -->
-<section class="slide dark center" data-sec="Opening">
-  <div class="pad center" style="display:flex;flex-direction:column;align-items:center">
-    <h2 style="max-width:22ch">Before we look at what changed, let's look at <span class="accent">why it needed to change</span>.</h2>
-  </div>
-</section>
+<div class="gfb-top" data-header>
+  <!-- SQUARESPACE HEADER INTEGRATION: native announcement bar -->
+  <div class="gfb-strip">Free shipping Australia-wide</div>
+  <header class="gfb-header">
+    <div class="gfb-wrap gfb-header__inner">
+      <a class="gfb-logo" href="index.html">Gold Foil Books</a>
+      <button class="gfb-burger" type="button" data-burger aria-expanded="false" aria-controls="gfb-nav">Menu</button>
+      <nav class="gfb-nav" id="gfb-nav" data-nav aria-label="Primary">
+        <a href="index.html" aria-current="page">Home</a>
+        <a href="pages/shop.html">Rebinds</a>
+        <a href="pages/shop.html#artwork">Artwork</a>
+        <a href="pages/process.html">Process</a>
+        <a href="pages/about.html">About</a>
+        <!-- SQUARESPACE CART -->
+        <a class="gfb-nav__cart" href="#" aria-label="Cart, 0 items">Cart (0)</a>
+      </nav>
+    </div>
+  </header>
+</div>
 
-<!-- ================= 03 · BEFORE: FRAMING ================= -->
-<section class="slide stone" data-sec="Before">
-  <div class="pad two">
-    <div>
-      <div class="eyebrow">The starting point</div>
-      <h2>CVBS had evolved.<br>The website <span class="accent-d">hadn't evolved with it</span>.</h2>
-      <p class="lede" style="margin-top:22px">Behind the scenes: thirty-seven years of venue relationships, a trusted team, and clients who keep coming back. The website told very little of that story, and asked a lot of anyone trying to enquire.</p>
-      <div style="display:flex;gap:10px;margin-top:28px;flex-wrap:wrap">
-        <span class="chip"><i></i>Built on an ageing template</span>
-        <span class="chip"><i></i>Quote form supplied as a PDF</span>
-        <span class="chip"><i></i>No venues to explore</span>
+<main id="main">
+
+  <!-- ====================================================================
+       01. HERO
+       The lifestyle photograph carries the whole proposition: the object at
+       human scale, in real light, with the full cover wrap open. The subject
+       fills the frame, so the copy takes its own dark panel beside it rather
+       than fighting the picture. Phones stack it: photo, then words.
+       ==================================================================== -->
+  <section class="gfb-inhand gfb-inhand--hero" data-header-trigger>
+    <div class="gfb-inhand__panel">
+      <div class="gfb-inhand__inner">
+        <span class="gfb-eyebrow">Handbound in Wollongong</span>
+        <h1 class="gfb-inhand__title">I couldn&rsquo;t find the edition I wanted.</h1>
+        <p class="gfb-lede" style="margin-top:1.25rem;">
+          So I taught myself how to make it. Four hand-drawn panels, gold foil and
+          hand-painted edges, bound one book at a time.
+        </p>
+        <ul class="gfb-spec-row">
+          <li><b>13.5cm</b> wide</li>
+          <li><b>20.5cm</b> tall</li>
+          <li><b>4</b> drawn panels</li>
+          <li><b>Gold</b> painted edges</li>
+        </ul>
+        <p class="gfb-inhand__meta">
+          Shown: A Court of Thorns and Roses &nbsp;&middot;&nbsp; <b>$85.00</b> &nbsp;&middot;&nbsp; In stock
+        </p>
+        <p style="margin-top:1.5rem; display:flex; gap:0.75rem; flex-wrap:wrap;">
+          <a class="gfb-btn gfb-btn--foil" href="pages/product.html"><span>Shop this edition</span></a>
+          <a class="gfb-btn gfb-btn--light" href="pages/process.html"><span>How it is made</span></a>
+        </p>
       </div>
     </div>
-    <div class="browser" style="max-width:calc(min(58vh,520px) * 1.1247);margin:0 auto">
-      <div class="bar"><i></i><i></i><i></i><span class="url">conferencevenues.com.au</span></div>
-      <div class="view" style="height:auto"><img src="assets/shots/old-home-desktop-full.jpg" alt="Previous CVBS website homepage, entire page" style="display:block;width:100%"></div>
-    </div>
-  </div>
-</section>
 
-<!-- ================= 04 · BEFORE: LIMITATIONS ================= -->
-<section class="slide" data-sec="Before">
-  <div class="pad">
-    <div class="eyebrow">What was holding it back</div>
-    <h2 style="margin-bottom:30px">Six limitations, seen through a <span class="accent-d">client's eyes</span>.</h2>
-    <div class="grid" style="grid-template-columns:repeat(3,1fr)">
-      <div class="card"><div class="num">01 · FIRST IMPRESSION</div><h3>The scale of CVBS wasn't visible</h3><p>The homepage opened on a dated template: a stock hero image, one button, and three short paragraphs. Nothing above the fold signalled an established, professional operation.</p></div>
-      <div class="card"><div class="num">02 · SERVICE CLARITY</div><h3>The service took work to understand</h3><p>What CVBS does, that it's free to the client, and why it beats searching alone was spread across inner pages. A first-time visitor had to assemble the story themselves.</p></div>
-      <div class="card"><div class="num">03 · VENUE DISCOVERY</div><h3>There were no venues to discover</h3><p>No destinations to browse, no venue pages, no way to move from "I need a venue in Sydney" to seeing what's possible. The site described a service, but never showed the product.</p></div>
-      <div class="card"><div class="num">04 · TRUST</div><h3>The proof was buried</h3><p>Since 1989, the client list, the testimonials: all real, all persuasive, and almost all sitting on the About page rather than working for CVBS at every step.</p></div>
-      <div class="card"><div class="num">05 · CONVERSION</div><h3>Enquiring meant downloading a PDF</h3><p>"Get a Quote" led to a downloadable PDF form, with the online version marked coming soon. Every extra step at the exact moment of intent costs enquiries.</p></div>
-      <div class="card"><div class="num">06 · MOBILE</div><h3>Mobile was an afterthought</h3><p>The layout technically responded, but hierarchy, tap targets and enquiry pathways weren't designed for the device many organisers first reach for.</p></div>
-    </div>
-  </div>
-</section>
+    <figure class="gfb-inhand__figure">
+      <picture>
+        <source type="image/webp" srcset="assets/products/in-hand-640.webp 640w, assets/products/in-hand-1000.webp 1000w, assets/products/in-hand-1021.webp 1021w" sizes="(min-width:56rem) 52vw, 100vw">
+        <img class="gfb-inhand__photo"
+             src="assets/products/in-hand-1000.jpg"
+             srcset="assets/products/in-hand-640.jpg 640w, assets/products/in-hand-1000.jpg 1000w, assets/products/in-hand-1021.jpg 1021w"
+             sizes="(min-width:56rem) 52vw, 100vw"
+             width="1021" height="1540" fetchpriority="high" decoding="async"
+             alt="A reader on a sofa holding the handbound A Court of Thorns and Roses open so the covers fold back, showing the illustrated back cover with a foiled quote, the foiled spine, and the front cover.">
+      </picture>
+    </figure>
+  </section>
 
-<!-- ================= 05 · BEFORE: ANNOTATED ================= -->
-<section class="slide stone" data-sec="Before">
-  <div class="pad two" style="grid-template-columns:1fr 1.15fr">
-    <div>
-      <div class="eyebrow">The previous homepage</div>
-      <h2>A brochure,<br>not a <span class="accent-d">starting point</span>.</h2>
-      <p class="lede" style="margin-top:20px">This is respectful honesty rather than criticism: the site served its era. But each of these details quietly worked against the calibre of the service behind it.</p>
-      <div style="display:flex;flex-direction:column;gap:12px;margin-top:26px">
-        <div class="chip" style="align-self:flex-start"><i></i>The entire homepage: a hero, three paragraphs, a footer</div>
-        <div class="chip" style="align-self:flex-start"><i></i>Navigation written in company terms, not client terms</div>
-        <div class="chip" style="align-self:flex-start"><i></i>One button on the whole page, pointing at offers</div>
-        <div class="chip" style="align-self:flex-start"><i></i>Footer still links to Google+, retired in 2019</div>
+  <!-- Proof band. Both reviews are verified on the live product page. -->
+  <section class="gfb-proof">
+    <div class="gfb-proof__cell">
+      <p class="gfb-proof__stars" aria-label="Rated 5 out of 5">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+      <p class="gfb-proof__quote">&ldquo;They&rsquo;re so much better in person.&rdquo;</p>
+      <p class="gfb-proof__by">Telisha P, verified review</p>
+    </div>
+    <div class="gfb-proof__cell">
+      <p class="gfb-proof__stars" aria-label="Rated 5 out of 5">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+      <p class="gfb-proof__quote">&ldquo;In love with the original artwork used on this book.&rdquo;</p>
+      <p class="gfb-proof__by">Emma G, verified review</p>
+    </div>
+    <div class="gfb-proof__cell">
+      <p class="gfb-proof__fact">Free shipping Australia-wide</p>
+      <p class="gfb-proof__by">On every order</p>
+    </div>
+    <div class="gfb-proof__cell">
+      <p class="gfb-proof__fact">4 payments of A$21.25</p>
+      <p class="gfb-proof__by">Afterpay available</p>
+    </div>
+  </section>
+
+  <!-- ====================================================================
+       02. THE REBINDS
+       SQUARESPACE PRODUCT DATA: title, price and stock come from the
+       product record. These rows are Code Blocks that link to it.
+       ==================================================================== -->
+  <section class="gfb-section" id="shop">
+    <div class="gfb-wrap">
+      <h2 class="gfb-rulehead"><span>The rebinds</span></h2>
+
+      <article class="gfb-row" data-reveal>
+        <div>
+          <h3 class="gfb-row__title">A Court of Thorns and Roses</h3>
+          <p class="gfb-dropcap">Four illustrations were drawn for this edition. A winter hunt on the
+          front cover, a spring manor on the back, and two full endpaper spreads inside: a birch wood
+          and a pool of starlight. Foiled front, spine and back, with hand-painted metallic gold edges.</p>
+          <p>Handbound hardcover, approximately 13.5cm wide by 20.5cm tall. Made to order in Australia.</p>
+          <p style="margin-top:1.5rem;"><a class="gfb-btn gfb-btn--foil" href="pages/product.html"><span>$85.00, shop book one</span></a></p>
+        </div>
+        <span class="gfb-shot">
+          <img src="https://images.squarespace-cdn.com/content/v1/682bc2962e10cb37922634d9/3430b78b-7e5c-43bf-ade6-8ce99a5fa3eb/4.+Spine%3ACover.png?format=1000w"
+               loading="lazy" decoding="async" width="1000" height="1250"
+               alt="A Court of Thorns and Roses handbound edition, showing the foiled spine and the illustrated cover.">
+        </span>
+      </article>
+
+      <hr class="gfb-rule">
+
+      <article class="gfb-row gfb-row--flip" data-reveal>
+        <div>
+          <h3 class="gfb-row__title">A Court of Mist and Fury</h3>
+          <p class="gfb-dropcap">Starfall on the cover, a snowbound cabin on the back, and two endpapers
+          drawn from the quietest scenes in the book. Designed to coordinate with book one, so the two
+          read as one object on the shelf.</p>
+          <p>Foiled cover, spine and back cover details. Illustrated endpapers. Hand-painted metallic
+          gold page edges. Premium laminated finish.</p>
+          <p style="margin-top:1.5rem;"><a class="gfb-btn gfb-btn--foil" href="pages/product.html"><span>$85.00, shop book two</span></a></p>
+        </div>
+        <span class="gfb-shot">
+          <img src="https://images.squarespace-cdn.com/content/v1/682bc2962e10cb37922634d9/e427553c-d0e0-4d9a-9a1a-af5de86698b6/4.+Spine%3ACover.png?format=1000w"
+               loading="lazy" decoding="async" width="1000" height="1250"
+               alt="A Court of Mist and Fury handbound edition, showing the foiled spine and the illustrated cover.">
+        </span>
+      </article>
+
+      <hr class="gfb-rule">
+
+      <article class="gfb-row" data-reveal>
+        <div>
+          <h3 class="gfb-row__title">A Court of Wings and Ruin</h3>
+          <p class="gfb-dropcap">Book three, with exclusive artwork illustrated for this edition and
+          sprayed metallic gold page edges. Handbound hardcover, premium laminated finish, made to
+          order in Australia.</p>
+          <p>Each book is a handmade item, so minor variations may occur between copies. That is what
+          makes each one unique.</p>
+          <p style="margin-top:1.5rem;"><a class="gfb-btn gfb-btn--foil" href="pages/product.html"><span>$85.00, shop book three</span></a></p>
+        </div>
+        <span class="gfb-shot">
+          <img src="https://images.squarespace-cdn.com/content/v1/682bc2962e10cb37922634d9/6c6f6449-8328-47e6-bc22-605b16d0dfd9/4.+Spine%3ACover.jpg?format=1000w"
+               loading="lazy" decoding="async" width="1000" height="1250"
+               alt="A Court of Wings and Ruin handbound edition, showing the foiled spine and the illustrated cover.">
+        </span>
+      </article>
+    </div>
+  </section>
+
+
+  <!-- ====================================================================
+       03. DRAWN BY HAND
+       ==================================================================== -->
+  <section class="gfb-section gfb-section--dark">
+    <div class="gfb-wrap">
+      <h2 class="gfb-rulehead"><span>Drawn by hand</span></h2>
+      <div class="gfb-process">
+        <div class="gfb-video" data-video data-reveal>
+          <video preload="none" muted playsinline loop
+                 poster="assets/video/drawing-process-poster.jpg" width="684" height="632"
+                 aria-label="Screen recording of an illustration being drawn in Procreate, colour building over the line work layer by layer.">
+            <source src="assets/video/drawing-process.webm" type="video/webm">
+            <source src="assets/video/drawing-process.mp4" type="video/mp4">
+          </video>
+          <button class="gfb-video__toggle" type="button" data-video-toggle>Play</button>
+        </div>
+        <div data-reveal data-reveal-delay="1">
+          <h3 class="gfb-row__title" style="color:var(--accent-lift);">Seven layers, one panel</h3>
+          <p class="gfb-lede" style="color:rgba(245,242,236,0.82);">
+            Every panel is built in Procreate on an iPad. Line work first, then colour,
+            one surface at a time, each on its own layer.
+          </p>
+          <ul class="gfb-layers">
+            <li><span>Line work</span><span>Base</span></li>
+            <li><span>Skin</span><span>Layer</span></li>
+            <li><span>Clothes</span><span>Layer</span></li>
+            <li><span>Hair</span><span>Layer</span></li>
+            <li><span>Stone</span><span>Layer</span></li>
+            <li><span>Wood</span><span>Layer</span></li>
+            <li><span>Decor</span><span>Layer</span></li>
+            <li><span>Outside</span><span>Layer</span></li>
+          </ul>
+          <p style="color:rgba(245,242,236,0.8); margin-top:1.6rem;">
+            Four panels are drawn this way for every rebind: a front cover, a back cover and two
+            endpaper spreads. Not a filter, not a font, not AI.
+          </p>
+          <p style="margin-top:1.75rem;"><a class="gfb-btn gfb-btn--foil" href="pages/process.html"><span>The full process</span></a></p>
+        </div>
       </div>
     </div>
-    <div class="browser" style="max-width:calc(min(60vh,540px) * 1.1247);margin:0 auto">
-      <div class="bar"><i></i><i></i><i></i><span class="url">conferencevenues.com.au</span></div>
-      <div class="view" style="height:auto"><img src="assets/shots/old-home-desktop-full.jpg" alt="Previous homepage, entire page" style="display:block;width:100%"></div>
-    </div>
-  </div>
-</section>
+  </section>
 
-<!-- ================= 06 · THE SHIFT ================= -->
-<section class="slide dark center" data-sec="The shift">
-  <div class="pad" style="display:flex;flex-direction:column;align-items:center;text-align:center">
-    <div class="eyebrow">The strategy</div>
-    <h2 style="max-width:18ch">From online brochure to <span class="accent">venue-finding experience</span>.</h2>
-    <div style="margin-top:44px;display:flex;flex-direction:column;gap:18px;align-items:center">
-      <div class="flow faded"><span class="step">Browse</span><span class="arr">→</span><span class="step">Read</span><span class="arr">→</span><span class="step">Search elsewhere</span><span class="arr">→</span><span class="step">Work out what to do</span></div>
-      <div style="font-size:11px;letter-spacing:.24em;color:rgba(255,255,255,.45);font-weight:700">BECOMES</div>
-      <div class="flow"><span class="step">Discover</span><span class="arr">→</span><span class="step">Understand</span><span class="arr">→</span><span class="step">Trust</span><span class="arr">→</span><span class="step">Explore</span><span class="arr">→</span><span class="step hi">Enquire</span></div>
-    </div>
-  </div>
-</section>
+  <!-- ====================================================================
+       04. INSIDE THE BOOK
+       ==================================================================== -->
+  <section class="gfb-section" data-world="acotar">
+    <div class="gfb-wrap">
+      <h2 class="gfb-rulehead"><span>Inside the book</span></h2>
+      <p class="gfb-lede gfb-measure-center" style="margin-bottom:2.5rem;">
+        Every Gold Foil book opens onto a drawn endpaper at the front and another at the back.
+        These are the two inside A Court of Thorns and Roses.
+      </p>
 
-<!-- ================= 07 · PRINCIPLES ================= -->
-<section class="slide dark" data-sec="The shift">
-  <div class="pad">
-    <div class="eyebrow">Six principles behind the rebuild</div>
-    <h2 style="margin-bottom:30px">Every decision traces back to <span class="accent">one of these</span>.</h2>
-    <div class="grid" style="grid-template-columns:repeat(3,1fr)">
-      <div class="card"><div class="num">CLARITY</div><p style="font-size:14.5px">Anyone landing on any page should understand what CVBS does, and that it costs them nothing, within seconds.</p></div>
-      <div class="card"><div class="num">DISCOVERY</div><p style="font-size:14.5px">Make finding the right destination and venue feel like exploring, not searching. Give visitors somewhere to go next.</p></div>
-      <div class="card"><div class="num">TRUST</div><p style="font-size:14.5px">Bring 1989, the client list, the testimonials and the real people forward, so credibility is felt before it's needed.</p></div>
-      <div class="card"><div class="num">GUIDANCE</div><p style="font-size:14.5px">Help visitors understand what happens after they enquire, so starting a brief feels safe rather than committal.</p></div>
-      <div class="card"><div class="num">CONVERSION</div><p style="font-size:14.5px">A clear, low-friction next step from every page: tell us about your event, and we do the searching.</p></div>
-      <div class="card"><div class="num">MOBILE</div><p style="font-size:14.5px">Design the experience for the device organisers actually reach for first, not as a shrunken desktop.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= 08 · REVEAL: SLIDER ================= -->
-<section class="slide stone" data-sec="The reveal">
-  <div class="pad" style="display:flex;flex-direction:column;align-items:center">
-    <div class="eyebrow">The transformation</div>
-    <h2 style="margin-bottom:26px;text-align:center">Drag to compare. <span class="accent-d">Same company, new front door.</span></h2>
-    <div class="ba" id="ba-home" style="width:min(78vw,1020px)">
-      <span class="lbl b">Before</span><span class="lbl a">After</span>
-      <img src="assets/shots/old-home-desktop-fold.jpg" alt="Previous homepage">
-      <div class="after"><img src="assets/shots/new-home-desktop-fold.jpg" alt="New homepage"></div>
-      <div class="handle" style="left:50%"></div>
-    </div>
-    <p class="small" style="margin-top:18px;text-align:center">Both captured at the same desktop size. The full page tour comes later; this is the first three seconds.</p>
-  </div>
-</section>
-
-<!-- ================= 09 · REVEAL: ENQUIRY ================= -->
-<section class="slide" data-sec="The reveal">
-  <div class="pad two">
-    <div>
-      <div class="eyebrow">The moment that matters most</div>
-      <h2>From a PDF download to a <span class="accent-d">guided brief</span>.</h2>
-      <p class="lede" style="margin-top:20px">On the previous site, the highest-intent visitors, the ones ready to enquire, were handed a PDF form to download, fill in and send back. The new site meets that same moment with a short guided brief: your event, your venue needs, your details, done.</p>
-      <p class="lede" style="margin-top:14px">The thank-you screen then explains exactly what happens next, so the conversation starts with confidence.</p>
-    </div>
-    <div class="ba" id="ba-enq">
-      <span class="lbl b">Before</span><span class="lbl a">After</span>
-      <img src="assets/shots/old-quote-desktop-fold.jpg" alt="Previous get a quote page">
-      <div class="after"><img src="assets/shots/new-submit-a-brief-desktop-fold.jpg" alt="New start your brief page"></div>
-      <div class="handle" style="left:50%"></div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= 10 · HOMEPAGE HAS A JOB ================= -->
-<section class="slide dark" data-sec="Homepage">
-  <div class="vwrap"><video muted loop playsinline preload="none" data-lazy poster="assets/brand/hero-video-poster.jpg"><source data-src="assets/video/hero.mp4" type="video/mp4"></video></div>
-  <div class="vcontent pad two">
-    <div>
-      <div class="eyebrow">The new homepage</div>
-      <h2>The homepage <span class="accent">now has a job</span>.</h2>
-      <p class="lede" style="margin-top:20px">It is no longer a collection of information. It answers a visitor's questions in the order they actually ask them, and every section exists to move someone one step closer to a confident enquiry.</p>
-    </div>
-    <div style="display:flex;flex-direction:column;gap:9px">
-      <div class="chip"><i></i>1 · Where am I?</div>
-      <div class="chip"><i></i>2 · What does CVBS do?</div>
-      <div class="chip"><i></i>3 · Why should I use them instead of searching myself?</div>
-      <div class="chip"><i></i>4 · Can they help with my type of event?</div>
-      <div class="chip"><i></i>5 · Where could I hold it?</div>
-      <div class="chip"><i></i>6 · Why should I trust them?</div>
-      <div class="chip"><i></i>7 · What should I do next?</div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= 11 · HOMEPAGE ANATOMY ================= -->
-<section class="slide stone" data-sec="Homepage">
-  <div class="pad">
-    <div class="eyebrow">Section by section</div>
-    <h2 style="margin-bottom:24px">Every section has a <span class="accent-d">purpose</span>. Click through them.</h2>
-    <div class="anat">
-      <div class="browser shotbox">
-        <div class="bar"><i></i><i></i><i></i><span class="url">Home</span></div>
-        <div class="view"><img id="anat-img" src="assets/shots/new-home-desktop-full.jpg" alt="New homepage sections"></div>
+      <div class="gfb-spread">
+        <figure class="gfb-spread__item" style="margin:0;" data-reveal>
+          <picture>
+            <source type="image/webp" srcset="assets/artwork/the-suriel-1000.webp 1000w, assets/artwork/the-suriel-1400.webp 1400w" sizes="100vw">
+            <img src="assets/artwork/the-suriel-1400.jpg" loading="lazy" decoding="async" width="2000" height="1414"
+                 srcset="assets/artwork/the-suriel-1000.jpg 1000w, assets/artwork/the-suriel-1400.jpg 1400w" sizes="100vw"
+                 alt="Front endpaper illustration: an archer stands at a stream in a birch wood, facing a hooded skeletal figure bound in ropes between the trees." data-protect draggable="false">
+          </picture>
+          <figcaption class="gfb-spread__label">Front endpaper &middot; The Suriel</figcaption>
+        </figure>
+        <figure class="gfb-spread__item" style="margin:0;" data-reveal>
+          <picture>
+            <source type="image/webp" srcset="assets/artwork/pool-of-starlight-1000.webp 1000w, assets/artwork/pool-of-starlight-1400.webp 1400w" sizes="100vw">
+            <img src="assets/artwork/pool-of-starlight-1400.jpg" loading="lazy" decoding="async" width="2000" height="1414"
+                 srcset="assets/artwork/pool-of-starlight-1000.jpg 1000w, assets/artwork/pool-of-starlight-1400.jpg 1400w" sizes="100vw"
+                 alt="Back endpaper illustration: a still forest pool lit from below with drifting points of starlight." data-protect draggable="false">
+          </picture>
+          <figcaption class="gfb-spread__label">Back endpaper &middot; Pool of Starlight</figcaption>
+        </figure>
       </div>
-      <div class="steps" id="anat-steps">
-        <button class="stp on" data-y="0"><span class="t"><em>01</em>Hero</span><span class="d"><b>What it is:</b> the brand line, one sentence of who CVBS is, and two clear paths. <b>Why it exists:</b> to state the proposition and settle "where am I?" instantly. <b>What it should achieve:</b> confidence to keep going, or a straight line to starting a brief.</span></button>
-        <button class="stp" data-y="0.088"><span class="t"><em>02</em>Start-your-brief bar</span><span class="d"><b>What it is:</b> a short, friendly capture of destination, dates and delegates. <b>Why it exists:</b> some visitors arrive ready; they shouldn't have to hunt for the form. <b>What it should achieve:</b> an immediate pathway for high-intent arrivals.</span></button>
-        <button class="stp" data-y="0.20"><span class="t"><em>03</em>Destination discovery</span><span class="d"><b>What it is:</b> Australia's key event destinations, presented visually. <b>Why it exists:</b> discovery is brought forward so visitors can move from inspiration straight into relevant exploration. <b>What it should achieve:</b> turn passive browsing into a journey with a next step.</span></button>
-        <button class="stp" data-y="0.35"><span class="t"><em>04</em>How your event comes together</span><span class="d"><b>What it is:</b> the four-step process, in plain language. <b>Why it exists:</b> uncertainty about "what happens if I enquire?" is the quiet reason people don't. <b>What it should achieve:</b> make the service feel simple, personal and safe.</span></button>
-        <button class="stp" data-y="0.48"><span class="t"><em>05</em>Services</span><span class="d"><b>What it is:</b> conference venues, group accommodation, launches and events, corporate accommodation. <b>Why it exists:</b> organisers need to see their kind of event reflected back. <b>What it should achieve:</b> "yes, they handle exactly what I'm planning."</span></button>
-        <button class="stp" data-y="0.60"><span class="t"><em>06</em>Statement moment</span><span class="d"><b>What it is:</b> ambient video behind a single promise about vouching for venues. <b>Why it exists:</b> a breathing space that carries the brand's confidence between the practical sections. <b>What it should achieve:</b> a feeling of calm assurance, not a harder sell.</span></button>
-        <button class="stp" data-y="0.70"><span class="t"><em>07</em>The team, and the proof</span><span class="d"><b>What it is:</b> the same small team from first call to final invoice, alongside the organisations CVBS has worked with. <b>Why it exists:</b> people trust people; logos and longevity turn a claim into a track record. <b>What it should achieve:</b> move the conversation from what CVBS says to what CVBS has done.</span></button>
-        <button class="stp" data-y="0.82"><span class="t"><em>08</em>Offers</span><span class="d"><b>What it is:</b> current, negotiated venue offers. <b>Why it exists:</b> a reason to return, and proof the venue relationships are live, not historical. <b>What it should achieve:</b> timely engagement, and a nudge for the undecided.</span></button>
-        <button class="stp" data-y="1"><span class="t"><em>09</em>Closing CTA + newsletter</span><span class="d"><b>What it is:</b> "Tell us about your event. We know where to look," plus a newsletter for the not-yet-ready. <b>Why it exists:</b> every journey needs a destination; this one has two, matched to intent. <b>What it should achieve:</b> convert confidence into action, or keep the relationship warm.</span></button>
+
+      <div class="gfb-detail-row" style="margin-top:0.75rem;" data-reveal>
+        <figure><img src="https://images.squarespace-cdn.com/content/v1/682bc2962e10cb37922634d9/9f13aece-deec-407d-abe1-ed3fc5188cd0/7.+Front+Endpaper.png?format=750w" loading="lazy" decoding="async" width="750" height="750" alt="The front endpaper printed and pasted into the finished book."><figcaption>Printed and pasted in</figcaption></figure>
+        <figure><img src="https://images.squarespace-cdn.com/content/v1/682bc2962e10cb37922634d9/3ff270a1-c4ab-484e-b796-6b4930a57fba/8.+Back+Endpaper.png?format=750w" loading="lazy" decoding="async" width="750" height="750" alt="The back endpaper inside the finished book."><figcaption>Back endpaper in place</figcaption></figure>
+        <figure><img src="https://images.squarespace-cdn.com/content/v1/682bc2962e10cb37922634d9/67896093-14c2-4fab-91e8-29541898738d/5.+Edges%3ACover.png?format=750w" loading="lazy" decoding="async" width="750" height="750" alt="Hand-painted metallic gold page edges on the closed book."><figcaption>Hand-painted gold edges</figcaption></figure>
+        <figure><img src="https://images.squarespace-cdn.com/content/v1/682bc2962e10cb37922634d9/d2223691-3f9c-47d3-89a5-98efb6cfe6db/2.+Spine.png?format=750w" loading="lazy" decoding="async" width="750" height="750" alt="The foiled spine of the finished rebind."><figcaption>Foiled spine</figcaption></figure>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ================= 12 · EVERY PAGE: MAP ================= -->
-<section class="slide" data-sec="Site architecture">
-  <div class="pad" style="display:flex;flex-direction:column;align-items:center;text-align:center">
-    <div class="eyebrow">The website ecosystem</div>
-    <h2 style="margin-bottom:34px">Not a collection of pages. <span class="accent-d">A system.</span></h2>
-    <div class="eco">
-      <div class="tier">
-        <div class="node">Google &amp; referrals<span>how people arrive</span></div>
-        <div class="node">Venue Finder pages<span>16 destination entry points</span></div>
-        <div class="node">Offers &amp; EDMs<span>reasons to come back</span></div>
+  <!-- ====================================================================
+       05. THE SET
+       ==================================================================== -->
+  <section class="gfb-section gfb-section--dark">
+    <div class="gfb-wrap">
+      <h2 class="gfb-rulehead"><span>Built to match</span></h2>
+      <p class="gfb-lede gfb-measure-center" style="color:rgba(245,242,236,0.8); margin-bottom:2.5rem;">
+        Each edition is designed to coordinate with the last, so the series reads as one object
+        across three spines. Matching editions are added over time.
+      </p>
+      <div class="gfb-set" data-reveal>
+        <figure>
+          <img src="https://images.squarespace-cdn.com/content/v1/682bc2962e10cb37922634d9/8cd19eea-1acc-4aeb-912a-239d87561681/1.+Cover.png?format=1000w" loading="lazy" decoding="async" width="1000" height="1250" alt="A Court of Thorns and Roses, finished cover.">
+          <figcaption>Book one</figcaption>
+        </figure>
+        <figure>
+          <img src="https://images.squarespace-cdn.com/content/v1/682bc2962e10cb37922634d9/30937200-a988-43bd-956e-948ea1eca711/1.+Cover.png?format=1000w" loading="lazy" decoding="async" width="1000" height="1250" alt="A Court of Mist and Fury, finished cover.">
+          <figcaption>Book two</figcaption>
+        </figure>
+        <figure>
+          <img src="https://images.squarespace-cdn.com/content/v1/682bc2962e10cb37922634d9/bc1c4c0e-1c9e-44ad-acfe-38c57167c559/1.+Cover.jpg?format=1000w" loading="lazy" decoding="async" width="1000" height="1250" alt="A Court of Wings and Ruin, finished cover.">
+          <figcaption>Book three</figcaption>
+        </figure>
       </div>
-      <div class="link"></div>
-      <div class="hub">Home</div>
-      <div class="link"></div>
-      <div class="tier">
-        <div class="node">How It Works<span>removes uncertainty</span></div>
-        <div class="node">Destinations<span>opens exploration</span></div>
-        <div class="node">Results<span>provides evidence</span></div>
-        <div class="node">About<span>puts people behind it</span></div>
-      </div>
-      <div class="link"></div>
-      <div class="tier">
-        <div class="node" style="background:var(--teal-deep);border-color:var(--teal-deep);color:#fff">Start your brief<span style="color:rgba(255,255,255,.75)">every path leads here</span></div>
-      </div>
+      <p class="gfb-center" style="margin-top:2.75rem;">
+        <a class="gfb-btn gfb-btn--foil" href="pages/shop.html"><span>Shop all three</span></a>
+      </p>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ================= 13 · PAGE PURPOSES ================= -->
-<section class="slide stone" data-sec="Site architecture">
-  <div class="pad">
-    <div class="eyebrow">Page by page</div>
-    <h2 style="margin-bottom:24px">Every page has a job, a question it answers, and a <span class="accent-d">next step</span>.</h2>
-    <div class="pgrid">
-      <div class="pcard"><div class="nm">Home</div><div class="row"><b>Job</b>Establish the proposition and route people by intent.</div><div class="row q">"Can CVBS help me find the right venue?"</div><div class="row"><b>Next</b>Explore destinations · understand the service · start a brief</div></div>
-      <div class="pcard"><div class="nm">How It Works</div><div class="row"><b>Job</b>Remove uncertainty about what happens after you enquire.</div><div class="row q">"What actually happens if I use CVBS?"</div><div class="row"><b>Next</b>Start a brief</div></div>
-      <div class="pcard"><div class="nm">Destinations</div><div class="row"><b>Job</b>Turn destination inspiration into structured discovery, 16 locations plus international.</div><div class="row q">"Where could we hold our event?"</div><div class="row"><b>Next</b>Explore a location's venue finder</div></div>
-      <div class="pcard"><div class="nm">Venue Finder</div><div class="row"><b>Job</b>Meet high-intent, city-specific searches with real venues and local knowledge.</div><div class="row q">"Which venues could work for my event?"</div><div class="row"><b>Next</b>Explore → shortlist → enquire</div></div>
-      <div class="pcard"><div class="nm">Results</div><div class="row"><b>Job</b>Provide evidence: client organisations, testimonials, real briefs solved.</div><div class="row q">"Can I trust them with our event?"</div><div class="row"><b>Next</b>Enquire with greater confidence</div></div>
-      <div class="pcard"><div class="nm">About</div><div class="row"><b>Job</b>Put Karen, Anthony and the team behind the service, with the story since 1989.</div><div class="row q">"Who am I actually working with?"</div><div class="row"><b>Next</b>Meet the team → start a brief</div></div>
-      <div class="pcard"><div class="nm">Offers</div><div class="row"><b>Job</b>Give visitors a live reason to return, and show the venue relationships at work.</div><div class="row q">"What opportunities are available right now?"</div><div class="row"><b>Next</b>Enquire about an offer</div></div>
-      <div class="pcard"><div class="nm">Start your brief</div><div class="row"><b>Job</b>Convert intent into a conversation with the least possible friction.</div><div class="row q">"How do I get started?"</div><div class="row"><b>Next</b>A shortlist conversation with the CVBS team</div></div>
+  <!-- ====================================================================
+       06. MEET THE MAKER
+       No portrait photography has been supplied, so this uses the studio
+       frame from the drawing video. Swap in a portrait when one exists.
+       ==================================================================== -->
+  <section class="gfb-section" data-world="acomaf">
+    <div class="gfb-wrap">
+      <h2 class="gfb-rulehead"><span>Meet the maker</span></h2>
+      <article class="gfb-row" data-reveal>
+        <div>
+          <p class="gfb-dropcap">Gold Foil Books started the way most good things do: quietly, in a
+          corner, surrounded by books and sketchbooks. I am a self-taught bookbinder and digital artist
+          based in Wollongong, Australia, working from a home studio.</p>
+          <p>Every illustration is hand-drawn in Procreate, and every rebind is crafted by hand with
+          care, using premium materials and meticulous attention to detail. I believe the stories we
+          love deserve to be celebrated.</p>
+          <p>Thank you for being here. I hope you find something that brings a little more magic to
+          your bookshelf or home.</p>
+          <p style="margin-top:1.5rem;"><a class="gfb-btn gfb-btn--foil" href="pages/about.html"><span>Read the full story</span></a></p>
+        </div>
+        <figure style="margin:0;">
+          <img src="assets/video/drawing-process-poster.jpg" loading="lazy" decoding="async" width="684" height="632"
+               style="width:100%; border:1px solid var(--rule);"
+               alt="An iPad on a studio desk showing a finished illustration in Procreate, with the layer panel open.">
+          <figcaption class="gfb-note" style="padding-top:0.65rem;">At the desk in Wollongong</figcaption>
+        </figure>
+      </article>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ================= 14 · USER JOURNEYS ================= -->
-<section class="slide" data-sec="User journeys">
-  <div class="pad">
-    <div class="eyebrow">Three real journeys</div>
-    <h2 style="margin-bottom:26px">The architecture is intentional. <span class="accent-d">Watch it work.</span></h2>
-    <div class="jz">
-      <div class="j">
-        <div class="who">Journey 01 · High intent</div>
-        <div class="q">"I need a conference venue in Sydney."</div>
-        <ol>
-          <li>Searches Google for Sydney conference venues</li>
-          <li>Lands on the Sydney Venue Finder</li>
-          <li>Explores venues, capacities and precincts</li>
-          <li>Sees the 48-hour shortlist promise and free-to-you model</li>
-          <li class="end">Starts a Sydney brief</li>
-        </ol>
+  <!-- ====================================================================
+       07. ARTWORK
+       SQUARESPACE PRODUCT GRID: native Products block, category Artwork
+       ==================================================================== -->
+  <section class="gfb-section gfb-section--deep" id="artwork">
+    <div class="gfb-wrap">
+      <h2 class="gfb-rulehead"><span>Artwork</span></h2>
+      <p class="gfb-lede gfb-measure-center" style="margin-bottom:2.5rem;">
+        The same illustrations as high-resolution digital downloads. Print at home or through your
+        favourite print service.
+      </p>
+      <div class="gfb-grid gfb-grid--art">
+        <a class="gfb-card gfb-card--art" href="pages/shop.html#artwork" data-reveal>
+          <span class="gfb-card__media"><img src="assets/artwork/starfall-in-velaris-640.jpg" loading="lazy" decoding="async" width="640" height="640" alt="Starfall in Velaris: a couple embracing on a balcony under a sky of falling stars." data-protect draggable="false"></span>
+          <h3 class="gfb-card__title">Starfall in Velaris</h3>
+          <p class="gfb-card__meta"><span class="gfb-card__price">$7.99</span> <span class="gfb-card__was">$9.99</span> <span class="gfb-card__flag">Sale</span></p>
+        </a>
+        <a class="gfb-card gfb-card--art" href="pages/shop.html#artwork" data-reveal data-reveal-delay="1">
+          <span class="gfb-card__media"><img src="assets/artwork/chapter-54-640.jpg" loading="lazy" decoding="async" width="640" height="493" alt="Chapter 54: two figures sharing a bowl of soup in a candlelit cabin kitchen." data-protect draggable="false"></span>
+          <h3 class="gfb-card__title">Chapter 54</h3>
+          <p class="gfb-card__meta"><span class="gfb-card__price">$7.99</span> <span class="gfb-card__was">$9.99</span> <span class="gfb-card__flag">Sale</span></p>
+        </a>
+        <a class="gfb-card gfb-card--art" href="pages/shop.html#artwork" data-reveal data-reveal-delay="2">
+          <span class="gfb-card__media"><img src="assets/artwork/the-cabin-640.jpg" loading="lazy" decoding="async" width="640" height="905" alt="The Cabin: a lit log cabin in deep snow beneath jagged mountains." data-protect draggable="false"></span>
+          <h3 class="gfb-card__title">The Cabin</h3>
+          <p class="gfb-card__meta"><span class="gfb-card__price">$7.99</span> <span class="gfb-card__was">$9.99</span> <span class="gfb-card__flag">Sale</span></p>
+        </a>
+        <a class="gfb-card gfb-card--art" href="pages/shop.html#artwork" data-reveal data-reveal-delay="3">
+          <span class="gfb-card__media"><img src="assets/artwork/spring-court-manor-640.jpg" loading="lazy" decoding="async" width="640" height="905" alt="Spring Court Manor: a domed manor above a flower-lined stone path." data-protect draggable="false"></span>
+          <h3 class="gfb-card__title">Spring Court Manor</h3>
+          <p class="gfb-card__meta"><span class="gfb-card__price">$7.99</span> <span class="gfb-card__was">$9.99</span> <span class="gfb-card__flag">Sale</span></p>
+        </a>
       </div>
-      <div class="j">
-        <div class="who">Journey 02 · Exploring options</div>
-        <div class="q">"We're considering several destinations."</div>
-        <ol>
-          <li>Arrives on the homepage</li>
-          <li>Browses Destinations</li>
-          <li>Compares Sydney, the Gold Coast, the Hunter Valley</li>
-          <li>Reads How It Works to understand the service</li>
-          <li class="end">Enquires with a shortlist of places in mind</li>
-        </ol>
-      </div>
-      <div class="j">
-        <div class="who">Journey 03 · Needs convincing</div>
-        <div class="q">"I've heard of CVBS, but what do they actually do?"</div>
-        <ol>
-          <li>Arrives on the homepage</li>
-          <li>Reads How It Works</li>
-          <li>Checks Results for evidence</li>
-          <li>Meets the team on About</li>
-          <li class="end">Starts a brief, knowing who's on the other end</li>
-        </ol>
-      </div>
+      <p class="gfb-center" style="margin-top:2.5rem;">
+        <a class="gfb-btn gfb-btn--foil" href="pages/shop.html#artwork"><span>All eight illustrations</span></a>
+      </p>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ================= 15 · VENUE FINDER ================= -->
-<section class="slide dark" data-sec="Venue Finder">
-  <div class="pad two" style="grid-template-columns:1fr 1.15fr">
-    <div>
-      <div class="eyebrow">The biggest evolution</div>
-      <h2>The Venue Finder meets people <span class="accent">where their search begins</span>.</h2>
-      <p class="lede" style="margin-top:20px">Nobody searches for "venue sourcing agency". They search for conference venues in Sydney. Sixteen destination pages now answer exactly that, with real venues, published capacities, precinct guidance and local knowledge, before anyone is asked to enquire.</p>
-      <div style="display:flex;flex-direction:column;gap:9px;margin-top:24px">
-        <div class="chip"><i></i>Gives useful information first, asks for the enquiry second</div>
-        <div class="chip"><i></i>Sydney leads: real rooms, real numbers, filterable by size and setup</div>
-        <div class="chip"><i></i>Creates stronger foundations for organic discovery over time</div>
-        <div class="chip"><i></i>A template every other destination can grow into</div>
+  <!-- ====================================================================
+       08. CONTACT
+       SQUARESPACE FORM: replace the fields with a native Form block.
+       ==================================================================== -->
+  <section class="gfb-contact" id="contact">
+    <img class="gfb-contact__bg" src="assets/artwork/spring-court-manor-1000.jpg" loading="lazy" decoding="async" width="1414" height="2000" alt="" data-protect draggable="false">
+    <div class="gfb-wrap">
+      <h2 class="gfb-rulehead"><span>Contact</span></h2>
+      <div class="gfb-contact__panel">
+        <form action="#" method="post" novalidate>
+          <h3 class="gfb-row__title">Send a message</h3>
+          <p style="margin-bottom:1.25rem;">
+            Whether you have a question, an idea, or just want to talk about books, feel free to
+            reach out. I will get back to you as soon as I can.
+          </p>
+          <div class="gfb-field gfb-field--pair" style="margin-bottom:0.75rem;">
+            <label class="gfb-skip" for="c-name">Name</label>
+            <input class="gfb-input" id="c-name" name="name" type="text" placeholder="Name" autocomplete="name">
+            <label class="gfb-skip" for="c-email">Email address</label>
+            <input class="gfb-input" id="c-email" name="email" type="email" placeholder="Email address" autocomplete="email">
+          </div>
+          <label class="gfb-skip" for="c-msg">Message</label>
+          <textarea class="gfb-input" id="c-msg" name="message" placeholder="Write your message here"></textarea>
+          <p style="margin-top:1rem;">
+            <button class="gfb-btn gfb-btn--foil" type="submit"><span>Send message</span></button>
+          </p>
+        </form>
+
+        <div>
+          <h3 class="gfb-row__title">Good to know</h3>
+          <ul class="gfb-deets">
+            <li><b>Processing</b><span>Each book is made to order. Approximately 2 to 4 weeks depending on order volume. Contact me before purchasing if you need it by a set date.</span></li>
+            <li><b>Shipping</b><span>Free Australia-wide.</span></li>
+            <li><b>Payment</b><span>Afterpay available. Four interest-free payments of A$21.25 on an $85.00 edition.</span></li>
+            <li><b>Follow along</b><span>
+              <a href="https://instagram.com/goldfoilbooks" rel="me noopener">Instagram</a>,
+              <a href="https://www.tiktok.com/@goldfoilbooks" rel="me noopener">TikTok</a>,
+              <a href="https://www.youtube.com/@GoldFoilBooks" rel="me noopener">YouTube</a>
+            </span></li>
+          </ul>
+        </div>
       </div>
     </div>
-    <div class="browser pan" style="--pan:-86%">
-      <div class="bar"><i></i><i></i><i></i><span class="url">/venue-finder-sydney</span></div>
-      <div class="view" style="height:min(64vh,580px)"><img src="assets/shots/new-venue-finder-sydney-desktop-full.jpg" alt="Sydney Venue Finder"></div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= 16 · MOBILE ================= -->
-<section class="slide stone" data-sec="Mobile">
-  <div class="pad two" style="grid-template-columns:1.1fr 1fr">
-    <div>
-      <div class="eyebrow">Designed for the small screen</div>
-      <h2>Mobile isn't a smaller website. <span class="accent-d">It's a rethought one.</span></h2>
-      <p class="lede" style="margin-top:20px">Many organisers first meet CVBS on a phone, from a search, a shared link or an email. On mobile, the experience re-prioritises rather than shrinks:</p>
-      <div style="display:flex;flex-direction:column;gap:9px;margin-top:22px">
-        <div class="chip"><i></i>"Start your brief" stays visible from the first screen</div>
-        <div class="chip"><i></i>Navigation collapses into a clean, single-thumb menu</div>
-        <div class="chip"><i></i>Content reorders for scanning: proposition, proof, path</div>
-        <div class="chip"><i></i>Destination discovery becomes a swipe-friendly journey</div>
-        <div class="chip"><i></i>Forms are broken into short, phone-sized steps</div>
-      </div>
-    </div>
-    <div style="display:flex;gap:26px;justify-content:center;align-items:flex-start">
-      <div class="phone pan" style="width:min(23vw,250px);--pan:-80%">
-        <span class="tag aft">Home</span>
-        <div class="view" style="height:min(60vh,530px)"><img src="assets/shots/new-home-mobile-full.jpg" alt="New homepage on mobile"></div>
-      </div>
-      <div class="phone pan" style="width:min(23vw,250px);--pan:-80%;margin-top:44px">
-        <span class="tag aft">Sydney</span>
-        <div class="view" style="height:min(60vh,530px)"><img src="assets/shots/new-venue-finder-sydney-mobile-full.jpg" alt="Sydney venue finder on mobile"></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= 17 · VIDEO WALKTHROUGH ================= -->
-<section class="slide dark" data-sec="Walkthrough">
-  <div class="pad" style="display:flex;flex-direction:column;align-items:center">
-    <div class="eyebrow">See it move</div>
-    <h2 style="text-align:center;margin-bottom:24px">The experience, <span class="accent">in motion</span>.</h2>
-    <div class="browser" style="width:min(66vw,860px)">
-      <div class="bar"><i></i><i></i><i></i><span class="url">the new CVBS website · walkthrough</span></div>
-      <div class="view"><video id="walkvid" controls preload="metadata" playsinline style="width:100%;display:block" poster="assets/shots/new-home-desktop-fold.jpg"><source src="assets/video/walkthrough.mp4" type="video/mp4"></video></div>
-    </div>
-    <div style="display:flex;gap:10px;margin-top:22px;flex-wrap:wrap;justify-content:center">
-      <span class="chip"><i></i>Clearer navigation</span>
-      <span class="chip"><i></i>Destination discovery</span>
-      <span class="chip"><i></i>Sydney Venue Finder</span>
-      <span class="chip"><i></i>Enquiry pathways throughout</span>
-    </div>
-  </div>
-</section>
-
-<!-- ================= 18 · SMALL DETAILS ================= -->
-<section class="slide" data-sec="Details">
-  <div class="pad">
-    <div class="eyebrow">Small details, big difference</div>
-    <h2 style="margin-bottom:24px">The changes you feel <span class="accent-d">more than you notice</span>.</h2>
-    <div class="dgrid">
-      <div class="dcard"><div class="im"><img src="assets/shots/new-home-desktop-fold.jpg" style="--pos:top center" alt=""></div><div class="tx"><b>CTA language</b><p>"Start your brief" and "Tell us about your event" replace "Get a Quote". Enquiring reads as beginning a conversation, not requesting paperwork.</p></div></div>
-      <div class="dcard"><div class="im"><img src="assets/shots/new-how-it-works-desktop-fold.jpg" style="--pos:center 30%" alt=""></div><div class="tx"><b>Guidance before commitment</b><p>The four-step process appears on nearly every page, so the answer to "what happens next?" is never more than a glance away.</p></div></div>
-      <div class="dcard"><div class="im"><img src="assets/shots/new-results-desktop-fold.jpg" style="--pos:center 20%" alt=""></div><div class="tx"><b>Trust, made ambient</b><p>Since 1989, free to you, shortlist in 48 hours: the reassurance strip travels with the visitor instead of living on one page.</p></div></div>
-      <div class="dcard"><div class="im"><img src="assets/shots/new-destinations-desktop-fold.jpg" style="--pos:center 60%" alt=""></div><div class="tx"><b>Cards you want to touch</b><p>Destinations and venues are presented as considered, hoverable cards, with consistent imagery that sells the experience of the event itself.</p></div></div>
-      <div class="dcard"><div class="im"><img src="assets/shots/new-offers-desktop-fold.jpg" style="--pos:center 30%" alt=""></div><div class="tx"><b>Offers with substance</b><p>Each offer names the venue, the inclusions and the timeframe, then connects straight to an enquiry, so interest never dead-ends.</p></div></div>
-      <div class="dcard"><div class="im"><img src="assets/shots/new-contact-desktop-fold.jpg" style="--pos:center 25%" alt=""></div><div class="tx"><b>Real people, named</b><p>Contact and About lead with Karen and Anthony rather than a generic inbox. You know who picks up the brief before you send it.</p></div></div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= 19 · WHAT IT NOW DOES ================= -->
-<section class="slide dark" data-sec="Summary">
-  <div class="pad">
-    <div class="eyebrow">Where this lands</div>
-    <h2 style="margin-bottom:30px">What the new website <span class="accent">now does</span>.</h2>
-    <div class="grid" style="grid-template-columns:repeat(3,1fr)">
-      <div class="card"><div class="num">EXPLAINS</div><p style="font-size:14.5px">What CVBS does, that it's free to you, and why it works, within the first screen of every page.</p></div>
-      <div class="card"><div class="num">GUIDES</div><p style="font-size:14.5px">Visitors move through destinations and venues with a clear next step at every point.</p></div>
-      <div class="card"><div class="num">PROVES</div><p style="font-size:14.5px">Thirty-five years, recognisable clients and real testimonials now work on every journey, not just the About page.</p></div>
-      <div class="card"><div class="num">CONNECTS</div><p style="font-size:14.5px">Destinations, venues, offers, expertise and enquiries link into one continuous experience.</p></div>
-      <div class="card"><div class="num">CONVERTS</div><p style="font-size:14.5px">Interest becomes a guided brief rather than a downloaded PDF, with the least friction at the moment of highest intent.</p></div>
-      <div class="card"><div class="num">SCALES</div><p style="font-size:14.5px">New destinations, venues, offers, content and campaigns all have a natural home waiting for them.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= 20 · BIGGER PICTURE ================= -->
-<section class="slide stone" data-sec="Summary">
-  <div class="pad" style="display:flex;flex-direction:column;align-items:center;text-align:center">
-    <div class="eyebrow">The bigger picture</div>
-    <h2 style="max-width:24ch;margin-bottom:12px">Not a finished brochure. <span class="accent-d">A digital foundation.</span></h2>
-    <p class="lede" style="text-align:center;margin-bottom:30px">Everything CVBS does next has somewhere to land, and everything feeds the same destination: a conversation with the team.</p>
-    <div class="eco">
-      <div class="tier">
-        <div class="node">Destination content</div>
-        <div class="node">Venue Finder pages</div>
-        <div class="node">Offers</div>
-        <div class="node">Social campaigns</div>
-        <div class="node">Email marketing</div>
-        <div class="node">Search discovery</div>
-      </div>
-      <div class="link"></div>
-      <div class="hub">The website</div>
-      <div class="link"></div>
-      <div class="tier">
-        <div class="node" style="background:var(--teal-deep);border-color:var(--teal-deep);color:#fff">Enquiries</div>
-        <div class="node" style="background:var(--navy);border-color:var(--navy);color:#fff">The CVBS team</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= 21 · FINAL ================= -->
-<section class="slide dark center" data-sec="Close">
-  <div class="vwrap"><video muted loop playsinline preload="none" data-lazy poster="assets/brand/hero-video-poster.jpg"><source data-src="assets/video/hero.mp4" type="video/mp4"></video></div>
-  <div class="vcontent pad center" style="display:flex;flex-direction:column;align-items:center">
-    <h1 style="max-width:16ch">Built for where CVBS is now. <span class="accent">Designed for where CVBS is going.</span></h1>
-    <p class="lede" style="margin-top:26px;max-width:52ch">A clearer way to discover venues, understand the service and start a conversation with CVBS.</p>
-    <img class="logo" src="assets/brand/logo-white.png" alt="CVBS" style="height:44px;margin-top:52px">
-    <p class="small" style="margin-top:16px;letter-spacing:.2em;text-transform:uppercase;font-weight:600">Conference Venues &amp; Booking Services</p>
-  </div>
-</section>
+  </section>
 
 </main>
-<script>
-/* ============ deck engine ============ */
-const slides=[...document.querySelectorAll('.slide')];
-let cur=0;
-const prog=document.getElementById('progress');
-const secEl=document.querySelector('#hud .sec');
-const cntEl=document.querySelector('#hud .cnt');
-function go(n,init){
-  n=Math.max(0,Math.min(slides.length-1,n));
-  if(n===cur&&!init)return;
-  slides[cur].classList.remove('on');
-  cur=n;
-  const s=slides[cur];
-  s.classList.add('on');
-  document.body.classList.toggle('dark-hud',s.classList.contains('dark'));
-  prog.style.width=((cur+1)/slides.length*100)+'%';
-  secEl.textContent=s.dataset.sec||'';
-  cntEl.textContent=String(cur+1).padStart(2,'0')+' / '+String(slides.length).padStart(2,'0');
-  // lazy videos: play on slide entry, pause others
-  slides.forEach((sl,i)=>{ sl.querySelectorAll('video').forEach(v=>{
-    if(i===cur){
-      if(v.dataset.lazy!==undefined&&!v.dataset.loaded){const src=v.querySelector('source');src.src=src.dataset.src;v.load();v.dataset.loaded='1';}
-      if(!v.controls) v.play().catch(()=>{});
-    } else { if(!v.paused) v.pause(); }
-  });});
-  location.hash='s'+(cur+1);
-}
-document.getElementById('next').onclick=()=>go(cur+1);
-document.getElementById('prev').onclick=()=>go(cur-1);
-addEventListener('keydown',e=>{
-  if(e.key==='ArrowRight'||e.key==='PageDown'||e.key===' '&&!e.target.closest('video')){e.preventDefault();go(cur+1);}
-  else if(e.key==='ArrowLeft'||e.key==='PageUp'){e.preventDefault();go(cur-1);}
-  else if(e.key==='Home'){go(0);}
-  else if(e.key==='End'){go(slides.length-1);}
-  else if(e.key.toLowerCase()==='f'){document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen();}
-});
-/* swipe */
-let tx=null;
-addEventListener('touchstart',e=>tx=e.touches[0].clientX,{passive:true});
-addEventListener('touchend',e=>{if(tx===null)return;const dx=e.changedTouches[0].clientX-tx;if(Math.abs(dx)>60)go(cur+(dx<0?1:-1));tx=null;},{passive:true});
 
-/* before/after sliders */
-document.querySelectorAll('.ba').forEach(ba=>{
-  const after=ba.querySelector('.after'),handle=ba.querySelector('.handle');
-  function set(x){
-    const r=ba.getBoundingClientRect();
-    let p=Math.max(2,Math.min(98,(x-r.left)/r.width*100));
-    after.style.clipPath=`inset(0 0 0 ${p}%)`;
-    handle.style.left=p+'%';
-  }
-  set(ba.getBoundingClientRect().left+ba.getBoundingClientRect().width/2);
-  let drag=false;
-  ba.addEventListener('pointerdown',e=>{drag=true;set(e.clientX);ba.setPointerCapture(e.pointerId);});
-  ba.addEventListener('pointermove',e=>{if(drag)set(e.clientX);});
-  addEventListener('pointerup',()=>drag=false);
-});
+<!-- SQUARESPACE FOOTER -->
+<footer class="gfb-footer">
+  <div class="gfb-wrap">
+    <div class="gfb-footer__cols">
+      <div>
+        <h2 class="gfb-h2">Made one at a time.</h2>
+        <p style="color:rgba(245,242,236,0.72); max-width:26rem;">
+          Each book is made to order. Current processing time is approximately 2 to 4 weeks
+          depending on order volume.
+        </p>
+        <!-- SQUARESPACE NEWSLETTER -->
+        <form class="gfb-newsletter" style="margin-top:1.75rem;" action="#" method="post" novalidate>
+          <label class="gfb-skip" for="gfb-email">Email address</label>
+          <input id="gfb-email" type="email" name="email" placeholder="Email address" autocomplete="email" required>
+          <button class="gfb-btn gfb-btn--foil" type="submit"><span>Sign up</span></button>
+        </form>
+        <p class="gfb-note" style="margin-top:0.85rem; color:rgba(245,242,236,0.45);">We respect your privacy.</p>
+      </div>
+      <div>
+        <p class="gfb-footer__head">Shop</p>
+        <ul>
+          <li><a href="pages/shop.html">Rebinds</a></li>
+          <li><a href="pages/shop.html#artwork">Artwork</a></li>
+          <li><a href="pages/collection.html">Collections</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="gfb-footer__head">Studio</p>
+        <ul>
+          <li><a href="pages/about.html">About</a></li>
+          <li><a href="pages/process.html">Process</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="https://instagram.com/goldfoilbooks" rel="me noopener">Instagram</a></li>
+          <li><a href="https://www.tiktok.com/@goldfoilbooks" rel="me noopener">TikTok</a></li>
+          <li><a href="https://www.youtube.com/@GoldFoilBooks" rel="me noopener">YouTube</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="gfb-footer__base">
+      <span>&copy; <span data-year>2026</span> Gold Foil Books &middot; Wollongong, Australia</span>
+      <span style="max-width:44rem;">
+        Independently created fan-made rebinds. Not affiliated with, endorsed by, sponsored by
+        or associated with Sarah J. Maas, the publisher, or any copyright holder.
+      </span>
+    </div>
+  </div>
+</footer>
 
-/* homepage anatomy stepper */
-const anatImg=document.getElementById('anat-img');
-const stepsBox=document.getElementById('anat-steps');
-if(stepsBox){
-  const stps=[...stepsBox.querySelectorAll('.stp')];
-  function activate(b){
-    stps.forEach(s=>s.classList.remove('on'));b.classList.add('on');
-    const f=parseFloat(b.dataset.y);
-    const view=anatImg.parentElement;
-    const travel=Math.max(0,anatImg.offsetHeight-view.offsetHeight);
-    anatImg.style.transform=`translateY(-${travel*f}px)`;
-  }
-  stps.forEach(b=>b.addEventListener('click',()=>activate(b)));
-  anatImg.addEventListener('load',()=>activate(stps[0]));
-  if(anatImg.complete)setTimeout(()=>activate(stps[0]),300);
-}
+<button class="gfb-totop" type="button" data-totop aria-label="Back to top">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
 
-/* init */
-const m=location.hash.match(/^#s(\d+)$/);
-go(m?parseInt(m[1])-1:0,true);
-const hint=document.getElementById('helphint');
-hint.classList.add('show');setTimeout(()=>hint.classList.remove('show'),5000);
-</script>
+<script src="js/main.js" defer></script>
 </body>
 </html>

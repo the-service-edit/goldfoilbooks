@@ -172,3 +172,76 @@ display asks for at roughly 1142px. It will look slightly soft on retina and
 fine everywhere else. If the original camera roll frame or the source video
 still exists at full size, re-crop from that and regenerate. The crop is
 3:4 from the top of the frame, 90px down.
+
+---
+
+## 8. Capacity: waitlist, stock, lead time and price
+
+Added when orders started outrunning binding capacity.
+
+### The waitlist does not work on its own
+
+The sold-out and waitlist state now exists on all three rebind pages, not one.
+But the markup is not what makes it appear. On Squarespace 7.1 the native
+waitlist shows when a product's **stock count reaches zero**. Two settings
+decide whether that ever happens, and neither is in this repo:
+
+1. **Commerce > Inventory.** Set each rebind to the number of copies you can
+   genuinely bind in one cycle. If it is unlimited, or set to 40 when you can
+   make 6, the waitlist never fires and the page keeps promising a book you
+   cannot make. This one setting is the whole mechanism.
+2. **Commerce > enable Product Waitlists.** Signups then collect under
+   Commerce > Waitlists.
+
+Everything else is cosmetic on top of those two.
+
+### The waitlist is also your only honest demand signal
+
+Waitlist signups per title tell you which of the three is actually in demand
+and how much latent volume is sitting behind a sold-out badge. That number is
+what should decide the pricing question below. Right now there is no way to
+know, because nothing has ever been allowed to sell out.
+
+### Lead time is the biggest live risk
+
+"Approximately 2 to 4 weeks" appears **23 times across 18 pages**. It is on
+every product page, every artwork page, every collection page and in the
+footer of all of them.
+
+If the real turnaround is now longer than that, this is the most damaging
+sentence on the site. Breaking a stated dispatch window on an $85 handmade
+item is how a five-star record turns into a first bad review, and the review
+count is 2 — there is nothing to absorb it. Quoting six weeks and delivering
+in four costs nothing; quoting four and delivering in seven costs the review.
+
+Change all 23 in one command once the real number is known:
+
+```
+cd ~/Downloads/goldfoilbooks
+grep -rl "2 to 4 weeks" index.html pages | xargs sed -i "" "s/2 to 4 weeks/4 to 6 weeks/g"
+```
+
+### If demand is beating capacity, the lever is price, not a queue
+
+A waitlist manages overflow. It does not reduce it, and it does not pay for
+it. There is already a $110.00 standard price defined and deliberately held
+back while $85.00 runs as introductory. If the queue is growing, the
+introductory price has finished its job: ending it is the same volume at
++29% revenue, and it thins the queue at the same time. A waitlist on an
+underpriced product just books out scarce capacity at the lower margin.
+
+**The series lock makes this urgent rather than optional.** Every $85 buyer
+holds a claim on two more editions at $85, redeemable whenever they choose.
+While at capacity, each new lock sold pre-commits future binding time at the
+lower price, and the liability compounds silently — it does not appear
+anywhere in an order report. Before selling more locks into a queue, decide
+either an expiry window, a cap on how many are outstanding, or that the
+introductory price ends now and the locks already sold are honoured as
+issued.
+
+### Order of operations
+
+1. Set real inventory numbers and enable waitlists. Nothing else works first.
+2. Correct the lead time to what is true today.
+3. Decide the introductory price and the lock liability before more sell.
+4. Let a title sell out and read the waitlist. That number prices the next run.

@@ -94,6 +94,42 @@
           <p class="gfb-lock">Order at $85.00 and the other two editions in this set stay $85.00 for you, after the standard price starts.</p>
           <span class="gfb-stock"><b>In stock</b> &middot; made to order &middot; free shipping Australia-wide</span>
 
+          <!-- ==================================================================
+               SOLD OUT AND WAITLIST. Not active.
+
+               THIS ONLY EVER FIRES IF INVENTORY IS A REAL NUMBER. Squarespace
+               shows its native waitlist when a product's stock reaches zero.
+               If the product is set to unlimited, or to a number you will
+               never actually hit, none of this appears no matter what the
+               markup says. Set the stock on this product to the number of
+               copies you can genuinely bind in one cycle.
+
+               To flip this edition to sold out:
+                 1. Comment out the .gfb-stock line and the Add to cart block
+                    above, and uncomment the two blocks below.
+                 2. Add gfb-card--soldout to this book's cards on shop.html
+                    and index.html. The CTA dims automatically.
+               On Squarespace steps 1 and 2 both happen on their own once the
+               stock count hits zero. This markup is the prototype's stand-in.
+
+               <span class="gfb-stock gfb-stock--out"><b>Sold out</b> &middot; next binding not yet scheduled</span>
+
+               <div class="gfb-waitlist">
+                 <p class="gfb-waitlist__head">Join the waitlist</p>
+                 <p class="gfb-waitlist__note">One email when the next one is bound. Nothing else, and no list to unsubscribe from afterwards.</p>
+                 SQUARESPACE: delete this form. On 7.1 the native waitlist form
+                 renders here automatically once inventory reaches zero and
+                 Product Waitlists is enabled in Commerce settings. Signups
+                 collect under Commerce > Waitlists, which is also the only
+                 honest read you have on demand per title.
+                 <form>
+                   <label class="gfb-vh" for="wl-email">Email address</label>
+                   <input class="gfb-input" id="wl-email" type="email" name="email" placeholder="Email address" required>
+                   <button class="gfb-btn gfb-btn--solid" type="submit"><span>Notify me</span></button>
+                 </form>
+               </div>
+               ================================================================== -->
+
           <!-- SQUARESPACE ADD TO CART: replace this block with the native
                product block's quantity selector and add to cart button. -->
           <p style="margin-bottom:0.75rem;" data-buybar-anchor>

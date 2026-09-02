@@ -150,3 +150,25 @@ in search. Carried over from the earlier audit, still open.
   `collection.html`. Among them: the homepage "shop book two" and "shop book
   three" buttons, which both pointed at book one.
 - No new CSS. Every page is built from classes already in `css/styles.css`.
+
+---
+
+## 7. Meet the maker portrait (added 2 Sept)
+
+`assets/studio/maker-{640,852}.{jpg,webp}` — a 3:4 crop of the supplied
+photograph. Used in two places:
+
+- `index.html`, section 06, replacing the studio frame from the drawing video
+  that was standing in for a portrait.
+- `pages/about.html`, a new **The maker** section between the intro copy and
+  the Follow along block.
+
+In Squarespace both are Code Blocks, or an Image Block plus a Text Block if you
+would rather edit the copy in the editor. Upload the 852px file.
+
+**One limit worth knowing.** The supplied master is 852px on its long edge.
+In that two-column slot the image renders about 571px wide, which a MacBook
+display asks for at roughly 1142px. It will look slightly soft on retina and
+fine everywhere else. If the original camera roll frame or the source video
+still exists at full size, re-crop from that and regenerate. The crop is
+3:4 from the top of the frame, 90px down.

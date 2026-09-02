@@ -308,8 +308,9 @@
 
   <!-- ====================================================================
        06. MEET THE MAKER
-       No portrait photography has been supplied, so this uses the studio
-       frame from the drawing video. Swap in a portrait when one exists.
+       Portrait supplied 2 Sept 2026. Master is 852px on the long edge, so
+       it is soft on a 2x display in this two-column slot. Ask for the
+       original frame if a larger one exists.
        ==================================================================== -->
   <section class="gfb-section" data-world="acomaf">
     <div class="gfb-wrap">
@@ -327,10 +328,14 @@
           <p style="margin-top:1.5rem;"><a class="gfb-btn gfb-btn--foil" href="pages/about.html"><span>Read the full story</span></a></p>
         </div>
         <figure style="margin:0;">
-          <img src="assets/video/drawing-process-poster.jpg" loading="lazy" decoding="async" width="684" height="632"
-               style="width:100%; border:1px solid var(--rule);"
-               alt="An iPad on a studio desk showing a finished illustration in Procreate, with the layer panel open.">
-          <figcaption class="gfb-note" style="padding-top:0.65rem;">At the desk in Wollongong</figcaption>
+          <picture>
+            <source type="image/webp" srcset="assets/studio/maker-640.webp 640w, assets/studio/maker-852.webp 852w" sizes="(min-width:56rem) 42vw, 100vw">
+            <img src="assets/studio/maker-852.jpg" loading="lazy" decoding="async" width="852" height="1136"
+                 srcset="assets/studio/maker-640.jpg 640w, assets/studio/maker-852.jpg 852w" sizes="(min-width:56rem) 42vw, 100vw"
+                 style="width:100%; border:1px solid var(--rule);"
+                 alt="The maker at her desk in Wollongong, drawing on an iPad with an Apple Pencil, the work in progress reflected in her glasses.">
+          </picture>
+          <figcaption class="gfb-note" style="padding-top:0.65rem;">At the desk in Wollongong, the work in progress reflected in the lens</figcaption>
         </figure>
       </article>
     </div>

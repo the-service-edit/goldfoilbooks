@@ -14,7 +14,8 @@
   --paper-deep:   #ebe6dc;
   --ink:          #16120e;
   --ink-soft:     #4a423a;
-  --ink-mute:     #7c7166;
+  --ink-mute:     #6a6157;  /* was #7c7166: 4.26:1 on paper, 3.83:1 on the
+                              deep panels, both under AA. Now 5.5 and 4.9. */
   --rule:         #ded7c9;
   --foil:         #a9853f;
   --foil-lift:    #c9a65c;
@@ -126,7 +127,7 @@ body.gfb-site {
   margin: 0 0 1.1rem;
   display: block;
 }
-.gfb-eyebrow--foil { color: var(--foil); }
+.gfb-eyebrow--foil { color: var(--accent); }  /* --foil is 3.06:1 here, under AA */
 .gfb-eyebrow--world { color: var(--world-accent); }
 
 .gfb-site .gfb-note,
@@ -558,7 +559,7 @@ body.gfb-site {
 .gfb-card__was { text-decoration: line-through; color: var(--ink-mute); }
 .gfb-card__flag {
   font-size: 0.64rem; letter-spacing: 0.14em; text-transform: uppercase;
-  color: var(--foil);
+  color: var(--accent);  /* --foil is 3.06:1 here, under AA */
 }
 
 /* --------------------------------------------------------------------------
@@ -844,7 +845,8 @@ body.gfb-site {
    text and image rows, and a light contact panel over an illustration.
    ========================================================================== */
 .gfb-site {
-  --accent: #9a7526;        /* foil, on paper */
+  --accent: #8a6720;        /* was #9a7526. White on this fill was 4.29:1,
+                               under AA; now 5.2:1. As text on paper, 4.65:1. */
   --accent-lift: #d3aa56;   /* foil, on night */
 }
 

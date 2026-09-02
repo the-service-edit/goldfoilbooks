@@ -18,7 +18,10 @@
     var offset = trigger ? trigger.offsetHeight - el.offsetHeight : 40;
 
     function update() {
-      el.classList.toggle("is-solid", window.scrollY > offset);
+      /* Pages with no full bleed hero have no trigger, so the header must be
+         solid from the first paint. Without this the white wordmark and nav
+         sit on cream until the page is scrolled 40px. */
+      el.classList.toggle("is-solid", !trigger || window.scrollY > offset);
     }
     update();
     window.addEventListener("scroll", update, { passive: true });

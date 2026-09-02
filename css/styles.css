@@ -506,6 +506,11 @@ body.gfb-site {
   cursor: pointer;
 }
 
+/* UNUSED since 2 Sept. Was a two-column table of layer names whose entire
+   right column repeated the word "Layer" eight times, and whose 0.45 white
+   was one of the pre-existing 4.18:1 contrast failures. The layer names now
+   live in prose on index.html and process.html. Kept only so the rule is easy
+   to restore; safe to delete. */
 .gfb-layers { list-style: none; margin: 1.75rem 0 0; padding: 0; max-width: 26rem; }
 .gfb-layers li {
   display: flex;

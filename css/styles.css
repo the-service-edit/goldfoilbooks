@@ -1433,6 +1433,15 @@ textarea.gfb-input { min-height: 8rem; resize: vertical; }
    still receives the event. No overlay is used, so nothing blocks a click. */
 .gfb-guard { position: relative; }
 
+/* BUGFIX 3 Sept. protectArt() marks the nearest picture, figure, a, span or
+   div, and for every responsive image that is the <picture>. An inline
+   <picture> whose only child is absolutely positioned computes to 0 by 0, and
+   position:relative turned it into the containing block, so
+   .gfb-inhand__photo resolved inset:0 and width:100% against nothing: the
+   homepage hero photograph vanished at 56rem and up. The guard is only a
+   hit-test marker for closest(), so it never needed a containing block. */
+picture.gfb-guard { position: static; }
+
 @media print {
   [data-protect] { visibility: hidden; }
 }

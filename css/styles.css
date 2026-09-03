@@ -834,6 +834,28 @@ body.gfb-site {
   font-size: 0.74rem; color: rgba(245,242,236,0.45);
 }
 
+/* Maker's mark. Findable, not promotional: it sits under the legal line at
+   a smaller weight than the copyright. Both values clear AA on --night
+   (5.7:1 for the label, 10.5:1 for the link), unlike the 0.45 greys above. */
+.gfb-credit {
+  margin-top: 1.1rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  color: rgba(245,242,236,0.55);
+}
+.gfb-site .gfb-footer .gfb-credit a {
+  color: rgba(245,242,236,0.78);
+  text-decoration: underline;
+  text-decoration-color: rgba(245,242,236,0.28);
+  text-underline-offset: 0.22em;
+  transition: color 0.3s var(--ease), text-decoration-color 0.3s var(--ease);
+}
+.gfb-site .gfb-footer .gfb-credit a:hover,
+.gfb-site .gfb-footer .gfb-credit a:focus-visible {
+  color: var(--paper);
+  text-decoration-color: var(--gold);
+}
+
 /* --------------------------------------------------------------------------
    17. MOTION
    -------------------------------------------------------------------------- */
@@ -1431,7 +1453,11 @@ textarea.gfb-input { min-height: 8rem; resize: vertical; }
    the container, so the browser offers the page menu rather than Save image as.
    Links, buttons and the compare slider keep working because the container
    still receives the event. No overlay is used, so nothing blocks a click. */
-.gfb-guard { position: relative; }
+/* BUGFIX 3 Sept. The guard is only a hit-test marker for closest(). It used to
+   set position:relative, which beat .gfb-compare__layer's position:absolute
+   (same specificity, later in the file) and collapsed the drawn-versus-bound
+   slider into two stacked images, so only the bound book was visible. It now
+   carries no positioning at all. */
 
 /* BUGFIX 3 Sept. protectArt() marks the nearest picture, figure, a, span or
    div, and for every responsive image that is the <picture>. An inline

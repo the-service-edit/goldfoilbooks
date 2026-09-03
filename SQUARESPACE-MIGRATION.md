@@ -122,3 +122,22 @@ accessibility tooling, and stops nobody who is trying.
 - Do not remove the `.gfb-site` namespace. It is what keeps this from fighting
   Squarespace updates.
 - Do not switch template families. Everything here works on 7.1 as configured.
+
+## 8. Studio credit
+
+Present on all 18 HTML pages as `.gfb-credit`, a single line beneath
+`.gfb-footer__base`. Two CSS rules in `css/styles.css`, section 16.
+
+For the live Squarespace footer before migration: add a **Code Block** as the
+last block in the footer section and paste this. It inherits the footer's own
+text colour, so it works whether the footer is set light or dark, and needs no
+Custom CSS.
+
+```html
+<p style="margin:0;font-size:12px;letter-spacing:0.04em;text-align:center;opacity:0.6;">
+  Site by <a href="https://theserviceedit.com" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;text-underline-offset:3px;">The Service Edit</a>
+</p>
+```
+
+Do not add it via Code Injection footer. That renders outside the footer
+section and lands below the Squarespace badge.

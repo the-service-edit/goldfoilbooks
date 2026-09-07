@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Website Review | Gold Foil Books &amp; The Service Edit</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="review.css?v=20260907a">
+</head>
+<body>
+
+<!-- ============================ WHO ARE YOU ============================ -->
+<div class="gate" id="gate">
+  <div class="gate-card">
+    <div class="eyebrow">Gold Foil Books website review</div>
+    <h1>Before you start, who&rsquo;s reviewing?</h1>
+    <p>Every note is signed with your name, so we know who asked for what. They all land in the same place, and nothing you write here can change the site.</p>
+    <ol class="gate-steps">
+      <li>Work down the page list on the left. The real site loads beside it.</li>
+      <li>Hit <b>Point at something</b>, then click the headline, photo or button you want changed. Or <b>Add a note</b> if it is about the page as a whole.</li>
+      <li>Answer anything under <b>What we need from you</b>. Those are the pieces only you hold.</li>
+      <li><b>Approve page</b> when you are happy with it. We are done when all 15 are green.</li>
+    </ol>
+    <div class="gate-who" id="gate-who"></div>
+    <div class="gate-other">
+      <input type="text" id="gate-name" placeholder="Someone else? Type your name">
+      <button class="btn go" id="gate-go">Start</button>
+    </div>
+  </div>
+</div>
+
+<!-- ============================ TOP BAR ============================ -->
+<header class="topbar">
+  <button class="tb-btn rail-toggle" id="rail-toggle" aria-label="Pages">Pages</button>
+  <div class="tb-brand">
+    <div class="tb-mark">GF</div>
+    <div>
+      <div class="tb-title">Website Review</div>
+      <div class="tb-sub">The Service Edit</div>
+    </div>
+  </div>
+
+  <div class="tb-spacer"></div>
+
+  <div class="tb-progress">
+    <span><b id="prog-done">0</b> of <b id="prog-total">0</b> pages reviewed</span>
+    <div class="prog-track"><div class="prog-fill" id="prog-fill"></div></div>
+  </div>
+
+  <button class="tb-btn todo-chip" id="todo-chip" style="display:none">
+    <span id="todo-count">0</span> needed from you
+  </button>
+
+  <div class="sync" id="sync"><span class="dot"></span><span id="sync-txt">Saving locally</span></div>
+
+  <div class="who">
+    <div class="who-chip"><span class="dot"></span><span id="who-name">…</span><button id="who-change">change</button></div>
+  </div>
+
+  <button class="tb-btn" id="btn-overview">All feedback</button>
+  <button class="tb-btn primary" id="btn-next">Next page &rarr;</button>
+</header>
+
+<!-- ============================ SHELL ============================ -->
+<div class="shell">
+
+  <!-- LEFT RAIL -->
+  <aside class="rail" id="rail">
+    <div class="rail-search"><input type="search" id="search" placeholder="Find a page"></div>
+    <div class="rail-filters">
+      <button class="rf on" data-filter="all">All</button>
+      <button class="rf" data-filter="todo">Not done</button>
+      <button class="rf" data-filter="changes">Changes</button>
+      <button class="rf" data-filter="approved">Approved</button>
+    </div>
+    <div class="rail-list" id="rail-list"></div>
+  </aside>
+
+  <!-- STAGE -->
+  <section class="stage">
+    <div class="stagebar">
+      <div style="min-width:0">
+        <div class="sb-title" id="sb-title">Loading</div>
+        <div class="sb-url" id="sb-url"></div>
+      </div>
+      <div class="sb-spacer"></div>
+      <div class="widths" id="widths">
+        <button data-w="desktop" class="on">Desktop</button>
+        <button data-w="tablet">Tablet</button>
+        <button data-w="mobile">Mobile</button>
+      </div>
+      <button class="sb-btn pin" id="btn-pin">&#9679; Point at something</button>
+      <button class="sb-btn" id="btn-note">&#9998; Add a note</button>
+      <a class="sb-btn" id="btn-tab" href="#" target="_blank" rel="noopener">Open page &#8599;</a>
+      <button class="sb-btn" id="btn-panel">Notes</button>
+    </div>
+
+    <div class="frame-wrap" id="frame-wrap">
+      <div class="frame-box" id="frame-box" data-w="desktop">
+        <div class="frame-load" id="frame-load">Loading the page…</div>
+        <div class="pin-hint">Click anything on the page to leave a note about it. <span class="k">Esc</span> to stop.</div>
+        <iframe id="frame" title="Page preview"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- RIGHT PANEL -->
+  <aside class="panel" id="panel">
+    <div class="pn-head">
+      <div class="pn-eyebrow">This page</div>
+      <div class="pn-title" id="pn-title">…</div>
+    </div>
+    <div class="pn-tabs">
+      <button class="pn-tab on" data-tab="page">Notes</button>
+      <button class="pn-tab" data-tab="todo">To do</button>
+      <button class="pn-tab" data-tab="all">Everything</button>
+    </div>
+    <div class="pn-body" id="pn-body"></div>
+    <div class="pn-foot" id="pn-foot"></div>
+  </aside>
+
+</div>
+
+<!-- ============================ OVERVIEW ============================ -->
+<div class="modal" id="modal">
+  <div class="sheet">
+    <div class="sheet-head">
+      <h2>All feedback</h2>
+      <button class="btn" id="btn-copy">Copy for Mel</button>
+      <button class="btn" id="btn-csv">Download CSV</button>
+      <button class="btn ghost" id="modal-close">Close</button>
+    </div>
+    <div class="sheet-body" id="sheet-body"></div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="config.js?v=20260907a"></script>
+<script src="review.js?v=20260907a"></script>
+</body>
+</html>

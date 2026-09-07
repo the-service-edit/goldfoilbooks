@@ -1,0 +1,75 @@
+{
+ "note": "Seed requests. Loaded once, then they live in the shared sheet like any other record. Mel can add more from inside the tool, and can delete any of these that are already done. Editing a line here after it has loaded does nothing, change it in the tool instead.",
+ "asks": [
+  {
+   "id": "ask-index-boilerplate",
+   "page": "index.html",
+   "title": "The \"Meet the maker\" opening line on the homepage",
+   "text": "It still reads \"Gold Foil Books started the way most good things do: quietly, in a corner, surrounded by books and sketchbooks.\" That sentence came off the old Squarespace site and it is the one thing on the homepage that could describe any maker of anything. The About page was rebuilt to get rid of it. Give me two or three sentences of what actually happened instead: the book, the year, what you tried first and what went wrong. Specifics beat atmosphere every time.",
+   "who": "Dani"
+  },
+  {
+   "id": "ask-about-name",
+   "page": "about.html",
+   "title": "Your name, and whether it goes on the site",
+   "text": "The site says \"the maker\" and \"one pair of hands\" and never names you. For a solo maker charging $85 for something handmade, your name is one of the strongest trust signals you have, and it is the thing a marketplace seller cannot copy. Do you want it on the About page and in the reviews, or do you want to keep trading as the brand only? Either answer is fine, but it should be a decision rather than an omission.",
+   "who": "Dani"
+  },
+  {
+   "id": "ask-product-series-price",
+   "page": "product.html",
+   "title": "How the $85 series price is actually honoured",
+   "text": "All three rebind pages currently say a discount code is emailed when the remaining books launch, one book per code. Two other places still promise it differently: the lock line above the stock line (\"Order at $85.00 and every other book in this series stays $85.00 for you\") and the same claim on the Shop page. Before this goes live I need one sentence, from you, that is true: what does someone who buys today actually receive, when, and does it expire. Marked CONFIRM BEFORE PUBLISHING in the code until you answer.",
+   "who": "Dani"
+  },
+  {
+   "id": "ask-product-reviews",
+   "page": "product.html",
+   "title": "Which product record holds the two five-star reviews",
+   "text": "Telisha P and Emma G, both 25 August. I have them on one product only, because that is where Squarespace shows them, and this page currently declares an aggregate rating to Google on that basis. If those two reviews are actually attached to a different book, tell me which, and I will move them. Claiming a rating on a product that does not hold the reviews is the kind of thing Google drops a rich result over.",
+   "who": "Dani"
+  },
+  {
+   "id": "ask-art-what-you-get",
+   "page": "art-the-hunt.html",
+   "title": "What the $7.99 download actually contains",
+   "text": "This applies to all eight artwork pages. Nothing on the site says the file format, the pixel dimensions, the resolution, or the largest size it can be printed at. Someone deciding whether $7.99 is worth it has no way to answer \"can I print this A3 and frame it\", and that is the single biggest gap in the artwork set. One line covers it: JPEG or PNG, W x H pixels, 300dpi, prints cleanly to A4/A3.",
+   "who": "Dani"
+  },
+  {
+   "id": "ask-acowar-downloads",
+   "page": "product-acowar.html",
+   "title": "The four Wings and Ruin panels are not sold as downloads",
+   "text": "Books one and two have four artwork downloads each. Book three has four finished panels and no download products at all, which is why this page is the weakest of the three and why it has to substitute two sections that the others carry. Four missing SKUs at $7.99. Are the files available, and do you want them listed?",
+   "who": "Dani"
+  },
+  {
+   "id": "ask-process-video",
+   "page": "process.html",
+   "title": "The re-recorded process video",
+   "text": "Step one was rewritten away from the retired \"seven surfaces over the line work\" description, and you mentioned the video was being re-recorded to match. Send it through when it is done and I will swap it in. If the timing has moved, tell me and I will decide whether the current one stays up in the meantime.",
+   "who": "Dani"
+  },
+  {
+   "id": "ask-shop-shipping",
+   "page": "shop.html",
+   "title": "International delivery times, duties and who pays them",
+   "text": "The site now says it ships worldwide with the rate calculated at checkout, which is correct. What it does not say anywhere is how long an international order takes, or whether the buyer pays import duties and taxes on arrival. Unpaid duties are the most common reason an international parcel gets refused and charged back to you. I need a delivery window for the main regions you ship to, and a plain sentence on duties, so I can build a shipping page. goldfoilbooks.com.au/shipping is currently a 404.",
+   "who": "Dani"
+  },
+  {
+   "id": "ask-shop-returns",
+   "page": "shop.html",
+   "title": "Returns on a made-to-order book",
+   "text": "There is no returns policy on the site. Made to order gives you a legitimate reason to limit change-of-mind returns, but Australian Consumer Law guarantees still apply if a book arrives damaged or faulty, and saying so plainly reassures people rather than costing you money. Tell me what you will and will not accept and I will write it.",
+   "who": "Dani"
+  },
+  {
+   "id": "ask-shop-bundle",
+   "page": "shop.html",
+   "title": "A three-book set at a set price",
+   "text": "Three books at $85.00 is $255.00. A set at a single price is the obvious way to lift average order value, and it removes the need for the whole price-hold mechanism, because someone who buys the set is not waiting on anything. Do you want to sell one, and if so at what number? Say no and I will stop raising it.",
+   "who": "Dani"
+  }
+ ]
+}

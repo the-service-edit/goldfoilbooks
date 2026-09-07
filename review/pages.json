@@ -1,0 +1,96 @@
+{
+ "generated": "2026-09-07",
+ "note": "The 15 linked pages. collection.html, collection-acomaf.html and collection-acowar.html are parked and unlinked (see gold-foil-books-collections-parked), so they are not in the review. Add them back here if that changes.",
+ "pages": [
+  {
+   "id": "index.html",
+   "path": "../index.html",
+   "title": "Home",
+   "group": "The site"
+  },
+  {
+   "id": "shop.html",
+   "path": "../pages/shop.html",
+   "title": "Shop",
+   "group": "The site"
+  },
+  {
+   "id": "process.html",
+   "path": "../pages/process.html",
+   "title": "Process",
+   "group": "The site"
+  },
+  {
+   "id": "about.html",
+   "path": "../pages/about.html",
+   "title": "About",
+   "group": "The site"
+  },
+  {
+   "id": "product.html",
+   "path": "../pages/product.html",
+   "title": "Book one · A Court of Thorns and Roses",
+   "group": "The three rebinds"
+  },
+  {
+   "id": "product-acomaf.html",
+   "path": "../pages/product-acomaf.html",
+   "title": "Book two · A Court of Mist and Fury",
+   "group": "The three rebinds"
+  },
+  {
+   "id": "product-acowar.html",
+   "path": "../pages/product-acowar.html",
+   "title": "Book three · A Court of Wings and Ruin",
+   "group": "The three rebinds"
+  },
+  {
+   "id": "art-the-hunt.html",
+   "path": "../pages/art-the-hunt.html",
+   "title": "The Hunt",
+   "group": "Artwork downloads"
+  },
+  {
+   "id": "art-spring-court-manor.html",
+   "path": "../pages/art-spring-court-manor.html",
+   "title": "Spring Court Manor",
+   "group": "Artwork downloads"
+  },
+  {
+   "id": "art-the-suriel.html",
+   "path": "../pages/art-the-suriel.html",
+   "title": "The Suriel",
+   "group": "Artwork downloads"
+  },
+  {
+   "id": "art-pool-of-starlight.html",
+   "path": "../pages/art-pool-of-starlight.html",
+   "title": "Pool of Starlight",
+   "group": "Artwork downloads"
+  },
+  {
+   "id": "art-starfall-in-velaris.html",
+   "path": "../pages/art-starfall-in-velaris.html",
+   "title": "Starfall in Velaris",
+   "group": "Artwork downloads"
+  },
+  {
+   "id": "art-the-cabin.html",
+   "path": "../pages/art-the-cabin.html",
+   "title": "The Cabin",
+   "group": "Artwork downloads"
+  },
+  {
+   "id": "art-the-wedding.html",
+   "path": "../pages/art-the-wedding.html",
+   "title": "The Wedding",
+   "group": "Artwork downloads"
+  },
+  {
+   "id": "art-chapter-54.html",
+   "path": "../pages/art-chapter-54.html",
+   "title": "Chapter 54",
+   "group": "Artwork downloads"
+  }
+ ]
+}

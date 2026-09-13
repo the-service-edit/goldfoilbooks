@@ -1,6 +1,6 @@
 {
  "generated": "2026-09-07",
- "note": "The 15 linked pages. collection.html, collection-acomaf.html and collection-acowar.html are parked and unlinked (see gold-foil-books-collections-parked), so they are not in the review. Add them back here if that changes.",
+ "note": "The 16 linked pages. collection.html, collection-acomaf.html and collection-acowar.html are parked and unlinked (see gold-foil-books-collections-parked), so they are not in the review. Add them back here if that changes.",
  "pages": [
   {
    "id": "index.html",
@@ -24,6 +24,12 @@
    "id": "about.html",
    "path": "../pages/about.html",
    "title": "About",
+   "group": "The site"
+  },
+  {
+   "id": "account.html",
+   "path": "../pages/account.html",
+   "title": "Account",
    "group": "The site"
   },
   {

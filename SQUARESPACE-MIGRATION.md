@@ -153,22 +153,59 @@ support email.
 
 Live URL: `https://www.goldfoilbooks.com.au/account/login`
 
-In this repo it is in the header nav of all 18 pages, immediately before the
-cart, and in the footer Shop column:
+### The finding, verified on the live site 13 Sept
 
-```html
-<a class="gfb-nav__account" href="https://www.goldfoilbooks.com.au/account/login">Account</a>
-```
+The sign in card is **inside an iframe**: `<iframe id="accountFrame"
+src="/account/frame/login">`, served by Squarespace. Two consequences, both
+hard:
 
-On Squarespace it stays **native**. Do not paste the markup above into the live
-header.
+- **Custom CSS cannot reach it.** CSS does not cross a document boundary.
+  Nothing in Design > Custom CSS touches that card.
+- **It does not inherit site styles either.** Computed styles inside the frame
+  are `Clarkson / Proxima Nova` — Squarespace's admin UI stack — not Cinzel
+  Decorative and Lato. Button `#3e3e3e`, 3px radius. It is Squarespace product
+  chrome, not the theme.
 
-- Turn it on: **Settings > Customer Accounts** (or **Commerce > Customer
-  Accounts** depending on the panel), enabled, then **Design > Site Header >
-  Elements > Account** so the native account link renders in the header.
-- Squarespace outputs its own account link, usually an icon or the word
-  Account. Restyle it to match `.gfb-nav a` rather than replacing it.
-- On the live site the href is the relative `/account/login`. The absolute URL
-  is used in this repo only so the GitHub Pages mockup reaches the real site.
-- Check it after any header change: load `/account/login` and confirm the sign
-  in form renders, then confirm a signed-in customer sees Orders and Downloads.
+The page *behind* the overlay is the site itself, so once the new design is
+live the backdrop is the new design automatically. No migration step. The card
+on top stays Squarespace grey. **That is the ceiling on 7.1 customer accounts.**
+
+Do not inject a stylesheet into the frame from Code Injection. It is same
+origin so it is technically possible, but the class names are build-hashed
+(`bI4EAfdQCQskwttU` on the button today) and it is script-injecting into a live
+auth form. It breaks silently, and it breaks the login when it does.
+
+### What we do instead
+
+`pages/account.html` is a **branded doorway** in the site's own design: what
+the account holds, four support questions answered, and a single foil CTA that
+opens the native overlay. The header and footer Account links point at that
+page, not straight at `/account/login`. The grey card then reads as a
+credential step, the way a payment gateway does, rather than as the
+destination.
+
+Built from existing classes only. No new CSS.
+
+### On Squarespace
+
+- Build `/account` as a normal page and port `pages/account.html` into it the
+  usual way: Code Blocks for the sections, native header and footer.
+- Point the header's Account element at `/account`, not `/account/login`.
+- Turn accounts on: **Settings > Customer Accounts** (or **Commerce > Customer
+  Accounts** depending on the panel), then **Design > Site Header > Elements >
+  Account** so the native element renders.
+- Do not paste the mockup's header markup into the live header. Restyle the
+  native element to match `.gfb-nav a`.
+- The absolute URL in `pages/account.html` is so the GitHub Pages mockup
+  reaches the real site. Live, the CTA is the relative `/account/login`.
+
+### Two claims to settle before this page goes live
+
+Both are marked `CONFIRM BEFORE PUBLISHING` in the file.
+
+1. That purchased artwork files are re-downloadable from a signed in account,
+   and whether that covers guest checkout orders. This is the reason the page
+   exists. If it is not true, the fix is to enable it, not to reword the page.
+2. Whether the emailed download links expire, and after how long. The copy
+   currently says they "do not last forever" against an account file that
+   "does not expire".

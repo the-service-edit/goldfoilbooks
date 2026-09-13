@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<title>Your account | Gold Foil Books</title>
+<meta name="description" content="Sign in to Gold Foil Books to see your order history and your artwork downloads.">
+<meta name="robots" content="noindex, nofollow">
+<!-- PROTOTYPE ONLY. This copy lives on GitHub Pages and is a near-complete
+     duplicate of a live commercial site. Without this it competes with
+     goldfoilbooks.com.au in search. Do NOT carry this tag into Squarespace. -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Lato:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/styles.css">
+</head>
+<body class="gfb-site">
+<a class="gfb-skip" href="#main">Skip to content</a>
+<div class="gfb-top is-solid" data-header>
+  <div class="gfb-strip">Ships worldwide &middot; free within Australia</div>
+  <header class="gfb-header">
+    <div class="gfb-wrap gfb-header__inner">
+    <a class="gfb-logo" href="../index.html">Gold Foil Books</a>
+    <button class="gfb-burger" type="button" data-burger aria-expanded="false" aria-controls="gfb-nav">Menu</button>
+    <nav class="gfb-nav" id="gfb-nav" data-nav aria-label="Primary">
+      <a href="../index.html">Home</a>
+      <a href="shop.html">Rebinds</a>
+      <a href="shop.html#artwork">Artwork</a>
+      <a href="process.html">Process</a>
+      <a href="about.html">About</a>
+      <!-- SQUARESPACE ACCOUNT: this page is the branded doorway. The sign in
+           button below opens Squarespace's own account overlay, which is an
+           iframe and cannot be restyled. See SQUARESPACE-MIGRATION.md § 9. -->
+      <a class="gfb-nav__account" href="account.html" aria-current="page">Account</a>
+      <!-- SQUARESPACE CART -->
+      <a class="gfb-nav__cart" href="#" aria-label="Cart, 0 items">Cart (0)</a>
+      </nav>
+    </div>
+  </header>
+</div>
+<main id="main" data-world="acotar">
+
+  <!-- ====================================================================
+       01. SIGN IN
+       A utility page, so the button comes before the prose. Scene hero
+       rather than a flat dark band: the scene body already sets #fff and
+       0.86 white on paragraphs, which a --dark section does not. Spring
+       Court Manor is the one artwork not already used as a hero.
+       ==================================================================== -->
+  <section class="gfb-scene" data-header-trigger
+           style="--focal-mobile:50% 30%; --focal-desktop:50% 24%;
+                  --veil:linear-gradient(to top, rgba(6,8,18,0.9) 0%, rgba(6,8,18,0.46) 9%, rgba(6,8,18,0) 23%),
+                         linear-gradient(105deg, rgba(6,8,18,0.93) 0%, rgba(6,8,18,0.7) 36%, rgba(6,8,18,0.2) 72%, rgba(6,8,18,0.06) 100%);">
+    <picture>
+      <source type="image/webp" srcset="../assets/artwork/spring-court-manor-640.webp 640w, ../assets/artwork/spring-court-manor-1000.webp 1000w" sizes="100vw">
+      <img class="gfb-scene__art" src="../assets/artwork/spring-court-manor-1000.jpg" width="1000" height="1414" fetchpriority="high" decoding="async"
+           srcset="../assets/artwork/spring-court-manor-640.jpg 640w, ../assets/artwork/spring-court-manor-1000.jpg 1000w" sizes="100vw"
+           alt="Spring Court Manor: a manor house behind flowering trees, drawn for the back cover of A Court of Thorns and Roses." data-protect draggable="false">
+    </picture>
+    <div class="gfb-scene__veil" aria-hidden="true"></div>
+    <div class="gfb-wrap gfb-scene__body">
+      <span class="gfb-eyebrow">Your account</span>
+      <h1 class="gfb-h1" style="max-width:15ch;">Everything you have ordered, in one place.</h1>
+      <p style="max-width:34rem; margin-top:1.1rem;">
+        Sign in to see your order history and check where your book is up to. Every edition
+        is made to order, so this is the quickest way to see the stage yours has reached.
+      </p>
+      <p style="margin-top:1.75rem; display:flex; flex-wrap:wrap; gap:1rem;">
+        <a class="gfb-btn gfb-btn--foil" href="https://www.goldfoilbooks.com.au/account/login" target="_blank" rel="noopener"><span>Sign in</span></a>
+      </p>
+      <p class="gfb-note" style="margin-top:1.15rem; color:rgba(255,255,255,0.68);">
+        First time here? Create an account on the same screen, using the email you ordered with.
+      </p>
+    </div>
+    <p class="gfb-scene__caption">Spring Court Manor &middot; back cover for A Court of Thorns and Roses</p>
+  </section>
+
+  <!-- ====================================================================
+       02. WHAT THE ACCOUNT IS FOR
+       The artwork download line is the whole commercial reason this page
+       exists, and it is the one claim not yet verified.
+       ==================================================================== -->
+  <section class="gfb-section gfb-section--deep">
+    <div class="gfb-wrap">
+      <h2 class="gfb-rulehead"><span>What is inside</span></h2>
+      <div style="max-width:46rem; margin-inline:auto;">
+        <ul class="gfb-deets">
+          <li><b>Your orders</b><span>Every rebind and every artwork file you have bought, with the date and the amount, so you are never guessing what you ordered or when.</span></li>
+          <!-- CONFIRM BEFORE PUBLISHING: that purchased artwork files are
+               re-downloadable from the signed in account, and whether that
+               covers guest checkout orders too. If they are not, cut this
+               line rather than soften it. It is the reason to have an account
+               at all, and the fix is to enable it, not to write around it. -->
+          <li><b>Your artwork downloads</b><span>The files you bought, available again whenever you need them. Emailed download links do not last forever; this one does not expire.</span></li>
+          <li><b>Your details</b><span>Delivery address and contact details, saved for next time. Handy if you are collecting the series one book at a time.</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================================
+       03. THE FOUR SUPPORT EMAILS
+       These are the questions that arrive by DM instead of being answered
+       on the site. Answering them here is the whole point of the page.
+       ==================================================================== -->
+  <section class="gfb-section">
+    <div class="gfb-wrap">
+      <h2 class="gfb-rulehead"><span>Common questions</span></h2>
+      <div style="max-width:46rem; margin-inline:auto;">
+        <details class="gfb-disclosure">
+          <summary>I cannot find my artwork download</summary>
+          <div class="gfb-disclosure__body">
+            <p>Check the email address you used at checkout, including the junk folder. The
+            download link is sent straight after payment.</p>
+            <!-- CONFIRM BEFORE PUBLISHING: same claim as section 02. -->
+            <p>If you created an account with that same email, the file is also waiting in your
+            account. If you checked out as a guest, message me with your order number and I
+            will send it again.</p>
+          </div>
+        </details>
+        <details class="gfb-disclosure">
+          <summary>I ordered but never made an account</summary>
+          <div class="gfb-disclosure__body">
+            <p>That is fine, and your order is not affected. Create an account using the same
+            email address you used at checkout and your order history will be there.</p>
+          </div>
+        </details>
+        <details class="gfb-disclosure">
+          <summary>I have forgotten my password</summary>
+          <div class="gfb-disclosure__body">
+            <p>Use <b>Forgot password</b> on the sign in screen. The reset email comes from
+            Squarespace, so check your junk folder if it has not arrived within a few minutes.</p>
+          </div>
+        </details>
+        <details class="gfb-disclosure">
+          <summary>Where is my book up to?</summary>
+          <div class="gfb-disclosure__body">
+            <p>Each book is made to order and the current processing time is approximately 2 to
+            4 weeks depending on order volume. You will get a dispatch email with tracking when
+            yours is on its way.</p>
+          </div>
+        </details>
+        <p style="margin-top:1.75rem;">
+          Still stuck? <a class="gfb-link" href="../index.html#contact">Send me a message</a>
+          and I will sort it out.
+        </p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="gfb-footer">
+  <div class="gfb-wrap">
+    <div class="gfb-footer__cols">
+      <div>
+        <h2 class="gfb-h2">Made one at a time.</h2>
+        <p style="color:rgba(245,242,236,0.72); max-width:26rem;">
+          Each book is made to order. Current processing time is approximately 2 to 4 weeks
+          depending on order volume.
+        </p>
+        <!-- SQUARESPACE NEWSLETTER -->
+        <form class="gfb-newsletter" style="margin-top:1.75rem;" action="#" method="post" novalidate>
+          <label class="gfb-skip" for="gfb-email">Email address</label>
+          <input id="gfb-email" type="email" name="email" placeholder="Email address" autocomplete="email" required>
+          <button class="gfb-btn gfb-btn--light" type="submit"><span>Sign up</span></button>
+        </form>
+        <p class="gfb-note" style="margin-top:0.85rem; color:rgba(245,242,236,0.45);">We respect your privacy.</p>
+      </div>
+      <div>
+        <p class="gfb-footer__head">Shop</p>
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="shop.html">Rebinds</a></li>
+          <li><a href="shop.html#artwork">Artwork</a></li>
+          <li><a href="account.html">Account</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="gfb-footer__head">Studio</p>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="process.html">Process</a></li>
+          <li><a href="https://instagram.com/goldfoilbooks" rel="me noopener">Instagram</a></li>
+          <li><a href="https://www.tiktok.com/@goldfoilbooks" rel="me noopener">TikTok</a></li>
+          <li><a href="https://www.youtube.com/@GoldFoilBooks" rel="me noopener">YouTube</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="gfb-footer__base">
+      <span>&copy; <span data-year>2026</span> Gold Foil Books &middot; Wollongong, Australia</span>
+      <span style="max-width:44rem;">
+        Independently created fan-made rebinds. Not affiliated with, endorsed by, sponsored by
+        or associated with Sarah J. Maas, the publisher, or any copyright holder.
+      </span>
+    </div>
+    <p class="gfb-credit">
+      Site by <a href="https://theserviceedit.com" target="_blank" rel="noopener">The Service Edit</a>
+    </p>
+  </div>
+</footer>
+<button class="gfb-totop" type="button" data-totop aria-label="Back to top">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+<script src="../js/main.js" defer></script>
+</body>
+</html>

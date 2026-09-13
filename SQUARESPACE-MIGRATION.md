@@ -29,7 +29,7 @@ or into blocks you have not styled.
 | Mockup component | Squarespace implementation | Notes |
 |---|---|---|
 | Announcement strip | **Native** Marketing > Announcement Bar | Restyle with `.gfb-strip`. Copy is already live |
-| Header, logo, nav | **Native** header, custom CSS | Nav labels change to Rebinds, Artwork, Process, About. Add a Process page |
+| Header, logo, nav | **Native** header, custom CSS | Nav labels change to Rebinds, Artwork, Process, About, Account. Add a Process page. The Account link is the native customer account login, see section 9 |
 | Cart link and count | **Native** cart element | Never rebuild. `cartStub()` exists only so the prototype does not look dead |
 | Full-bleed hero scene | **Code Block** | One block per scene. The `<picture>` plus `.gfb-scene` markup, pasted as is |
 | Compare slider (drawn / bound) | **Code Block** + the shared JS | Point the two `<img>` at Squarespace-hosted files |
@@ -122,6 +122,8 @@ accessibility tooling, and stops nobody who is trying.
 - Do not remove the `.gfb-site` namespace. It is what keeps this from fighting
   Squarespace updates.
 - Do not switch template families. Everything here works on 7.1 as configured.
+- Do not drop the customer account login from the header. It is how buyers
+  reach their orders and re-download the $7.99 artwork files. See section 9.
 
 ## 8. Studio credit
 
@@ -141,3 +143,32 @@ Custom CSS.
 
 Do not add it via Code Injection footer. That renders outside the footer
 section and lands below the Squarespace badge.
+
+## 9. Customer account login
+
+**Non-negotiable. Customers keep the account area.** It is the only route to
+their order history and to re-downloading the $7.99 artwork files after the
+original email link expires. Removing it turns every lost download into a
+support email.
+
+Live URL: `https://www.goldfoilbooks.com.au/account/login`
+
+In this repo it is in the header nav of all 18 pages, immediately before the
+cart, and in the footer Shop column:
+
+```html
+<a class="gfb-nav__account" href="https://www.goldfoilbooks.com.au/account/login">Account</a>
+```
+
+On Squarespace it stays **native**. Do not paste the markup above into the live
+header.
+
+- Turn it on: **Settings > Customer Accounts** (or **Commerce > Customer
+  Accounts** depending on the panel), enabled, then **Design > Site Header >
+  Elements > Account** so the native account link renders in the header.
+- Squarespace outputs its own account link, usually an icon or the word
+  Account. Restyle it to match `.gfb-nav a` rather than replacing it.
+- On the live site the href is the relative `/account/login`. The absolute URL
+  is used in this repo only so the GitHub Pages mockup reaches the real site.
+- Check it after any header change: load `/account/login` and confirm the sign
+  in form renders, then confirm a signed-in customer sees Orders and Downloads.

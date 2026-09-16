@@ -1,6 +1,6 @@
 {
  "generated": "2026-09-07",
- "note": "The 15 linked pages. collection.html, collection-acomaf.html and collection-acowar.html are parked and unlinked (see gold-foil-books-collections-parked), so they are not in the review. Add them back here if that changes.",
+ "note": "The 16 linked pages. collection.html, collection-acomaf.html and collection-acowar.html are parked and unlinked (see gold-foil-books-collections-parked), so they are not in the review. Add them back here if that changes.",
  "pages": [
   {
    "id": "index.html",
@@ -27,21 +27,27 @@
    "group": "The site"
   },
   {
+   "id": "shipping.html",
+   "path": "../pages/shipping.html",
+   "title": "Shipping and returns",
+   "group": "The site"
+  },
+  {
    "id": "product.html",
    "path": "../pages/product.html",
-   "title": "Book one · A Court of Thorns and Roses",
+   "title": "Book one \u00b7 A Court of Thorns and Roses",
    "group": "The three rebinds"
   },
   {
    "id": "product-acomaf.html",
    "path": "../pages/product-acomaf.html",
-   "title": "Book two · A Court of Mist and Fury",
+   "title": "Book two \u00b7 A Court of Mist and Fury",
    "group": "The three rebinds"
   },
   {
    "id": "product-acowar.html",
    "path": "../pages/product-acowar.html",
-   "title": "Book three · A Court of Wings and Ruin",
+   "title": "Book three \u00b7 A Court of Wings and Ruin",
    "group": "The three rebinds"
   },
   {

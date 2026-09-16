@@ -164,6 +164,15 @@
         });
         label();
       }
+
+      /* data-video-link: clicking the video itself opens that URL (TikTok).
+         The Play/Pause button keeps its own job. */
+      var link = wrap.getAttribute("data-video-link");
+      if (link) {
+        vid.addEventListener("click", function () {
+          window.open(link, "_blank", "noopener");
+        });
+      }
     });
   }
 

@@ -1,0 +1,2719 @@
+<!doctype html>
+<html lang="en-AU" class="gfb-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Home · Launch preview · Gold Foil Books</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Lato:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+<style id="gfb-css">
+:where(.gfb-site) :is(h1, h2, h3, h4, h5, h6, p, li, blockquote, figcaption) { color: inherit; }
+:where(.gfb-site) :is(p, li, blockquote, figcaption) { line-height: inherit; letter-spacing: inherit; }
+:where(.gfb-site) :is(h1, h2, h3, h4, h5, h6) { font-size: revert; line-height: revert; letter-spacing: revert; font-weight: revert; }
+:where(.gfb-site) a { color: inherit; }
+.gfb-site {
+ --paper: #f5f2ec;
+ --paper-deep: #ebe6dc;
+ --ink: #16120e;
+ --ink-soft: #4a423a;
+ --ink-mute: #6a6157; 
+ --rule: #ded7c9;
+ --night: #12100e;
+ --gold: #ffe48c; 
+ --gold-light: #fff0bd; 
+ --gold-glint: #fffaea; 
+ --gold-deep: #e3ad2a; 
+ --gold-line: #c9971d; 
+ --gold-ink: #805e00; 
+ --gold-foil-gradient: linear-gradient(100deg,
+ #e3ad2a 0%, #ffe48c 17%, #fff0bd 29%, #ffe48c 41%,
+ #e6b52f 57%, #ffe48c 73%, #fff6d6 85%, #ffe48c 100%);
+ --gold-foil-soft: linear-gradient(100deg,
+ #f9d878 0%, #ffe48c 22%, #fff1c1 38%, #ffe48c 55%,
+ #f6d271 72%, #ffe48c 88%, #fff3c8 100%);
+ --foil: var(--gold-ink);
+ --foil-lift: var(--gold);
+ --world-bg: #2f343c;
+ --world-ink: #f5f2ec;
+ --world-accent: var(--gold);
+ --measure: 34rem;
+ --gutter: clamp(1.25rem, 5vw, 4.5rem);
+ --rhythm: clamp(4.5rem, 11vh, 9rem);
+ --display: "Cinzel Decorative", "Trajan Pro", Georgia, serif;
+ --serif: "Cinzel Decorative", "Trajan Pro", Georgia, serif;
+ --sans: "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+ --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+.gfb-site [data-world="acotar"] {
+ --world-bg: #232a33;
+ --world-ink: #f0ece2;
+ --world-accent: #9fae86;
+}
+.gfb-site [data-world="acomaf"] {
+ --world-bg: #1b2340;
+ --world-ink: #eceaf4;
+ --world-accent: var(--gold);
+}
+.gfb-site [data-world="acowar"] {
+ --world-bg: #241d20;
+ --world-ink: #f2ece6;
+ --world-accent: var(--gold-deep);
+}
+.gfb-site *, .gfb-site *::before, .gfb-site *::after { box-sizing: border-box; }
+body.gfb-site {
+ margin: 0;
+ background: var(--paper);
+ color: var(--ink);
+ font-family: var(--sans);
+ font-size: 1rem;
+ line-height: 1.65;
+ font-synthesis: none;
+ -webkit-font-smoothing: antialiased;
+ overflow-x: hidden;
+}
+.gfb-site :where(img, video) { display: block; max-width: 100%; height: auto; }
+.gfb-site :where(h1, h2, h3, h4) {
+ font-family: var(--serif);
+ font-weight: 400;
+ line-height: 1.14;
+ letter-spacing: 0.015em;
+ margin: 0;
+ text-wrap: balance;
+}
+.gfb-site :where(p) { margin: 0 0 1.15em; max-width: var(--measure); }
+.gfb-site :where(p:last-child) { margin-bottom: 0; }
+.gfb-site :where(a) { color: inherit; }
+.gfb-site :focus-visible {
+ outline: 2px solid var(--foil);
+ outline-offset: 3px;
+ border-radius: 1px;
+}
+.gfb-skip {
+ position: absolute; left: -9999px; top: 0; z-index: 200;
+ background: var(--ink); color: var(--paper);
+ padding: 0.75rem 1.25rem; font-size: 0.85rem;
+}
+.gfb-skip:focus { left: 0; }
+.gfb-display { font-size: clamp(2.6rem, 8.2vw, 6.5rem); }
+.gfb-h1 { font-size: clamp(2.1rem, 5.6vw, 4.25rem); }
+.gfb-h2 { font-size: clamp(1.7rem, 3.6vw, 2.9rem); }
+.gfb-h3 { font-size: clamp(1.25rem, 2.2vw, 1.7rem); }
+.gfb-lede {
+ font-size: clamp(1.05rem, 1.6vw, 1.25rem);
+ line-height: 1.55;
+ color: var(--ink-soft);
+}
+.gfb-site .gfb-eyebrow,
+.gfb-eyebrow {
+ font-family: var(--sans);
+ font-size: 0.72rem;
+ font-weight: 500;
+ letter-spacing: 0.18em;
+ text-transform: uppercase;
+ color: var(--ink-mute);
+ margin: 0 0 1.1rem;
+ display: block;
+}
+.gfb-eyebrow--foil { color: var(--gold-ink); } 
+.gfb-site .gfb-section--dark .gfb-eyebrow--foil,
+.gfb-site .gfb-scene__body .gfb-eyebrow--foil,
+.gfb-site .gfb-inhand .gfb-eyebrow--foil,
+.gfb-site .gfb-footer .gfb-eyebrow--foil { color: var(--gold); }
+.gfb-eyebrow--world { color: var(--world-accent); }
+.gfb-site .gfb-note,
+.gfb-note {
+ font-size: 0.82rem;
+ line-height: 1.5;
+ color: var(--ink-mute);
+}
+.gfb-wrap {
+ width: 100%;
+ max-width: 84rem;
+ margin-inline: auto;
+ padding-inline: var(--gutter);
+}
+.gfb-wrap--narrow { max-width: 58rem; }
+.gfb-section { padding-block: var(--rhythm); }
+.gfb-section--tight { padding-block: calc(var(--rhythm) * 0.6); }
+.gfb-section--dark { background: var(--night); color: var(--paper); }
+.gfb-section--deep { background: var(--paper-deep); }
+.gfb-rule {
+ height: 1px;
+ background: var(--rule);
+ border: 0;
+ margin: 0;
+}
+.gfb-top {
+ position: fixed;
+ inset: 0 0 auto 0;
+ z-index: 100;
+ color: var(--paper);
+ transition: background-color 0.35s var(--ease), color 0.35s var(--ease),
+ box-shadow 0.35s var(--ease);
+}
+.gfb-header {
+ position: relative;
+ padding-block: 0.9rem;
+}
+.gfb-header::after {
+ content: "";
+ position: absolute; inset: 0; z-index: -1;
+ background: linear-gradient(to bottom, rgba(8,7,6,0.62), rgba(8,7,6,0));
+ transition: opacity 0.35s var(--ease);
+}
+.gfb-top.is-solid { box-shadow: 0 1px 0 var(--rule); }
+.gfb-top.is-solid .gfb-header { background: var(--paper); color: var(--ink); }
+.gfb-top.is-solid .gfb-header::after { opacity: 0; }
+.gfb-main--offset { padding-top: 5.5rem; }
+.gfb-header__inner {
+ display: flex;
+ align-items: baseline;
+ gap: 1.5rem;
+ justify-content: space-between;
+}
+.gfb-logo {
+ font-family: var(--display);
+ font-size: clamp(1.25rem, 0.95rem + 0.85vw, 1.65rem);
+ letter-spacing: 0.11em;
+ text-transform: uppercase;
+ text-decoration: none;
+ white-space: nowrap;
+ line-height: 1;
+}
+@media (min-width: 56rem) and (max-width: 68rem) {
+ .gfb-logo { font-size: 1.28rem; letter-spacing: 0.09em; }
+ .gfb-nav { gap: 1rem; }
+ .gfb-nav a { font-size: 0.75rem; letter-spacing: 0.07em; }
+}
+.gfb-nav { display: flex; align-items: baseline; gap: clamp(1rem, 2.4vw, 2.1rem); }
+.gfb-nav a {
+ font-size: 0.8rem;
+ letter-spacing: 0.09em;
+ text-transform: uppercase;
+ text-decoration: none;
+ padding-block: 0.35rem;
+ position: relative;
+ white-space: nowrap;
+}
+.gfb-nav a::after {
+ content: "";
+ position: absolute; left: 0; right: 0; bottom: 0;
+ height: 1px; background: currentColor;
+ transform: scaleX(0); transform-origin: left;
+ transition: transform 0.3s var(--ease);
+}
+.gfb-nav a:hover::after,
+.gfb-nav a[aria-current="page"]::after { transform: scaleX(1); }
+.gfb-nav__cart { font-variant-numeric: tabular-nums; }
+.gfb-burger {
+ display: none;
+ position: relative;
+ z-index: 100;
+ background: none; border: 0; color: inherit;
+ font: inherit; font-size: 0.8rem; letter-spacing: 0.09em;
+ text-transform: uppercase; cursor: pointer; padding: 0.35rem 0;
+}
+.gfb-strip {
+ background: var(--ink);
+ color: var(--paper);
+ text-align: center;
+ font-size: 0.72rem;
+ letter-spacing: 0.16em;
+ text-transform: uppercase;
+ padding: 0.6rem 1rem;
+}
+.gfb-scene {
+ position: relative;
+ min-height: 100svh;
+ display: grid;
+ isolation: isolate;
+ background: var(--world-bg);
+}
+.gfb-scene--short { min-height: 72svh; }
+.gfb-scene > picture { display: contents; }
+.gfb-scene__art {
+ position: absolute; inset: 0; z-index: -2;
+ width: 100%; height: 100%; max-width: none;
+ object-fit: cover;
+ object-position: var(--focal-mobile, 50% 50%);
+}
+.gfb-scene__veil {
+ position: absolute; inset: 0; z-index: -1;
+ background: linear-gradient(to bottom, rgba(10,9,8,0.34) 0%, rgba(10,9,8,0.12) 24%, rgba(10,9,8,0.58) 52%, rgba(10,9,8,0.86) 78%, rgba(10,9,8,0.94) 100%);
+}
+@media (min-width: 48rem) {
+ .gfb-scene__veil {
+ background: var(--veil, linear-gradient(to bottom, rgba(10,9,8,0.62) 0%, rgba(10,9,8,0.18) 45%, rgba(10,9,8,0.55) 100%));
+ }
+}
+.gfb-scene__body .gfb-eyebrow { color: rgba(255,255,255,0.74); }
+.gfb-scene__body {
+ align-self: end;
+ padding-block: clamp(6rem, 12vh, 9rem) clamp(3.25rem, 9vh, 7rem);
+ color: #fff;
+}
+.gfb-scene__body--top { align-self: start; padding-top: clamp(7rem, 18vh, 12rem); }
+.gfb-scene__body p { color: rgba(255,255,255,0.86); }
+.gfb-scene__caption {
+ position: absolute;
+ bottom: 1.1rem;
+ right: var(--gutter);
+ font-size: 0.68rem;
+ letter-spacing: 0.14em;
+ text-transform: uppercase;
+ color: rgba(255,255,255,0.62);
+ z-index: 1;
+ text-align: right;
+}
+.gfb-btn {
+ display: inline-flex;
+ align-items: center;
+ gap: 0.6rem;
+ font-family: var(--sans);
+ font-size: 0.78rem;
+ font-weight: 500;
+ letter-spacing: 0.14em;
+ text-transform: uppercase;
+ text-decoration: none;
+ padding: 0.95rem 1.6rem;
+ border: 1px solid currentColor;
+ background: transparent;
+ color: inherit;
+ cursor: pointer;
+ transition: background-color 0.28s var(--ease), color 0.28s var(--ease);
+}
+.gfb-btn:hover { background: currentColor; }
+.gfb-btn:hover > span { color: var(--paper); }
+.gfb-btn--solid {
+ background: var(--ink); color: var(--paper); border-color: var(--ink);
+}
+.gfb-btn--solid:hover { background: transparent; color: var(--ink); }
+.gfb-btn--solid:hover > span { color: var(--ink); }
+.gfb-btn--light { color: #fff; }
+.gfb-btn--light:hover > span { color: var(--night); }
+.gfb-btn--block { width: 100%; justify-content: center; }
+.gfb-link {
+ font-size: 0.8rem;
+ letter-spacing: 0.12em;
+ text-transform: uppercase;
+ text-decoration: none;
+ border-bottom: 1px solid currentColor;
+ padding-bottom: 0.15rem;
+ transition: opacity 0.25s var(--ease);
+}
+.gfb-link:hover { opacity: 0.6; }
+.gfb-compare {
+ position: relative;
+ overflow: hidden;
+ background: var(--world-bg);
+ aspect-ratio: 3 / 4;
+ touch-action: pan-y;
+ cursor: ew-resize;
+ user-select: none;
+}
+.gfb-compare__layer { position: absolute; inset: 0; }
+.gfb-compare__layer img { width: 100%; height: 100%; max-width: none; object-fit: cover; }
+.gfb-compare__layer--top {
+ clip-path: inset(0 calc(100% - var(--pos, 50%)) 0 0);
+}
+.gfb-compare__handle {
+ position: absolute;
+ top: 0; bottom: 0;
+ left: var(--pos, 50%);
+ width: 1px;
+ background: rgba(255,255,255,0.85);
+ transform: translateX(-0.5px);
+}
+.gfb-compare__handle::after {
+ content: "";
+ position: absolute; top: 50%; left: 50%;
+ width: 2.75rem; height: 2.75rem;
+ transform: translate(-50%, -50%);
+ border: 1px solid rgba(255,255,255,0.85);
+ border-radius: 50%;
+ background: rgba(16,14,12,0.32);
+ backdrop-filter: none;
+}
+.gfb-compare__grip {
+ position: absolute;
+ top: 50%; left: var(--pos, 50%);
+ transform: translate(-50%, -50%);
+ width: 2.75rem; height: 2.75rem;
+ opacity: 0;
+ border: 0; padding: 0; margin: 0;
+ background: none; cursor: ew-resize;
+}
+.gfb-compare__grip:focus-visible { opacity: 1; }
+.gfb-compare__tag {
+ position: absolute;
+ bottom: 1rem;
+ font-size: 0.66rem;
+ letter-spacing: 0.16em;
+ text-transform: uppercase;
+ color: rgba(255,255,255,0.82);
+ pointer-events: none;
+}
+.gfb-compare__tag--l { left: 1rem; }
+.gfb-compare__tag--r { right: 1rem; }
+@media (min-width: 48rem) { .gfb-compare { aspect-ratio: 4 / 3; } }
+.gfb-process {
+ display: grid;
+ gap: clamp(2rem, 5vw, 4.5rem);
+ align-items: center;
+}
+@media (min-width: 56rem) {
+ .gfb-process { grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); }
+}
+.gfb-video {
+ position: relative;
+ background: #100e0c;
+ aspect-ratio: 684 / 632;
+ overflow: hidden;
+}
+.gfb-video video,
+.gfb-video img { width: 100%; height: 100%; max-width: none; object-fit: cover; }
+.gfb-video__toggle {
+ position: absolute;
+ right: 0.75rem; bottom: 0.75rem;
+ font-family: var(--sans);
+ font-size: 0.66rem;
+ letter-spacing: 0.14em;
+ text-transform: uppercase;
+ color: #fff;
+ background: rgba(12,10,9,0.55);
+ border: 1px solid rgba(255,255,255,0.4);
+ padding: 0.5rem 0.85rem;
+ cursor: pointer;
+}
+.gfb-layers { list-style: none; margin: 1.75rem 0 0; padding: 0; max-width: 26rem; }
+.gfb-layers li {
+ display: flex;
+ justify-content: space-between;
+ gap: 1rem;
+ padding: 0.6rem 0;
+ border-top: 1px solid rgba(255,255,255,0.14);
+ font-size: 0.82rem;
+ letter-spacing: 0.06em;
+}
+.gfb-layers li:last-child { border-bottom: 1px solid rgba(255,255,255,0.14); }
+.gfb-layers span:last-child { color: rgba(255,255,255,0.45); font-variant-numeric: tabular-nums; }
+.gfb-spread { display: grid; gap: 0.75rem; }
+.gfb-spread__item { position: relative; background: var(--world-bg); }
+.gfb-spread__item::after {
+ content: "";
+ position: absolute; inset: auto 0 0 0; height: 5rem;
+ background: linear-gradient(to top, rgba(8,7,6,0.62), rgba(8,7,6,0));
+ pointer-events: none;
+}
+.gfb-spread__item img { width: 100%; }
+.gfb-spread__label {
+ position: absolute; left: 0.9rem; bottom: 0.75rem; z-index: 1;
+ font-size: 0.66rem; letter-spacing: 0.16em; text-transform: uppercase;
+ color: rgba(255,255,255,0.8);
+}
+.gfb-worlds { display: grid; gap: 0.75rem; }
+@media (min-width: 56rem) { .gfb-worlds { grid-template-columns: repeat(2, 1fr); } }
+.gfb-world {
+ position: relative;
+ display: grid;
+ align-content: end;
+ min-height: 26rem;
+ padding: clamp(1.5rem, 3vw, 2.5rem);
+ text-decoration: none;
+ color: #fff;
+ overflow: hidden;
+ background: var(--world-bg);
+}
+@media (min-width: 56rem) { .gfb-world { min-height: 34rem; } }
+.gfb-world img {
+ position: absolute; inset: 0; z-index: 0;
+ width: 100%; height: 100%; max-width: none; object-fit: cover;
+ object-position: var(--focal, 50% 40%);
+ transition: transform 1.1s var(--ease);
+}
+.gfb-world::after {
+ content: "";
+ position: absolute; inset: 0; z-index: 1;
+ background: linear-gradient(to top, rgba(8,7,6,0.9) 0%, rgba(8,7,6,0.62) 26%, rgba(8,7,6,0.2) 58%, rgba(8,7,6,0.04) 100%);
+}
+.gfb-world > * { position: relative; z-index: 2; }
+.gfb-world:hover img { transform: scale(1.035); }
+.gfb-world__meta { font-size: 0.78rem; color: rgba(255,255,255,0.72); margin-top: 0.5rem; }
+.gfb-grid {
+ display: grid;
+ gap: clamp(1.75rem, 3.5vw, 3rem) clamp(1rem, 2.5vw, 2rem);
+ grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+}
+.gfb-grid--art { grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr)); }
+@media (min-width: 62rem) {
+ .gfb-grid:not(.gfb-grid--art) { grid-template-columns: repeat(3, 1fr); }
+}
+.gfb-card { display: block; text-decoration: none; color: inherit; }
+.gfb-card__media {
+ display: block;
+ position: relative;
+ background: var(--paper-deep);
+ aspect-ratio: 3 / 4;
+ overflow: hidden;
+ margin-bottom: 0.9rem;
+}
+.gfb-card--art .gfb-card__media { aspect-ratio: 1 / 1; }
+.gfb-card__media img {
+ position: absolute; inset: 0;
+ width: 100%; height: 100%; max-width: none; object-fit: cover;
+ transition: opacity 0.5s var(--ease);
+}
+.gfb-card__media img + img { opacity: 0; }
+.gfb-card:hover .gfb-card__media img + img,
+.gfb-card:focus-visible .gfb-card__media img + img { opacity: 1; }
+.gfb-card__title {
+ font-family: var(--serif);
+ font-size: 1.05rem;
+ line-height: 1.25;
+ margin: 0 0 0.3rem;
+}
+.gfb-site .gfb-card__meta {
+ margin: 0;
+ font-size: 0.78rem;
+ color: var(--ink-mute);
+ display: flex;
+ gap: 0.6rem;
+ flex-wrap: wrap;
+ align-items: baseline;
+}
+.gfb-card__price { color: var(--ink); font-variant-numeric: tabular-nums; }
+.gfb-card__was { text-decoration: line-through; color: var(--ink-mute); }
+.gfb-site .gfb-was {
+ text-decoration: line-through;
+ text-decoration-thickness: from-font;
+ color: var(--ink-mute);
+ font-weight: 400;
+ margin-left: 0.45em;
+ font-variant-numeric: tabular-nums;
+}
+.gfb-site .gfb-price .gfb-was { font-size: 0.62em; }
+.gfb-section--dark .gfb-was,
+.gfb-inhand .gfb-was,
+.gfb-footer .gfb-was { color: rgba(255,255,255,0.5); }
+.gfb-site .gfb-offer-note {
+ font-family: var(--sans);
+ font-size: 0.72rem;
+ letter-spacing: 0.12em;
+ text-transform: uppercase;
+ color: var(--gold-ink);
+ margin: 0 0 0.5rem;
+ display: block;
+}
+.gfb-section--dark .gfb-offer-note,
+.gfb-inhand .gfb-offer-note { color: var(--gold-deep); }
+.gfb-site .gfb-vh {
+ position: absolute; width: 1px; height: 1px;
+ margin: -1px; padding: 0; border: 0;
+ clip-path: inset(50%); overflow: hidden; white-space: nowrap;
+}
+.gfb-card__flag {
+ font-size: 0.64rem; letter-spacing: 0.14em; text-transform: uppercase;
+ color: var(--gold-ink); 
+}
+.gfb-pdp { display: grid; gap: clamp(2rem, 4vw, 3.5rem); }
+@media (min-width: 62rem) {
+ .gfb-pdp { grid-template-columns: minmax(0, 1.15fr) minmax(19rem, 0.85fr); align-items: start; }
+ .gfb-pdp__buy { position: sticky; top: 6.5rem; }
+}
+.gfb-gallery { display: grid; gap: 0.6rem; grid-template-columns: repeat(2, 1fr); }
+.gfb-gallery__main { grid-column: 1 / -1; background: var(--paper-deep); }
+.gfb-gallery figure { margin: 0; background: var(--paper-deep); }
+.gfb-site .gfb-price,
+.gfb-price {
+ font-family: var(--serif);
+ font-size: 1.9rem;
+ margin: 0.35rem 0 0.15rem;
+ font-variant-numeric: tabular-nums;
+}
+.gfb-site .gfb-stock {
+ font-size: 0.76rem; letter-spacing: 0.12em; text-transform: uppercase;
+ color: var(--ink-mute); margin-bottom: 1.5rem; display: block;
+}
+.gfb-stock b { color: var(--ink); font-weight: 500; }
+.gfb-specs { list-style: none; margin: 0; padding: 0; }
+.gfb-specs li {
+ display: grid;
+ grid-template-columns: 8.5rem 1fr;
+ gap: 1rem;
+ padding: 0.7rem 0;
+ border-top: 1px solid var(--rule);
+ font-size: 0.88rem;
+ align-items: baseline;
+}
+.gfb-specs li:last-child { border-bottom: 1px solid var(--rule); }
+.gfb-specs dt, .gfb-specs .k {
+ font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase;
+ color: var(--ink-mute);
+}
+@media (max-width: 30rem) {
+ .gfb-specs li { grid-template-columns: 1fr; gap: 0.2rem; }
+}
+.gfb-disclosure { border-top: 1px solid var(--rule); }
+.gfb-disclosure:last-of-type { border-bottom: 1px solid var(--rule); }
+.gfb-disclosure summary {
+ cursor: pointer;
+ list-style: none;
+ padding: 1rem 0;
+ font-size: 0.78rem;
+ letter-spacing: 0.13em;
+ text-transform: uppercase;
+ display: flex;
+ justify-content: space-between;
+ gap: 1rem;
+}
+.gfb-disclosure summary::-webkit-details-marker { display: none; }
+.gfb-disclosure summary::after { content: "+"; color: var(--ink-mute); }
+.gfb-disclosure[open] summary::after { content: "\2212"; }
+.gfb-disclosure__body { padding-bottom: 1.25rem; font-size: 0.9rem; color: var(--ink-soft); }
+.gfb-disclosure__body ul { padding-left: 1.1rem; margin: 0 0 1em; }
+.gfb-disclosure__body li { margin-bottom: 0.35em; }
+.gfb-quotes { display: grid; gap: clamp(1.75rem, 4vw, 3rem); }
+@media (min-width: 48rem) { .gfb-quotes { grid-template-columns: repeat(2, 1fr); } }
+.gfb-quote blockquote {
+ margin: 0 0 1rem;
+ font-family: var(--sans);
+ font-style: italic;
+ font-size: clamp(1.1rem, 1.8vw, 1.35rem);
+ line-height: 1.5;
+}
+.gfb-site .gfb-quote figcaption { font-size: 0.78rem; color: var(--ink-mute); margin: 0; }
+.gfb-site .gfb-world__meta { margin: 0.5rem 0 0; }
+.gfb-site .gfb-stars { color: var(--gold-ink); font-size: 0.8rem; letter-spacing: 0.2em; margin: 0 0 0.75rem; }
+.gfb-split { display: grid; gap: clamp(1.75rem, 4vw, 4rem); align-items: center; }
+@media (min-width: 56rem) {
+ .gfb-split { grid-template-columns: repeat(2, 1fr); }
+ .gfb-split--flip > :first-child { order: 2; }
+}
+.gfb-detail-row { display: grid; gap: 0.75rem; grid-template-columns: repeat(2, 1fr); }
+@media (min-width: 48rem) { .gfb-detail-row { grid-template-columns: repeat(4, 1fr); } }
+.gfb-detail-row figure { margin: 0; }
+.gfb-detail-row figure img {
+ width: 100%;
+ aspect-ratio: 1 / 1;
+ object-fit: cover;
+ object-position: var(--crop, 50% 50%);
+ background: var(--paper-deep);
+}
+.gfb-detail-row figcaption {
+ font-size: 0.72rem;
+ font-weight: 500;
+ letter-spacing: 0.1em;
+ text-transform: uppercase;
+ color: var(--ink-soft);
+ margin-top: 0.85rem;
+ padding-top: 0.7rem;
+ border-top: 1px solid var(--rule);
+}
+.gfb-section--dark .gfb-detail-row figcaption {
+ color: rgba(245,242,236,0.72);
+ border-top-color: rgba(255,255,255,0.18);
+}
+.gfb-section--dark .gfb-detail-row figure img { background: rgba(255,255,255,0.05); }
+@media (max-width: 30rem) {
+ .gfb-detail-row figcaption { font-size: 0.66rem; letter-spacing: 0.08em; }
+}
+.gfb-footer { background: var(--night); color: var(--paper); padding-block: var(--rhythm) 3rem; }
+.gfb-footer a { color: rgba(245,242,236,0.72); text-decoration: none; }
+.gfb-footer a:hover { color: var(--paper); }
+.gfb-footer__cols { display: grid; gap: 2.5rem; }
+@media (min-width: 48rem) { .gfb-footer__cols { grid-template-columns: 1.4fr 1fr 1fr; } }
+.gfb-footer h2 { font-size: clamp(1.6rem, 3vw, 2.3rem); margin-bottom: 1rem; }
+.gfb-footer ul { list-style: none; margin: 0; padding: 0; }
+.gfb-footer li { margin-bottom: 0.55rem; font-size: 0.88rem; }
+.gfb-footer__head {
+ font-size: 0.7rem; letter-spacing: 0.16em; text-transform: uppercase;
+ color: rgba(245,242,236,0.45); margin-bottom: 1rem;
+}
+.gfb-newsletter { display: flex; gap: 0.5rem; flex-wrap: wrap; max-width: 24rem; }
+.gfb-newsletter input {
+ flex: 1 1 12rem;
+ background: transparent;
+ border: 1px solid rgba(245,242,236,0.28);
+ color: var(--paper);
+ font: inherit; font-size: 0.85rem;
+ padding: 0.8rem 0.9rem;
+}
+.gfb-newsletter input::placeholder { color: rgba(245,242,236,0.4); }
+.gfb-footer__base {
+ margin-top: 3.5rem; padding-top: 1.5rem;
+ border-top: 1px solid rgba(245,242,236,0.14);
+ display: flex; flex-wrap: wrap; gap: 0.75rem 1.5rem; justify-content: space-between;
+ font-size: 0.74rem; color: rgba(245,242,236,0.45);
+}
+.gfb-credit {
+ margin-top: 1.1rem;
+ font-size: 0.72rem;
+ letter-spacing: 0.04em;
+ color: rgba(245,242,236,0.55);
+}
+.gfb-site .gfb-footer .gfb-credit a {
+ color: rgba(245,242,236,0.78);
+ text-decoration: underline;
+ text-decoration-color: rgba(245,242,236,0.28);
+ text-underline-offset: 0.22em;
+ transition: color 0.3s var(--ease), text-decoration-color 0.3s var(--ease);
+}
+.gfb-site .gfb-footer .gfb-credit a:hover,
+.gfb-site .gfb-footer .gfb-credit a:focus-visible {
+ color: var(--paper);
+ text-decoration-color: var(--gold);
+}
+.gfb-js [data-reveal] { opacity: 0; transform: translateY(14px); }
+[data-reveal].is-in {
+ opacity: 1; transform: none;
+ transition: opacity 0.85s var(--ease), transform 0.85s var(--ease);
+}
+[data-reveal-delay="1"].is-in { transition-delay: 0.08s; }
+[data-reveal-delay="2"].is-in { transition-delay: 0.16s; }
+[data-reveal-delay="3"].is-in { transition-delay: 0.24s; }
+@media (prefers-reduced-motion: reduce) {
+ .gfb-site *,
+ .gfb-site *::before,
+ .gfb-site *::after {
+ animation-duration: 0.001ms !important;
+ transition-duration: 0.001ms !important;
+ scroll-behavior: auto !important;
+ }
+ [data-reveal] { opacity: 1; transform: none; }
+ .gfb-world:hover img { transform: none; }
+}
+@media (max-width: 55.99rem) {
+ .gfb-burger { display: inline-block; }
+ .gfb-nav {
+ position: fixed;
+ inset: 0;
+ background: var(--paper);
+ color: var(--ink);
+ flex-direction: column;
+ align-items: flex-start;
+ justify-content: center;
+ gap: 1.35rem;
+ padding: var(--gutter);
+ transform: translateY(-100%);
+ transition: transform 0.42s var(--ease);
+ z-index: 99;
+ }
+ .gfb-nav.is-open { transform: none; }
+ .gfb-nav a { font-family: var(--serif); font-size: 1.6rem; letter-spacing: 0.02em; text-transform: none; }
+ .gfb-nav a::after { display: none; }
+}
+@media (max-width: 47.99rem) {
+ .gfb-gallery { grid-template-columns: repeat(4, 1fr); gap: 0.4rem; }
+ .gfb-scene { min-height: 92svh; }
+ .gfb-scene--short { min-height: 66svh; }
+ .gfb-scene__caption {
+ position: absolute; left: 0; right: 0; bottom: 0.9rem;
+ text-align: left; padding-inline: var(--gutter);
+ }
+ .gfb-scene__body { padding-bottom: 4.5rem; }
+ .gfb-scene__body > div[style*="text-align:right"] { text-align: left !important; margin-left: 0 !important; }
+}
+@media (min-width: 48rem) {
+ .gfb-scene__art { object-position: var(--focal-desktop, var(--focal-mobile, 50% 50%)); }
+ .gfb-spread { gap: 1.25rem; }
+}
+@media (max-width: 22.5rem) {
+ .gfb-site { --gutter: 1rem; }
+ .gfb-display { font-size: 2.3rem; }
+ .gfb-grid { grid-template-columns: 1fr; }
+ .gfb-detail-row { grid-template-columns: 1fr 1fr; }
+}
+.gfb-buybar {
+ position: fixed;
+ inset: auto 0 0 0;
+ z-index: 90;
+ display: none;
+ align-items: center;
+ justify-content: space-between;
+ gap: 1rem;
+ padding: 0.7rem var(--gutter) calc(0.7rem + env(safe-area-inset-bottom));
+ background: var(--paper);
+ border-top: 1px solid var(--rule);
+ transform: translateY(110%);
+ transition: transform 0.34s var(--ease);
+}
+.gfb-buybar.is-up { transform: none; }
+.gfb-buybar__price { font-family: var(--serif); font-size: 1.15rem; font-variant-numeric: tabular-nums; }
+.gfb-buybar__price small { display: block; font-family: var(--sans); font-size: 0.68rem; color: var(--ink-mute); letter-spacing: 0.1em; text-transform: uppercase; }
+.gfb-buybar .gfb-btn { padding: 0.8rem 1.3rem; }
+@media (max-width: 61.99rem) {
+ .gfb-buybar { display: flex; }
+}
+@media (prefers-reduced-motion: reduce) {
+ .gfb-buybar { transition: none; }
+}
+.gfb-set { display: grid; gap: clamp(0.75rem, 2vw, 1.5rem); grid-template-columns: repeat(3, 1fr); }
+.gfb-set figure { margin: 0; }
+.gfb-set img { width: 100%; }
+.gfb-set figcaption {
+ font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase;
+ color: rgba(245,242,236,0.55); padding-top: 0.75rem;
+}
+@media (max-width: 30rem) { .gfb-set { gap: 0.5rem; } .gfb-set figcaption { font-size: 0.62rem; letter-spacing: 0.06em; } }
+.gfb-site {
+ --accent: var(--gold-ink); 
+ --accent-lift: var(--gold); 
+ --gold-display: #a1862f; 
+}
+.gfb-edition {
+ position: relative;
+ background: var(--night);
+ color: #fff;
+ overflow: hidden;
+ isolation: isolate;
+}
+.gfb-edition__bg {
+ position: absolute; inset: 0; z-index: 0;
+ width: 100%; height: 100%; max-width: none;
+ object-fit: cover;
+ object-position: var(--focal, 40% 40%);
+ opacity: 0.34;
+ filter: saturate(0.75) contrast(1.05);
+}
+.gfb-edition::after {
+ content: "";
+ position: absolute; inset: 0; z-index: 1;
+ background:
+ radial-gradient(120% 90% at 30% 40%, rgba(10,12,16,0.2) 0%, rgba(8,9,12,0.86) 72%),
+ linear-gradient(to bottom, rgba(8,9,12,0.55), rgba(8,9,12,0.4) 45%, rgba(8,9,12,0.95));
+}
+.gfb-edition > .gfb-wrap,
+.gfb-edition > .gfb-proof { position: relative; z-index: 2; }
+.gfb-edition > .gfb-edition__bg { position: absolute; z-index: 0; }
+.gfb-edition__stage {
+ display: grid;
+ min-height: min(78svh, 46rem);
+ gap: clamp(2rem, 5vw, 4.5rem);
+ align-items: center;
+ padding-block: clamp(6.5rem, 14vh, 10rem) clamp(3rem, 6vh, 4.5rem);
+}
+@media (min-width: 56rem) {
+ .gfb-edition__stage { grid-template-columns: minmax(0, 0.92fr) minmax(0, 1fr); }
+}
+.gfb-shot { position: relative; display: block; }
+.gfb-shot img {
+ width: 100%;
+ max-width: 24rem;
+ margin-inline: auto;
+ filter: drop-shadow(0 26px 46px rgba(0,0,0,0.62)) drop-shadow(0 4px 10px rgba(0,0,0,0.4));
+}
+@media (min-width: 56rem) {
+ .gfb-edition .gfb-shot img { max-width: 26rem; margin-inline: 0 auto; }
+}
+.gfb-edition__eyebrow {
+ font-family: var(--sans);
+ font-size: 0.72rem;
+ font-weight: 500;
+ letter-spacing: 0.24em;
+ text-transform: uppercase;
+ color: rgba(255,255,255,0.66);
+ display: block;
+ margin-bottom: 0.85rem;
+}
+.gfb-edition__title {
+ font-family: var(--serif);
+ font-size: clamp(2.3rem, 5.8vw, 4.4rem);
+ line-height: 1.16;
+ letter-spacing: 0.02em;
+ color: var(--accent-lift);
+ margin: 0;
+ max-width: 14ch;
+}
+.gfb-edition__body {
+ margin-top: 1.35rem;
+ max-width: 34rem;
+ color: rgba(255,255,255,0.82);
+ font-size: clamp(1rem, 1.4vw, 1.1rem);
+ line-height: 1.6;
+}
+.gfb-edition__meta {
+ margin-top: 1.1rem;
+ font-size: 0.8rem;
+ letter-spacing: 0.1em;
+ text-transform: uppercase;
+ color: rgba(255,255,255,0.55);
+}
+.gfb-edition__meta b { color: var(--accent-lift); font-weight: 500; }
+.gfb-proof {
+ border-top: 1px solid rgba(255,255,255,0.12);
+ display: grid;
+ gap: 1px;
+ background: rgba(255,255,255,0.12);
+ grid-template-columns: 1fr;
+}
+@media (min-width: 40rem) { .gfb-proof { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 64rem) { .gfb-proof { grid-template-columns: repeat(4, 1fr); } }
+.gfb-proof__cell {
+ background: var(--night);
+ padding: clamp(1.5rem, 3vw, 2.25rem) clamp(1.1rem, 2.2vw, 1.9rem);
+ display: flex;
+ flex-direction: column;
+ gap: 0.6rem;
+ text-align: center;
+ align-items: center;
+ justify-content: center;
+ min-height: 10.5rem;
+}
+.gfb-proof__quote {
+ font-family: var(--sans);
+ font-style: italic;
+ font-size: 0.98rem;
+ line-height: 1.45;
+ color: #fff;
+ margin: 0;
+ max-width: 26ch;
+}
+.gfb-proof__by {
+ font-size: 0.66rem;
+ letter-spacing: 0.18em;
+ text-transform: uppercase;
+ color: rgba(255,255,255,0.5);
+ margin: 0;
+}
+.gfb-proof__stars { color: var(--accent-lift); font-size: 0.78rem; letter-spacing: 0.24em; }
+.gfb-proof__fact {
+ font-family: var(--serif);
+ font-size: 1.05rem;
+ color: #fff;
+ margin: 0;
+ max-width: 22ch;
+}
+.gfb-rulehead {
+ display: grid;
+ grid-template-columns: minmax(1.5rem, 1fr) auto minmax(1.5rem, 1fr);
+ align-items: center;
+ gap: clamp(0.9rem, 2.5vw, 1.75rem);
+ margin: 0 0 clamp(2rem, 4vw, 3.25rem);
+ text-align: center;
+}
+.gfb-rulehead::before,
+.gfb-rulehead::after {
+ content: "";
+ height: 1px;
+ background: var(--rule);
+}
+.gfb-rulehead span {
+ font-family: var(--sans);
+ font-weight: 500;
+ font-size: clamp(0.9rem, 1.9vw, 1.2rem);
+ letter-spacing: 0.22em;
+ text-transform: uppercase;
+ white-space: nowrap;
+}
+.gfb-section--dark .gfb-rulehead::before,
+.gfb-section--dark .gfb-rulehead::after { background: rgba(255,255,255,0.2); }
+.gfb-rulehead + .gfb-row,
+.gfb-rulehead + p + .gfb-row { padding-top: 0; }
+.gfb-row {
+ display: grid;
+ gap: clamp(1.75rem, 4vw, 4rem);
+ align-items: center;
+ padding-block: clamp(1.75rem, 4vw, 3.25rem);
+}
+@media (min-width: 56rem) {
+ .gfb-row { grid-template-columns: repeat(2, 1fr); }
+ .gfb-row--flip > :first-child { order: 2; }
+}
+.gfb-row__title {
+ font-family: var(--sans);
+ font-weight: 600;
+ font-size: 0.92rem;
+ letter-spacing: 0.18em;
+ text-transform: uppercase;
+ margin: 0 0 1rem;
+}
+.gfb-row p { color: var(--ink-soft); }
+.gfb-row .gfb-shot img {
+ filter: drop-shadow(0 22px 34px rgba(22,18,14,0.28));
+ max-width: 23rem;
+ margin-inline: auto;
+}
+.gfb-dropcap::first-letter {
+ font-family: var(--serif);
+ float: left;
+ font-size: 3.4em;
+ line-height: 0.82;
+ padding: 0.06em 0.12em 0 0;
+ color: var(--ink);
+}
+.gfb-btn--foil {
+ background-color: var(--gold);
+ background-image: var(--gold-foil-soft);
+ background-size: 200% 100%;
+ background-position: 26% 0;
+ border-color: var(--gold-ink);
+ color: var(--ink);
+ font-size: 0.72rem;
+ letter-spacing: 0.16em;
+ padding: 0.78rem 1.35rem;
+ transition: background-position 0.85s var(--ease), color 0.28s var(--ease),
+ border-color 0.28s var(--ease);
+}
+.gfb-btn--foil > span { color: var(--ink); }
+.gfb-btn--foil:hover,
+.gfb-btn--foil:focus-visible {
+ background-color: var(--gold);
+ background-position: 68% 0;
+ color: var(--ink);
+}
+.gfb-btn--foil:hover > span,
+.gfb-btn--foil:focus-visible > span { color: var(--ink); }
+a.gfb-btn--foil > span::after { content: " \2192"; }
+.gfb-section--dark .gfb-btn--foil,
+.gfb-inhand .gfb-btn--foil,
+.gfb-edition .gfb-btn--foil {
+ border-color: var(--gold-deep);
+ color: var(--night);
+}
+.gfb-section--dark .gfb-btn--foil > span,
+.gfb-inhand .gfb-btn--foil > span,
+.gfb-edition .gfb-btn--foil > span,
+.gfb-section--dark .gfb-btn--foil:hover > span,
+.gfb-inhand .gfb-btn--foil:hover > span,
+.gfb-edition .gfb-btn--foil:hover > span { color: var(--night); }
+.gfb-contact { position: relative; isolation: isolate; padding-block: clamp(3rem, 7vw, 6rem); }
+.gfb-contact__bg {
+ position: absolute; inset: 0; z-index: -2;
+ width: 100%; height: 100%; max-width: none;
+ object-fit: cover; object-position: 50% 40%;
+}
+.gfb-contact::before {
+ content: "";
+ position: absolute; inset: 0; z-index: -1;
+ background: linear-gradient(to bottom,
+ rgba(245,242,236,0.74) 0%,
+ rgba(245,242,236,0.60) 14%,
+ rgba(245,242,236,0.44) 46%,
+ rgba(245,242,236,0.38) 100%);
+}
+.gfb-contact__panel {
+ display: grid;
+ gap: clamp(2rem, 4vw, 3.5rem);
+ background: rgba(255,255,255,0.94); 
+ border: 1px solid var(--rule);
+ padding: clamp(1.5rem, 3.5vw, 3rem);
+}
+@media (min-width: 56rem) { .gfb-contact__panel { grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr); } }
+.gfb-field { display: grid; gap: 0.75rem; }
+@media (min-width: 34rem) { .gfb-field--pair { grid-template-columns: repeat(2, 1fr); } }
+.gfb-input {
+ width: 100%;
+ font: inherit;
+ font-size: 0.9rem;
+ padding: 0.8rem 0.9rem;
+ border: 1px solid var(--rule);
+ background: rgba(255,255,255,0.96);
+ color: var(--ink);
+}
+.gfb-input::placeholder { color: var(--ink-mute); }
+textarea.gfb-input { min-height: 8rem; resize: vertical; }
+.gfb-deets { list-style: none; margin: 0; padding: 0; display: grid; gap: 1.35rem; }
+.gfb-deets b {
+ display: block;
+ font-size: 0.66rem;
+ letter-spacing: 0.18em;
+ text-transform: uppercase;
+ color: var(--accent);
+ font-weight: 500;
+ margin-bottom: 0.2rem;
+}
+.gfb-deets span { color: var(--ink-soft); font-size: 0.92rem; }
+.gfb-deets a { text-decoration: none; border-bottom: 1px solid var(--gold-line); }
+.gfb-totop {
+ position: fixed;
+ right: 1rem; bottom: 1rem;
+ z-index: 80;
+ width: 2.6rem; height: 2.6rem;
+ display: grid; place-items: center;
+ background-color: var(--gold);
+ background-image: var(--gold-foil-soft);
+ background-size: 230% 100%;
+ background-position: 26% 0;
+ color: var(--ink);
+ border: 1px solid var(--gold-ink);
+ cursor: pointer;
+ opacity: 0;
+ transform: translateY(0.75rem);
+ transition: opacity 0.3s var(--ease), transform 0.3s var(--ease),
+ background-position 0.8s var(--ease);
+ pointer-events: none;
+}
+.gfb-totop.is-up { opacity: 1; transform: none; pointer-events: auto; }
+.gfb-totop:hover { background-position: 70% 0; }
+.gfb-totop svg { width: 0.85rem; height: 0.85rem; fill: none; stroke: currentColor; stroke-width: 2; }
+@media (max-width: 61.99rem) { .gfb-totop { bottom: 5rem; } }
+.gfb-site .gfb-center { max-width: none; text-align: center; }
+.gfb-site .gfb-measure-center { max-width: 44rem; margin-inline: auto; text-align: center; }
+.gfb-inhand {
+ background: var(--night);
+ color: #fff;
+ display: grid;
+ align-items: stretch;
+}
+@media (min-width: 56rem) {
+ .gfb-inhand { grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); }
+ .gfb-inhand--flip > :first-child { order: 2; }
+}
+.gfb-inhand__figure { position: relative; margin: 0; min-height: 22rem; }
+.gfb-inhand__photo {
+ width: 100%;
+ height: 100%;
+ max-width: none;
+ object-fit: cover;
+ object-position: var(--focal-mobile, 50% 26%);
+ aspect-ratio: 4 / 5;
+}
+@media (min-width: 56rem) {
+ .gfb-inhand__figure { min-height: min(84svh, 46rem); }
+ .gfb-inhand__photo { position: absolute; inset: 0; aspect-ratio: auto; object-position: var(--focal-desktop, 50% 34%); }
+}
+.gfb-inhand__panel {
+ display: grid;
+ align-content: center;
+ padding: clamp(2.25rem, 5vw, 4.5rem) var(--gutter);
+}
+@media (min-width: 56rem) {
+ .gfb-inhand__panel { padding-inline: clamp(2.5rem, 5vw, 5rem); }
+ .gfb-inhand__inner { max-width: 30rem; margin-left: auto; }
+ .gfb-inhand--flip .gfb-inhand__inner { margin-left: 0; margin-right: auto; }
+}
+.gfb-inhand__panel h2 {
+ font-size: clamp(1.8rem, 3.4vw, 2.9rem);
+ color: #fff;
+ max-width: 16ch;
+}
+.gfb-inhand__panel p { color: rgba(255,255,255,0.82); }
+.gfb-inhand__panel .gfb-eyebrow { color: var(--gold-deep); }
+.gfb-spec-row {
+ list-style: none;
+ display: grid;
+ grid-template-columns: repeat(2, minmax(0, 1fr));
+ gap: 0.9rem 1.5rem;
+ margin: 1.75rem 0 0;
+ padding: 1.25rem 0 0;
+ border-top: 1px solid rgba(255,255,255,0.16);
+ max-width: 26rem;
+}
+.gfb-spec-row li {
+ font-size: 0.72rem;
+ letter-spacing: 0.14em;
+ text-transform: uppercase;
+ color: rgba(255,255,255,0.6);
+}
+.gfb-spec-row b {
+ display: block;
+ font-family: var(--serif);
+ font-size: 1.5rem;
+ letter-spacing: 0;
+ text-transform: none;
+ color: var(--gold-deep);
+ font-weight: 400;
+ line-height: 1.1;
+ margin-bottom: 0.15rem;
+}
+.gfb-figure { margin: 0; }
+.gfb-figure img { width: 100%; }
+.gfb-section--dark .gfb-figure figcaption,
+.gfb-section--dark figure figcaption { color: rgba(245,242,236,0.72); }
+.gfb-figure figcaption {
+ font-size: 0.72rem;
+ letter-spacing: 0.12em;
+ text-transform: uppercase;
+ color: var(--ink-mute);
+ padding-top: 0.65rem;
+}
+[data-protect] {
+ -webkit-user-select: none;
+ user-select: none;
+ -webkit-user-drag: none;
+ -webkit-touch-callout: none;
+ pointer-events: none;
+}
+picture.gfb-guard { position: static; }
+@media print {
+ [data-protect] { visibility: hidden; }
+}
+@media (min-width: 56rem) {
+ .gfb-edition .gfb-shot {
+ display: block;
+ width: 100%;
+ max-width: 22.5rem;
+ padding: 0.9rem;
+ background: #ece7dd;
+ box-shadow: 0 30px 60px rgba(0,0,0,0.62), 0 2px 6px rgba(0,0,0,0.4);
+ }
+ .gfb-edition .gfb-shot__frame {
+ display: block;
+ aspect-ratio: 4 / 5;
+ overflow: hidden;
+ background: #ece7dd;
+ }
+ .gfb-edition .gfb-shot img {
+ max-width: none;
+ width: 100%;
+ height: 100%;
+ margin-inline: 0;
+ object-fit: cover;
+ object-position: var(--shot-crop, 50% 46%);
+ transform: scale(var(--shot-zoom, 1.28));
+ transform-origin: 50% 46%;
+ filter: none;
+ }
+}
+@media (max-width: 55.99rem) {
+ .gfb-edition .gfb-shot { display: none; }
+ .gfb-edition__bg { opacity: 0.66; }
+ .gfb-edition::after {
+ background: linear-gradient(
+ to bottom,
+ rgba(8,9,12,0.62) 0%,
+ rgba(8,9,12,0.28) 26%,
+ rgba(8,9,12,0.62) 56%,
+ rgba(8,9,12,0.92) 82%,
+ rgba(8,9,12,0.96) 100%
+ );
+ }
+ .gfb-edition__stage {
+ min-height: 76svh;
+ align-content: end;
+ padding-block: 7rem 2.5rem;
+ gap: 0;
+ }
+ .gfb-edition__title { max-width: 11ch; }
+ .gfb-edition__body { margin-top: 1.1rem; }
+}
+.gfb-inhand--hero .gfb-inhand__panel { padding-top: clamp(6.5rem, 13vh, 9rem); }
+.gfb-inhand__title {
+ font-family: var(--serif);
+ font-weight: 400;
+ font-size: clamp(2rem, 3.6vw, 3.1rem);
+ line-height: 1.18;
+ letter-spacing: 0.02em;
+ color: var(--gold);
+ margin: 0;
+ max-width: 15ch;
+ text-wrap: balance;
+}
+@supports ((-webkit-background-clip: text) or (background-clip: text)) {
+ .gfb-inhand__title {
+ background-image: var(--gold-foil-gradient);
+ background-size: 300% 100%;
+ background-position: 24% 0;
+ -webkit-background-clip: text;
+ background-clip: text;
+ color: transparent;
+ }
+}
+.gfb-inhand--hero .gfb-lede { color: rgba(255,255,255,0.84); }
+.gfb-site .gfb-inhand__meta {
+ margin: 1.75rem 0 0;
+ font-size: 0.78rem;
+ letter-spacing: 0.1em;
+ text-transform: uppercase;
+ color: rgba(255,255,255,0.55);
+ max-width: none;
+}
+.gfb-inhand__meta b { color: var(--accent-lift); font-weight: 500; }
+@media (min-width: 56rem) {
+ .gfb-inhand--hero .gfb-inhand__figure { min-height: min(90svh, 50rem); }
+ .gfb-inhand--hero .gfb-inhand__photo { object-position: var(--focal-desktop, 50% 38%); }
+}
+@media (max-width: 55.99rem) {
+ .gfb-inhand--hero .gfb-inhand__figure { order: -1; }
+ .gfb-inhand--hero .gfb-inhand__photo { aspect-ratio: 4 / 5; object-position: 50% 22%; }
+ .gfb-inhand--hero .gfb-inhand__panel { padding-top: 2.25rem; padding-bottom: 3rem; }
+ .gfb-inhand--hero .gfb-spec-row { margin-top: 1.5rem; }
+ .gfb-inhand--hero .gfb-inhand__title { font-size: clamp(1.9rem, 8vw, 2.6rem); max-width: 13ch; }
+}
+.gfb-proof { border-top: 0; }
+.gfb-site {
+ --glint-a: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 1C17.1 10.8 19.4 13.6 30 16 19.6 17.9 17.2 20.4 16 26 14.9 20.6 12.6 18.1 4 16 12.8 14 15 11 16 1Z' fill='%23fff2c8'/%3E%3C/svg%3E");
+ --glint-b: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 0.5C16.7 11.4 18 14.6 24 16 18.1 17.4 16.7 20.3 16 30 15.3 20.5 14 17.5 6.5 16 13.9 14.5 15.3 11.2 16 0.5Z' fill='%23ffe9a8'/%3E%3C/svg%3E");
+ --glint-point: radial-gradient(circle,
+ rgba(255,250,234,0.95) 0%, rgba(255,228,140,0.5) 40%, rgba(255,228,140,0) 72%);
+}
+@supports ((-webkit-background-clip: text) or (background-clip: text)) {
+ .gfb-inhand__title { animation: gfb-foil-sweep 34s var(--ease) 7s infinite; }
+}
+@keyframes gfb-foil-sweep {
+ 0%, 92%, 100% { background-position: 24% 0; }
+ 96% { background-position: 79% 0; }
+}
+.gfb-inhand--hero .gfb-inhand__figure::before,
+.gfb-inhand--hero .gfb-inhand__figure::after {
+ content: "";
+ position: absolute;
+ inset: 0;
+ z-index: 2;
+ pointer-events: none;
+ background-repeat: no-repeat;
+ opacity: 0;
+}
+.gfb-inhand--hero .gfb-inhand__figure::before {
+ background-image: var(--glint-a);
+ background-size: 15px 15px;
+ background-position: 81% 47%;
+ animation: gfb-glint-early 19s linear 5s infinite;
+}
+.gfb-inhand--hero .gfb-inhand__figure::after {
+ background-image: var(--glint-b), var(--glint-point), var(--glint-point);
+ background-size: 10px 10px, 4px 4px, 3px 3px;
+ background-position: 54% 50%, 30% 52%, 74% 34%;
+ animation: gfb-glint-late 29s linear 13s infinite;
+}
+@keyframes gfb-glint-early {
+ 0%, 86%, 100% { opacity: 0; }
+ 90% { opacity: 0.9; }
+ 93% { opacity: 0.5; }
+ 96% { opacity: 0.72; }
+}
+@keyframes gfb-glint-late {
+ 0%, 88%, 100% { opacity: 0; }
+ 92% { opacity: 0.68; }
+ 97% { opacity: 0.26; }
+}
+.gfb-footer h2 { position: relative; }
+.gfb-footer h2::after {
+ content: "";
+ display: inline-block;
+ width: 0.4em; height: 0.4em;
+ margin-left: 0.34em;
+ vertical-align: 0.44em;
+ background: var(--glint-a) center / contain no-repeat;
+ opacity: 0.9;
+}
+.gfb-worlds .gfb-world:nth-child(odd) .gfb-eyebrow--world::after {
+ content: "";
+ display: inline-block;
+ width: 0.95em; height: 0.95em;
+ margin-left: 0.55em;
+ vertical-align: -0.04em;
+ background: var(--glint-a) center / contain no-repeat;
+ opacity: 0.95;
+}
+@media (max-width: 47.99rem) {
+ .gfb-inhand--hero .gfb-inhand__figure::after,
+ .gfb-worlds .gfb-world .gfb-eyebrow--world::after { display: none; }
+}
+@media (max-width: 55.99rem) {
+ .gfb-inhand--hero .gfb-inhand__figure::before { background-position: 80% 55%; }
+}
+@media (prefers-reduced-motion: reduce) {
+ .gfb-inhand__title { animation-name: none !important; }
+ .gfb-inhand--hero .gfb-inhand__figure::before,
+ .gfb-inhand--hero .gfb-inhand__figure::after {
+ animation-name: none !important;
+ opacity: 0.5;
+ }
+}
+@media (forced-colors: active) {
+ .gfb-inhand__title {
+ background-image: none;
+ color: CanvasText;
+ -webkit-text-fill-color: currentColor;
+ }
+ .gfb-btn--foil, .gfb-totop { background-image: none; }
+ .gfb-inhand--hero .gfb-inhand__figure::before,
+ .gfb-inhand--hero .gfb-inhand__figure::after,
+ .gfb-footer h2::after,
+ .gfb-worlds .gfb-world .gfb-eyebrow--world::after { display: none; }
+}
+.gfb-card--soldout .gfb-card__media { position: relative; }
+.gfb-card--soldout .gfb-card__media img { opacity: 0.62; }
+.gfb-card--soldout .gfb-card__media::after {
+ content: "Sold out";
+ position: absolute;
+ left: 0; bottom: 0;
+ z-index: 2;
+ font-family: var(--sans);
+ font-size: 0.62rem;
+ font-weight: 700;
+ letter-spacing: 0.16em;
+ text-transform: uppercase;
+ color: var(--paper);
+ background: var(--night);
+ padding: 0.42rem 0.7rem;
+}
+.gfb-card--soldout .gfb-card__price { color: var(--ink-mute); }
+.gfb-card--soldout .gfb-was { display: none; }
+.gfb-site .gfb-stock--out b { color: var(--ink-mute); }
+.gfb-site .gfb-lock {
+ font-family: var(--sans);
+ font-size: 0.82rem;
+ line-height: 1.5;
+ color: var(--ink);
+ margin: 0.55rem 0 0.35rem;
+ padding-left: 0.75rem;
+ border-left: 2px solid var(--gold-line);
+ max-width: 30rem;
+}
+.gfb-section--dark .gfb-lock,
+.gfb-inhand .gfb-lock { color: rgba(255,255,255,0.86); border-left-color: var(--gold-deep); }
+.gfb-pdp__buy:has(.gfb-stock--out) .gfb-lock { display: none; }
+.gfb-pdp__buy:has(.gfb-stock--out) .gfb-offer-note,
+.gfb-pdp__buy:has(.gfb-stock--out) .gfb-was,
+.gfb-pdp__buy:has(.gfb-stock--out) .gfb-price + .gfb-note { display: none; }
+.gfb-waitlist {
+ border-top: 1px solid var(--rule);
+ border-bottom: 1px solid var(--rule);
+ padding-block: 1.25rem;
+ margin-block: 0.25rem 1.5rem;
+}
+.gfb-waitlist__head {
+ font-family: var(--display);
+ font-size: 1.15rem;
+ letter-spacing: 0.04em;
+ margin: 0 0 0.4rem;
+}
+.gfb-site .gfb-waitlist__note {
+ font-family: var(--sans);
+ font-size: 0.82rem;
+ line-height: 1.5;
+ color: var(--ink-soft);
+ margin: 0 0 1rem;
+ max-width: 34rem;
+}
+.gfb-waitlist form { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+.gfb-waitlist .gfb-input { flex: 1 1 13rem; }
+.gfb-section--dark .gfb-waitlist,
+.gfb-inhand .gfb-waitlist { border-color: rgba(255,255,255,0.18); }
+.gfb-section--dark .gfb-waitlist__note,
+.gfb-inhand .gfb-waitlist__note { color: rgba(255,255,255,0.78); }
+.gfb-site .gfb-card__cta {
+ display: inline-flex;
+ margin-top: 0.9rem;
+ padding: 0.68rem 1.25rem;
+ font-size: 0.72rem;
+ color: var(--ink);
+}
+.gfb-site .gfb-card:hover .gfb-card__cta,
+.gfb-site .gfb-card:focus-visible .gfb-card__cta { background: var(--ink); }
+.gfb-site .gfb-card:hover .gfb-card__cta > span,
+.gfb-site .gfb-card:focus-visible .gfb-card__cta > span { color: var(--paper); }
+.gfb-site .gfb-card--soldout .gfb-card__cta { opacity: 0.45; }
+@media (max-width: 40rem) {
+ .gfb-site .gfb-card__cta { width: 100%; justify-content: center; }
+}
+.gfb-site .gfb-social {
+ display: flex;
+ align-items: center;
+ gap: 0.35rem;
+ margin: 1.5rem 0 0 -0.7rem;
+ padding: 0;
+ list-style: none;
+}
+.gfb-site .gfb-social a {
+ display: inline-flex;
+ padding: 0.7rem;
+ color: var(--ink);
+ text-decoration: none;
+ border-bottom: 0;
+ transition: color 0.28s var(--ease);
+}
+.gfb-site .gfb-social a:hover,
+.gfb-site .gfb-social a:focus-visible { color: var(--gold-ink); }
+.gfb-site .gfb-social svg { display: block; width: 22px; height: 22px; }
+.gfb-site .gfb-social svg [stroke] { vector-effect: non-scaling-stroke; }
+.gfb-footer .gfb-social a,
+.gfb-section--dark .gfb-social a { color: rgba(245,242,236,0.78); }
+.gfb-footer .gfb-social a:hover,
+.gfb-footer .gfb-social a:focus-visible,
+.gfb-section--dark .gfb-social a:hover { color: var(--gold); }
+.gfb-contact__panel .gfb-social { margin-top: 0.35rem; }
+
+/* ---- SQUARESPACE 7.1 INTEGRATION ---------------------------------------
+   Everything below applies only when the new site chrome is running
+   (body.gfb-chrome, set by the footer script). Retired pages and the
+   Squarespace UI never match these selectors. */
+
+/* Native header: clipped, not removed. It stays in the DOM so the cart count
+   and customer account scripts keep working. */
+html.gfb-js body.gfb-chrome #header,
+html.gfb-js body:has(:is(.gfb-page, .gfb-native-part)) #header {
+  position: absolute !important;
+  width: 1px !important; height: 1px !important;
+  overflow: hidden !important;
+  clip-path: inset(50%) !important;
+  pointer-events: none !important;
+  top: 0 !important; left: 0 !important;
+}
+html.gfb-js body.gfb-chrome #footer-sections,
+html.gfb-js body:has(:is(.gfb-page, .gfb-native-part)) #footer-sections { display: none !important; }
+
+body.gfb-site { overflow-x: clip; }
+body.gfb-chrome #page,
+body.gfb-chrome #sections { padding-top: 0 !important; margin-top: 0 !important; }
+
+/* Code Block sections: full bleed, no section chrome, no Fluid Engine grid. */
+body.gfb-site .page-section:has(:is(.gfb-page, .gfb-native-part)) {
+  padding: 0 !important;
+  min-height: 0 !important;
+  background: none !important;
+}
+body.gfb-site .page-section:has(:is(.gfb-page, .gfb-native-part)) .section-background { display: none !important; }
+body.gfb-site .page-section:has(:is(.gfb-page, .gfb-native-part)) .content-wrapper {
+  padding: 0 !important; margin: 0 !important; max-width: none !important; width: 100% !important;
+}
+body.gfb-site .page-section:has(:is(.gfb-page, .gfb-native-part)) .content { width: 100% !important; }
+body.gfb-site .page-section:has(:is(.gfb-page, .gfb-native-part)) .fluid-engine {
+  display: block !important;
+}
+body.gfb-site .page-section:has(:is(.gfb-page, .gfb-native-part)) .fluid-engine > .fe-block:not(:has(:is(.gfb-page, .gfb-native-part))) { display: none !important; }
+body.gfb-site .page-section:has(:is(.gfb-page, .gfb-native-part)) .fe-block,
+body.gfb-site .page-section:has(:is(.gfb-page, .gfb-native-part)) .sqs-block,
+body.gfb-site .page-section:has(:is(.gfb-page, .gfb-native-part)) .sqs-block-content {
+  position: static !important;
+  padding: 0 !important; margin: 0 !important;
+  width: 100% !important; height: auto !important;
+  grid-area: auto !important;
+}
+body.gfb-site :is(.gfb-page, .gfb-native-part) { width: 100%; background: var(--paper); color: var(--ink); }
+/* The body typography of the build, restated on the design roots because
+   Squarespace wrappers set their own line-height. */
+body.gfb-site .gfb-page, body.gfb-site .gfb-native-part, body.gfb-site .gfb-top, body.gfb-site .gfb-footer {
+  font-family: var(--sans); font-size: 1rem; line-height: 1.65; letter-spacing: normal;
+  font-synthesis: none; -webkit-font-smoothing: antialiased;
+}
+body.gfb-site.gfb-chrome { background: var(--paper); }
+/* Sections whose native block has been moved into the design */
+body.gfb-site .page-section.gfb-emptied { display: none !important; }
+
+/* Squarespace typography must not leak into the design. Squarespace's own
+   rules are low specificity, so only the ones seen on the live site are
+   neutralised here. */
+body.gfb-site .sqs-block-code :where(p) { white-space: normal; }
+
+/* ---- Native Form block inside the contact panel ------------------------ */
+body.gfb-site .gfb-page .gfb-form [data-gfb-slot="form"] .sqs-block-form,
+body.gfb-site .gfb-page .gfb-form [data-gfb-slot="form"] .sqs-block-content { padding: 0 !important; }
+body.gfb-site .gfb-page .gfb-form [data-gfb-slot="form"] .form-wrapper,
+body.gfb-site .gfb-page .gfb-form [data-gfb-slot="form"] .form-inner-wrapper { padding: 0 !important; background: none !important; }
+body.gfb-site .gfb-page .gfb-form [data-gfb-slot="form"] .form-title,
+body.gfb-site .gfb-page .gfb-form [data-gfb-slot="form"] .form-description { display: none !important; }
+body.gfb-site .gfb-page .gfb-form [data-gfb-slot="form"] form { display: grid; gap: 0.75rem; }
+body.gfb-site .gfb-page .gfb-form [data-gfb-slot="form"] .field-list { display: grid; gap: 0.75rem; }
+@media (min-width: 34rem) {
+  body.gfb-site .gfb-page .gfb-form [data-gfb-slot="form"] .field-list { grid-template-columns: repeat(2, 1fr); }
+  body.gfb-site .gfb-page .gfb-form [data-gfb-slot="form"] .field-list > .form-item.textarea,
+  body.gfb-site .gfb-page .gfb-form [data-gfb-slot="form"] .field-list > .form-item.textarea ~ * { grid-column: 1 / -1; }
+}
+body.gfb-site .gfb-page .gfb-form [data-gfb-slot="form"] .form-item { margin: 0 !important; padding: 0 !important; width: auto !important; }
+body.gfb-site .gfb-page .gfb-form [data-gfb-slot="form"] fieldset { border: 0; padding: 0; margin: 0; min-width: 0; }
+body.gfb-site .gfb-page .gfb-form [data-gfb-slot="form"] legend,
+body.gfb-site .gfb-page .gfb-form [data-gfb-slot="form"] label,
+body.gfb-site .gfb-page .gfb-form [data-gfb-slot="form"] .title,
+body.gfb-site .gfb-page .gfb-form [data-gfb-slot="form"] .caption {
+  font-family: var(--sans) !important;
+  font-size: 0.66rem !important;
+  letter-spacing: 0.18em !important;
+  text-transform: uppercase !important;
+  color: var(--ink-mute) !important;
+  margin-bottom: 0.35rem !important;
+}
+body.gfb-site .gfb-page .gfb-form [data-gfb-slot="form"] input:not([type="checkbox"]):not([type="radio"]):not([type="submit"]),
+body.gfb-site .gfb-page .gfb-form [data-gfb-slot="form"] textarea,
+body.gfb-site .gfb-page .gfb-form [data-gfb-slot="form"] select {
+  width: 100% !important;
+  font: inherit !important;
+  font-size: 0.9rem !important;
+  padding: 0.8rem 0.9rem !important;
+  border: 1px solid var(--rule) !important;
+  border-radius: 0 !important;
+  background: rgba(255,255,255,0.96) !important;
+  color: var(--ink) !important;
+  box-shadow: none !important;
+}
+body.gfb-site .gfb-page .gfb-form [data-gfb-slot="form"] textarea { min-height: 8rem !important; resize: vertical; }
+body.gfb-site .gfb-page .gfb-form [data-gfb-slot="form"] .form-button-wrapper { margin-top: 0.25rem !important; text-align: left !important; }
+body.gfb-site .gfb-page .gfb-form [data-gfb-slot="form"] button[type="submit"],
+body.gfb-site .gfb-page .gfb-form [data-gfb-slot="form"] input[type="submit"] {
+  display: inline-flex !important; align-items: center; justify-content: center;
+  font-family: var(--sans) !important;
+  font-size: 0.74rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.16em !important;
+  text-transform: uppercase !important;
+  padding: 1rem 1.6rem !important;
+  border: 1px solid var(--gold-ink) !important;
+  border-radius: 0 !important;
+  color: var(--ink) !important;
+  background-color: var(--gold) !important;
+  background-image: var(--gold-foil-soft) !important;
+  background-size: 230% 100% !important;
+  background-position: 26% 0 !important;
+  transition: background-position 0.8s var(--ease) !important;
+  cursor: pointer;
+}
+body.gfb-site .gfb-page .gfb-form [data-gfb-slot="form"] button[type="submit"]:hover { background-position: 70% 0 !important; }
+body.gfb-site .gfb-page .gfb-form [data-gfb-slot="form"] .form-submission-text,
+body.gfb-site .gfb-page .gfb-form [data-gfb-slot="form"] .form-submission-html { color: var(--ink); font-size: 1rem; }
+
+/* ---- Native Newsletter block inside the footer ------------------------- */
+body.gfb-site .gfb-footer .gfb-newsletter-slot { margin-top: 1.75rem; max-width: 24rem; }
+body.gfb-site .gfb-footer .gfb-newsletter-slot .sqs-block-newsletter,
+body.gfb-site .gfb-footer .gfb-newsletter-slot .sqs-block-content,
+body.gfb-site .gfb-footer .gfb-newsletter-slot .newsletter-form-wrapper { padding: 0 !important; margin: 0 !important; background: none !important; text-align: left !important; }
+body.gfb-site .gfb-footer .gfb-newsletter-slot .newsletter-form-header,
+body.gfb-site .gfb-footer .gfb-newsletter-slot .newsletter-form-header-title,
+body.gfb-site .gfb-footer .gfb-newsletter-slot .newsletter-form-header-description { display: none !important; }
+body.gfb-site .gfb-footer .gfb-newsletter-slot form,
+body.gfb-site .gfb-footer .gfb-newsletter-slot .newsletter-form-body { display: flex !important; flex-wrap: wrap; gap: 0.5rem; align-items: stretch; margin: 0 !important; }
+body.gfb-site .gfb-footer .gfb-newsletter-slot .newsletter-form-fields-wrapper { flex: 1 1 12rem; margin: 0 !important; display: block !important; }
+body.gfb-site .gfb-footer .gfb-newsletter-slot .newsletter-form-field-wrapper { margin: 0 !important; padding: 0 !important; width: 100% !important; }
+body.gfb-site .gfb-footer .gfb-newsletter-slot .newsletter-form-field-label { position: absolute !important; left: -9999px !important; }
+body.gfb-site .gfb-footer .gfb-newsletter-slot input[type="email"],
+body.gfb-site .gfb-footer .gfb-newsletter-slot input[type="text"] {
+  width: 100% !important;
+  background: transparent !important;
+  border: 1px solid rgba(245,242,236,0.28) !important;
+  border-radius: 0 !important;
+  color: var(--paper) !important;
+  font-family: var(--sans) !important; font-size: 0.85rem !important; line-height: 1.65 !important; height: auto !important;
+  padding: 0.8rem 0.9rem !important;
+  box-shadow: none !important;
+}
+body.gfb-site .gfb-footer .gfb-newsletter-slot input::placeholder { color: rgba(245,242,236,0.4) !important; }
+body.gfb-site .gfb-footer .gfb-newsletter-slot .newsletter-form-button-wrapper { margin: 0 !important; }
+body.gfb-site .gfb-footer .gfb-newsletter-slot button,
+body.gfb-site .gfb-footer .gfb-newsletter-slot .newsletter-form-button {
+  /* .gfb-btn .gfb-btn--light */
+  display: inline-flex !important; align-items: center; justify-content: center;
+  height: auto !important; min-height: 0 !important;
+  font-family: var(--sans) !important;
+  font-size: 0.78rem !important; font-weight: 500 !important;
+  letter-spacing: 0.14em !important; text-transform: uppercase !important;
+  line-height: normal !important;
+  padding: 0.95rem 1.6rem !important;
+  border: 1px solid #fff !important; border-radius: 0 !important;
+  color: #fff !important;
+  background: transparent !important;
+  transition: background-color 0.28s var(--ease), color 0.28s var(--ease) !important;
+  cursor: pointer;
+}
+body.gfb-site .gfb-footer .gfb-newsletter-slot button:hover,
+body.gfb-site .gfb-footer .gfb-newsletter-slot .newsletter-form-button:hover {
+  background: #fff !important; color: var(--night) !important;
+}
+body.gfb-site .gfb-footer .gfb-newsletter-slot button *,
+body.gfb-site .gfb-footer .gfb-newsletter-slot .newsletter-form-button * { color: inherit !important; font: inherit !important; letter-spacing: inherit !important; }
+body.gfb-site .gfb-footer .gfb-newsletter-slot .newsletter-form-footnote p { margin: 0 !important; }
+body.gfb-site .gfb-footer .gfb-newsletter-slot .newsletter-form-footnote { margin: 0.85rem 0 0 !important; }
+body.gfb-site .gfb-footer .gfb-newsletter-slot .newsletter-form-footnote,
+body.gfb-site .gfb-footer .gfb-newsletter-slot .newsletter-form-footnote p {
+  /* .gfb-note */
+  padding: 0 !important;
+  font-size: 0.82rem !important; line-height: 1.5 !important; letter-spacing: normal !important;
+  color: rgba(245,242,236,0.45) !important;
+  text-align: left !important;
+}
+body.gfb-site .gfb-footer .gfb-newsletter-slot .form-submission-text { color: var(--paper) !important; }
+
+/* Native form: Squarespace draws the field fill and border as overlay spans,
+   and gives the block its own site-style background. */
+body.gfb-site .gfb-page .gfb-form [data-gfb-slot="form"] .sqs-block { background: none !important; }
+body.gfb-site .gfb-page .gfb-form [data-gfb-slot="form"] .form-input-effects { display: none !important; }
+body.gfb-site .gfb-page .gfb-form [data-gfb-slot="form"] .field-list .field { width: 100% !important; margin: 0 !important; }
+body.gfb-site .gfb-page .gfb-form [data-gfb-slot="form"] fieldset .field.first-name:only-of-type > label.caption { position: absolute !important; left: -9999px !important; }
+body.gfb-site .gfb-page .gfb-form [data-gfb-slot="form"] .caption,
+body.gfb-site .gfb-page .gfb-form [data-gfb-slot="form"] label.title { display: block !important; }
+body.gfb-site .gfb-page .gfb-form [data-gfb-slot="form"] .description { text-transform: none !important; letter-spacing: 0 !important; }
+
+/* Squarespace gives hr a fixed width */
+body.gfb-site :is(.gfb-page, .gfb-native-part) hr, body.gfb-site .gfb-footer hr { width: auto !important; max-width: none !important; }
+
+/* Squarespace list and utility rules outrank these two build rules */
+body.gfb-site .gfb-page .gfb-contact__panel .gfb-social { margin-top: 0.35rem; }
+body.gfb-site .gfb-vh { margin: -1px !important; }
+
+/* Newsletter layout: one row, field then button, note underneath */
+body.gfb-site .gfb-footer .gfb-newsletter-slot form.newsletter-form { display: block !important; max-width: 24rem; }
+body.gfb-site .gfb-footer .gfb-newsletter-slot .newsletter-form-body { display: flex !important; flex-wrap: wrap !important; flex-direction: row !important; gap: 0.5rem !important; align-items: stretch !important; }
+body.gfb-site .gfb-footer .gfb-newsletter-slot .newsletter-form-fields-wrapper { flex: 1 1 12rem !important; min-width: 0 !important; width: auto !important; }
+body.gfb-site .gfb-footer .gfb-newsletter-slot .newsletter-form-field-wrapper { display: block !important; width: 100% !important; }
+body.gfb-site .gfb-footer .gfb-newsletter-slot .newsletter-form-button-wrapper { flex: none !important; padding: 0 !important; margin: 0 !important; width: auto !important; display: flex !important; }
+body.gfb-site .gfb-footer .gfb-newsletter-slot .newsletter-form-body { padding: 0 !important; }
+body.gfb-site .gfb-footer .gfb-newsletter-slot .captcha-container:empty { display: none !important; }
+
+/* BUILD BUG, fixed here and in css/styles.css (16 Sept): on hero pages the
+   header is transparent with paper-coloured text, so once the mobile menu
+   (a paper panel) opens, the Close button is paper on paper and invisible. */
+.gfb-top:has(.gfb-nav.is-open) .gfb-burger { color: var(--ink); }
+
+
+/* ---- Native store and product pages ----------------------------------
+   The build's markup for these pages sits in a Code Block wrapped in
+   .gfb-native-part. It is invisible until the cutover switch (or an owner
+   preview) turns body.gfb-native on. Nothing native is removed. */
+.gfb-native-part { display: none !important; }
+body.gfb-native .gfb-native-part,
+body.sqs-edit-mode-active .gfb-native-part { display: block !important; }
+/* Before cutover the section that holds the part must not show as an empty
+   band on the live store and product pages. Editors still see it. */
+body:not(.gfb-native):not(.sqs-edit-mode-active) .page-section:has(.gfb-native-part) { display: none !important; }
+body.gfb-pdp-page .product-detail-section,
+body.gfb-store-page #page .page-section:not(:has(.gfb-native-part)) { display: none !important; }
+body.gfb-native-plain #page { padding-top: 7.5rem !important; }
+
+/* Product page order: build layout first, then native reviews */
+body.gfb-pdp-page #page .page-regions,
+body.gfb-pdp-page #page #sections { display: flex !important; flex-direction: column !important; }
+body.gfb-pdp-page #page :is(.page-regions, #sections) > :has(.product-reviews-section) { order: 5; }
+body.gfb-pdp-page .product-reviews-section { background: var(--paper) !important; padding: 0 0 clamp(3rem, 6vw, 5rem) !important; }
+body.gfb-pdp-page .product-reviews-section .content-wrapper { max-width: 84rem !important; margin-inline: auto !important; padding-inline: var(--gutter) !important; }
+body.gfb-pdp-page .product-reviews-section,
+body.gfb-pdp-page .product-reviews-section * { font-family: var(--sans) !important; color: var(--ink); }
+body.gfb-pdp-page .product-reviews-section :is(h1, h2, h3) { font-family: var(--serif) !important; }
+
+/* Native Add to cart inside the build's buy column */
+[data-gfb-slot="cart"].gfb-has-native [data-gfb-fallback] { display: none !important; }
+[data-gfb-slot="cart"] .product-add-to-cart { margin: 0 !important; padding: 0 !important; width: 100% !important; }
+[data-gfb-slot="cart"] .product-add-to-cart :is(.sqs-add-to-cart-button-wrapper, .sqs-add-to-cart-button) { width: 100% !important; margin: 0 !important; }
+[data-gfb-slot="cart"] .sqs-add-to-cart-button,
+[data-gfb-slot="cart"] .product-add-to-cart button[type="button"]:not(.product-quantity-input button) {
+  /* .gfb-btn .gfb-btn--foil .gfb-btn--block */
+  display: flex !important; align-items: center !important; justify-content: center !important;
+  width: 100% !important; height: auto !important; min-height: 0 !important;
+  font-family: var(--sans) !important; font-size: 0.78rem !important; font-weight: 500 !important;
+  letter-spacing: 0.14em !important; text-transform: uppercase !important; line-height: normal !important;
+  padding: 0.95rem 1.6rem !important;
+  border: 1px solid var(--gold-ink) !important; border-radius: 0 !important;
+  color: var(--ink) !important;
+  background-color: var(--gold) !important;
+  background-image: var(--gold-foil-soft) !important;
+  background-size: 230% 100% !important; background-position: 26% 0 !important;
+  transition: background-position 0.8s var(--ease) !important;
+  cursor: pointer;
+}
+[data-gfb-slot="cart"] .sqs-add-to-cart-button:hover { background-position: 70% 0 !important; }
+[data-gfb-slot="cart"] .sqs-add-to-cart-button * { color: inherit !important; font: inherit !important; line-height: inherit !important; letter-spacing: inherit !important; text-transform: inherit !important; padding: 0 !important; margin: 0 !important; }
+/* The build has no quantity stepper; the cart page still allows changes. */
+[data-gfb-slot="cart"] .product-quantity-input-wrapper { display: none !important; }
+/* Moving the button out of .product-detail loses Squarespace's state rules */
+[data-gfb-slot="cart"] .sqs-add-to-cart-button .cart-added-text,
+[data-gfb-slot="cart"] .sqs-add-to-cart-button .cart-loader { display: none !important; }
+[data-gfb-slot="cart"] .sqs-add-to-cart-button:is(.cart-adding, .adding) .add-to-cart-text,
+[data-gfb-slot="cart"] .sqs-add-to-cart-button:is(.cart-added, .added) .add-to-cart-text { display: none !important; }
+[data-gfb-slot="cart"] .sqs-add-to-cart-button:is(.cart-adding, .adding) .cart-loader { display: inline-block !important; }
+[data-gfb-slot="cart"] .sqs-add-to-cart-button:is(.cart-added, .added) .cart-added-text { display: inline !important; }
+.gfb-card [data-gfb-field][hidden] { display: none !important; }
+
+/* Squarespace's "Added to cart" pop-up is positioned from the native cart
+   link, which sits clipped off-screen under the new header. Pin it to the
+   top right instead. */
+body.gfb-chrome .commerce-mini-cart-positioner {
+  --mini-cart-margin-top: 16px !important;
+  --mini-cart-margin-right: 16px !important;
+}
+@media (max-width: 600px) {
+  body.gfb-chrome .commerce-mini-cart-positioner {
+    --mini-cart-margin-top: 0px !important;
+    --mini-cart-margin-right: 0px !important;
+  }
+}
+
+/* Contact form: the "Sign up for news and updates" box sits under Email, so
+   stack the fields in one column to keep the inputs aligned. */
+body.gfb-site .gfb-page .gfb-form [data-gfb-slot="form"] .field-list { grid-template-columns: 1fr !important; }
+body.gfb-site .gfb-page .gfb-form [data-gfb-slot="form"] .form-item.email .option { margin-top: 0.6rem !important; }
+/* Footer sign-up: Squarespace sets a 288px minimum on the field, which pushed
+   it under the Sign up button. */
+body.gfb-site .gfb-footer .gfb-newsletter-slot .newsletter-form-field-wrapper,
+body.gfb-site .gfb-footer .gfb-newsletter-slot .newsletter-form-field-element { box-sizing: border-box !important; width: 100% !important; max-width: 100% !important; min-width: 0 !important; }
+
+</style>
+<style>
+.gfb-size{margin:0 0 1.1rem}
+.gfb-size label{display:block;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft,#4a423a);margin:0 0 .45rem}
+.gfb-size select{width:100%;appearance:none;-webkit-appearance:none;font:inherit;font-size:1rem;color:var(--ink,#16120e);background:transparent;border:1px solid var(--ink-soft,#4a423a);border-radius:0;padding:.8rem 2.6rem .8rem .9rem;cursor:pointer;background-image:linear-gradient(45deg,transparent 50%,currentColor 50%),linear-gradient(135deg,currentColor 50%,transparent 50%);background-position:calc(100% - 1.25rem) 52%,calc(100% - .95rem) 52%;background-size:.32rem .32rem;background-repeat:no-repeat}
+.gfb-preview-pill{position:fixed;left:12px;bottom:12px;z-index:9999;background:#16120e;color:#ffe48c;font:700 11px/1.3 Lato,Helvetica,sans-serif;letter-spacing:.12em;text-transform:uppercase;padding:9px 13px;border:1px solid #c9971d;max-width:calc(100vw - 24px)}
+.gfb-preview-pill a{color:#ffe48c}
+</style>
+</head>
+<body>
+<div class="gfb-preview-pill">Preview · live Mon 26 Oct, 6pm Sydney · <a href="index.html">All launch pages</a></div>
+<main id="page">
+
+  
+    <script>document.documentElement.classList.add("gfb-js");document.body.classList.add("gfb-site");</script>
+<div class="gfb-page" data-gfb-page="home" id="main">
+<section class="gfb-inhand gfb-inhand--hero" data-header-trigger="">
+<div class="gfb-inhand__panel">
+<div class="gfb-inhand__inner">
+<span class="gfb-eyebrow">Handbound in Wollongong, Australia</span>
+<h1 class="gfb-inhand__title">I couldn&#8217;t find the edition I wanted.</h1>
+<p class="gfb-lede" style="margin-top:1.25rem;">
+          So I taught myself how to make it. Five hand-drawn panels, gold foil and
+          sprayed edges, bound one book at a time.
+        </p>
+<p class="gfb-inhand__meta">
+          Shown: A Court of Thorns and Roses &#160;&#183;&#160; <b><span data-gfb-field="price" data-gfb-live="/rebinds/p/a-court-of-thorns-and-roses-handbound" data-gfb-wrap="">$130.00</span></b> &#160;&#183;&#160; <span data-gfb-field="stock" data-gfb-live="/rebinds/p/a-court-of-thorns-and-roses-handbound" data-gfb-wrap="">In stock</span>
+</p>
+<p style="margin-top:1.5rem; display:flex; gap:0.75rem; flex-wrap:wrap;">
+<a class="gfb-btn gfb-btn--foil" href="book-1-acotar.html"><span>Shop this edition</span></a>
+<a class="gfb-btn gfb-btn--light" href="https://www.goldfoilbooks.com.au/process"><span>How it is made</span></a>
+</p>
+</div>
+</div>
+<figure class="gfb-inhand__figure">
+<picture>
+<source sizes="(min-width:56rem) 52vw, 100vw" srcset="https://static1.squarespace.com/static/682bc2962e10cb37922634d9/t/6aaa14697a63152117a8aff4/1789531241423/in-hand-640.webp 640w, https://static1.squarespace.com/static/682bc2962e10cb37922634d9/t/6aaa1462b156c52bdef0cf4c/1789531235174/in-hand-1000.webp 1000w, https://static1.squarespace.com/static/682bc2962e10cb37922634d9/t/6aaa14662fbf6e72e83cdc30/1789531238795/in-hand-1021.webp 1021w" type="image/webp"/>
+<img alt="A reader on a sofa holding the handbound A Court of Thorns and Roses open so the covers fold back, showing the illustrated back cover with a foiled quote, the foiled spine, and the front cover." class="gfb-inhand__photo" data-protect="" decoding="async" draggable="false" fetchpriority="high" height="1540" sizes="(min-width:56rem) 52vw, 100vw" src="https://static1.squarespace.com/static/682bc2962e10cb37922634d9/t/6aaa14612b6e9a174bedca5d/1789531233601/in-hand-1000.jpg" srcset="https://static1.squarespace.com/static/682bc2962e10cb37922634d9/t/6aaa1467bd59370e59df4326/1789531240125/in-hand-640.jpg 640w, https://static1.squarespace.com/static/682bc2962e10cb37922634d9/t/6aaa14612b6e9a174bedca5d/1789531233601/in-hand-1000.jpg 1000w, https://static1.squarespace.com/static/682bc2962e10cb37922634d9/t/6aaa14652fbf6e72e83cdc1f/1789531237367/in-hand-1021.jpg 1021w" width="1021"/>
+</picture>
+</figure>
+</section>
+<section class="gfb-proof">
+<div class="gfb-proof__cell">
+<p aria-label="Rated 5 out of 5" class="gfb-proof__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+<p class="gfb-proof__quote">&#8220;They&#8217;re so much better in person.&#8221;</p>
+<p class="gfb-proof__by">Telisha P, verified review</p>
+</div>
+<div class="gfb-proof__cell">
+<p aria-label="Rated 5 out of 5" class="gfb-proof__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+<p class="gfb-proof__quote">&#8220;In love with the original artwork used on this book.&#8221;</p>
+<p class="gfb-proof__by">Emma G, verified review</p>
+</div>
+<div class="gfb-proof__cell">
+<p class="gfb-proof__fact">Free shipping in Australia</p>
+<p class="gfb-proof__by">Worldwide, calculated at checkout</p>
+</div>
+<div class="gfb-proof__cell">
+<p class="gfb-proof__fact">4 payments of <span data-gfb-field="quarter" data-gfb-live="/rebinds/p/a-court-of-thorns-and-roses-handbound" data-gfb-wrap="">A$32.50</span></p>
+<p class="gfb-proof__by">Afterpay available</p>
+</div>
+</section>
+<section class="gfb-section" id="shop">
+<div class="gfb-wrap">
+<h2 class="gfb-rulehead"><span>The rebinds</span></h2>
+<article class="gfb-row" data-reveal="">
+<div>
+<span class="gfb-eyebrow gfb-eyebrow--foil">All five books</span>
+<h3 class="gfb-row__title">The ACOTAR Book Set</h3>
+<p class="gfb-dropcap">Bring a little magic to your bookshelf with this custom handbound edition of A Court of Thorns and Roses. Featuring my original, hand-drawn artwork, each book is transformed into a hardcover with a premium laminated finish and delicate foil detailing.</p>
+<p>Each set includes all five currently published books in the series, with your choice of book size and edge finish.</p>
+<p style="margin-top:1.5rem;"><a class="gfb-btn gfb-btn--foil" href="set.html"><span>From $500, shop the set</span></a></p>
+</div>
+<span class="gfb-shot">
+<img alt="All five handbound books standing in a row, spines foiled in gold." data-protect="" decoding="async" draggable="false" height="1250" loading="lazy" src="img/set-five-spines-4x5.jpg" width="1000"/>
+</span>
+</article>
+<hr class="gfb-rule"/>
+<article class="gfb-row gfb-row--flip" data-reveal="">
+<div>
+<h3 class="gfb-row__title">A Court of Thorns and Roses</h3>
+<p class="gfb-dropcap">Five illustrations were drawn for this edition, inspired by the
+          characters and scenes that we love. A winter hunt on the front cover, the spine between
+          them, a spring manor on the back, and two full endpaper spreads inside: a birch wood and a
+          pool of starlight. Foiled front, spine and back, with optional sprayed metallic gold edges and a
+          premium laminated finish.</p>
+<p>Handbound hardcover, approximately 13.5cm wide by 20.5cm tall. Made to order in Australia.</p>
+<p style="margin-top:1.5rem;"><a class="gfb-btn gfb-btn--foil" href="book-1-acotar.html"><span><span data-gfb-field="price" data-gfb-live="/rebinds/p/a-court-of-thorns-and-roses-handbound" data-gfb-wrap="">$130.00</span>, shop book one</span></a></p>
+</div>
+<span class="gfb-shot">
+<img alt="A Court of Thorns and Roses handbound edition, showing the foiled spine and the illustrated cover." data-protect="" decoding="async" draggable="false" height="1250" loading="lazy" src="https://images.squarespace-cdn.com/content/v1/682bc2962e10cb37922634d9/3430b78b-7e5c-43bf-ade6-8ce99a5fa3eb/4.+Spine%3ACover.png?format=1000w" width="1000"/>
+</span>
+</article>
+<hr class="gfb-rule"/>
+<article class="gfb-row" data-reveal="">
+<div>
+<h3 class="gfb-row__title">A Court of Mist and Fury</h3>
+<p class="gfb-dropcap">Five illustrations were drawn for this edition, inspired by the
+          characters and scenes that we love. Starfall on the cover, the spine between them, a
+          snowbound cabin on the back, and two full endpaper spreads inside: the wedding that never
+          happened and the iconic scene from Chapter 54. Foiled front, spine and back, with optional sprayed
+          metallic gold edges and a premium laminated finish.</p>
+<p>Handbound hardcover, approximately 13.5cm wide by 20.5cm tall. Made to order in Australia.</p>
+<p style="margin-top:1.5rem;"><a class="gfb-btn gfb-btn--foil" href="book-2-acomaf.html"><span><span data-gfb-field="price" data-gfb-live="/rebinds/p/a-court-of-mist-and-fury-handbound" data-gfb-wrap="">$130.00</span>, shop book two</span></a></p>
+</div>
+<span class="gfb-shot">
+<img alt="A Court of Mist and Fury handbound edition, showing the foiled spine and the illustrated cover." data-protect="" decoding="async" draggable="false" height="1250" loading="lazy" src="https://images.squarespace-cdn.com/content/v1/682bc2962e10cb37922634d9/e427553c-d0e0-4d9a-9a1a-af5de86698b6/4.+Spine%3ACover.png?format=1000w" width="1000"/>
+</span>
+</article>
+<hr class="gfb-rule"/>
+<article class="gfb-row gfb-row--flip" data-reveal="">
+<div>
+<h3 class="gfb-row__title">A Court of Wings and Ruin</h3>
+<p class="gfb-dropcap">Five illustrations were drawn for this edition, inspired by the
+          characters and scenes that we love. The three sisters on the cover, the spine between them,
+          the ships arriving on the back, and two full endpaper spreads inside: the high lords meeting
+          and the cauldron. Foiled front, spine and back, with optional sprayed metallic gold edges and a
+          premium laminated finish.</p>
+<p>Handbound hardcover, approximately 13.5cm wide by 20.5cm tall. Made to order in Australia.</p>
+<p style="margin-top:1.5rem;"><a class="gfb-btn gfb-btn--foil" href="book-3-acowar.html"><span><span data-gfb-field="price" data-gfb-live="/rebinds/p/a-court-of-wings-and-ruin-hand-bound" data-gfb-wrap="">$130.00</span>, shop book three</span></a></p>
+</div>
+<span class="gfb-shot">
+<img alt="A Court of Wings and Ruin handbound edition, showing the foiled spine and the illustrated cover." data-protect="" decoding="async" draggable="false" height="1250" loading="lazy" src="https://images.squarespace-cdn.com/content/v1/682bc2962e10cb37922634d9/6c6f6449-8328-47e6-bc22-605b16d0dfd9/4.+Spine%3ACover.jpg?format=1000w" width="1000"/>
+</span>
+</article>
+<hr class="gfb-rule"/>
+<article class="gfb-row" data-reveal="">
+<div>
+<h3 class="gfb-row__title">A Court of Frost and Starlight</h3>
+<p class="gfb-dropcap">Five illustrations were drawn for this edition, inspired by the
+          characters and scenes that we love. Feyre in her studio painting on the front, the spine between them,
+          the estate on the back, and two full endpaper spreads inside: the Solstice celebration and
+          Cassian throwing Nesta’s gift into the river. Foiled front, spine and back, with optional sprayed
+          metallic gold edges and a premium laminated finish.</p>
+<p>Handbound hardcover, approximately 13.5cm wide by 20.5cm tall. Made to order in Australia.</p>
+<p style="margin-top:1.5rem;"><a class="gfb-btn gfb-btn--foil" href="book-4-acofas.html"><span><span data-gfb-field="price" data-gfb-live="/rebinds/p/a-court-of-frost-and-starlight-handbound" data-gfb-wrap="">$130.00</span>, shop book four</span></a></p>
+</div>
+<span class="gfb-shot">
+<img alt="A Court of Frost and Starlight handbound edition, showing the foiled spine and the illustrated cover." data-protect="" decoding="async" draggable="false" height="1250" loading="lazy" src="https://images.squarespace-cdn.com/content/v1/682bc2962e10cb37922634d9/13126132-93b0-47bb-a27b-0da83fc7b718/image.png?format=1000w" width="1000"/>
+</span>
+</article>
+<hr class="gfb-rule"/>
+<article class="gfb-row gfb-row--flip" data-reveal="">
+<div>
+<h3 class="gfb-row__title">A Court of Silver Flames</h3>
+<p class="gfb-dropcap">Five illustrations were drawn for this edition, inspired by the characters and scenes that we love. Nesta, Gwyn, Emerie, Cassian and Azriel in their fighting leathers on the front, the spine between them, the stairs on the back, and two full endpaper spreads inside: the ultimatum that starts the book and the healing hike. Foiled front, spine and back, with optional sprayed metallic gold edges and a premium laminated finish.</p>
+<p>Handbound hardcover, approximately 13.5cm wide by 20.5cm tall. Made to order in Australia.</p>
+<p style="margin-top:1.5rem;"><a class="gfb-btn gfb-btn--foil" href="book-5-acosf.html"><span>$130.00, shop book five</span></a></p>
+</div>
+<span class="gfb-shot">
+<img alt="A Court of Silver Flames handbound edition, showing the foiled spine and the illustrated cover." data-protect="" decoding="async" draggable="false" height="1250" loading="lazy" src="img/acosf-spine-cover-4x5.jpg" width="1000"/>
+</span>
+</article>
+</div>
+</section>
+<section class="gfb-section gfb-section--dark">
+<div class="gfb-wrap">
+<h2 class="gfb-rulehead"><span>Drawn by hand</span></h2>
+<div class="gfb-process">
+<div class="gfb-video" data-reveal="" data-video="">
+<video aria-label="Screen recording of an illustration being drawn in Procreate, colour building over the line work layer by layer." height="632" loop="" muted="" playsinline="" poster="https://static1.squarespace.com/static/682bc2962e10cb37922634d9/t/6aaa147282b2376327101de3/1789531250649/drawing-process-poster.jpg" preload="none" width="684">
+<source src="https://static1.squarespace.com/static/682bc2962e10cb37922634d9/t/6aaa1475569b334cf6557dad/1789531253514/drawing-process.webm" type="video/webm"/>
+<source src="https://static1.squarespace.com/static/682bc2962e10cb37922634d9/t/6aaa14738b7f3f0abd09d07a/1789531252107/drawing-process.mp4" type="video/mp4"/>
+</video>
+<button class="gfb-video__toggle" data-video-toggle="" type="button">Play</button>
+</div>
+<div data-reveal="" data-reveal-delay="1">
+<h3 class="gfb-row__title" style="color:var(--accent-lift);">Inspired by scenes that stay with me</h3>
+<p class="gfb-lede" style="color:rgba(245,242,236,0.82);">
+            Every piece of artwork begins as I&#8217;m reading the book and a scene captures my
+            attention. I sketch out the idea in Procreate on my iPad, starting with the initial
+            composition and line work before gradually building up the details.
+          </p>
+<p style="color:rgba(245,242,236,0.82); margin-top:1.35rem;">
+            Once the line work is complete, I bring the illustration to life with colour, layering
+            in shading, highlights and finer details until the final artwork takes shape.
+          </p>
+<p style="color:rgba(245,242,236,0.82); margin-top:1.35rem;">
+            The process is intentionally detailed, with each illustration taking an average of 30
+            hours to complete. Every finished illustration is an original work created specifically
+            for each edition, making each design a personal part of the book.
+          </p>
+<p style="color:rgba(245,242,236,0.8); margin-top:1.6rem;">
+            From the very first sketch to the final details, every line and layer is drawn by me.
+          </p>
+<p style="margin-top:1.75rem;"><a class="gfb-btn gfb-btn--foil" href="https://www.goldfoilbooks.com.au/process"><span>The full process</span></a></p>
+</div>
+</div>
+</div>
+</section>
+<section class="gfb-section" data-world="acotar">
+<div class="gfb-wrap">
+<h2 class="gfb-rulehead"><span>Inside the book</span></h2>
+<p class="gfb-lede gfb-measure-center" style="margin-bottom:2.5rem;">
+        Every Gold Foil Book opens with an original endpaper at the front and another at the back.
+        These are the two inside A Court of Thorns and Roses.
+      </p>
+<div class="gfb-spread">
+<figure class="gfb-spread__item" data-reveal="" style="margin:0;">
+<picture>
+<source sizes="100vw" srcset="https://static1.squarespace.com/static/682bc2962e10cb37922634d9/t/6aaa1450bd59370e59df4155/1789531216524/the-suriel-1000.webp 1000w, https://static1.squarespace.com/static/682bc2962e10cb37922634d9/t/6aaa145282b2376327101cbb/1789531219143/the-suriel-1400.webp 1400w" type="image/webp"/>
+<img alt="Front endpaper illustration: an archer stands at a stream in a birch wood, facing a hooded skeletal figure bound in ropes between the trees." data-protect="" decoding="async" draggable="false" height="1414" loading="lazy" sizes="100vw" src="https://static1.squarespace.com/static/682bc2962e10cb37922634d9/t/6aaa14515494e36e5e70240c/1789531217873/the-suriel-1400.jpg" srcset="https://static1.squarespace.com/static/682bc2962e10cb37922634d9/t/6aaa144ff3bd0c3a700e8843/1789531215287/the-suriel-1000.jpg 1000w, https://static1.squarespace.com/static/682bc2962e10cb37922634d9/t/6aaa14515494e36e5e70240c/1789531217873/the-suriel-1400.jpg 1400w" width="2000"/>
+</picture>
+<figcaption class="gfb-spread__label">Front endpaper &#183; The Suriel</figcaption>
+</figure>
+<figure class="gfb-spread__item" data-reveal="" style="margin:0;">
+<picture>
+<source sizes="100vw" srcset="https://static1.squarespace.com/static/682bc2962e10cb37922634d9/t/6aaa134474b87739e210cdb4/1789530948573/pool-of-starlight-1000.webp 1000w, https://static1.squarespace.com/static/682bc2962e10cb37922634d9/t/6aaa134430f50c5c0f06b13f/1789530948633/pool-of-starlight-1400.webp 1400w" type="image/webp"/>
+<img alt="Back endpaper illustration: a still forest pool lit from below with drifting points of starlight." data-protect="" decoding="async" draggable="false" height="1414" loading="lazy" sizes="100vw" src="https://static1.squarespace.com/static/682bc2962e10cb37922634d9/t/6aaa13436adc011db98c0056/1789530948742/pool-of-starlight-1400.jpg" srcset="https://static1.squarespace.com/static/682bc2962e10cb37922634d9/t/6aaa1344787c8f6bab6d9900/1789530948619/pool-of-starlight-1000.jpg 1000w, https://static1.squarespace.com/static/682bc2962e10cb37922634d9/t/6aaa13436adc011db98c0056/1789530948742/pool-of-starlight-1400.jpg 1400w" width="2000"/>
+</picture>
+<figcaption class="gfb-spread__label">Back endpaper &#183; The Pool of Starlight</figcaption>
+</figure>
+</div>
+<div class="gfb-detail-row" data-reveal="" style="margin-top:0.75rem;">
+<figure><img alt="The front endpaper in place inside the finished book." data-protect="" decoding="async" draggable="false" height="750" loading="lazy" src="https://images.squarespace-cdn.com/content/v1/682bc2962e10cb37922634d9/9f13aece-deec-407d-abe1-ed3fc5188cd0/7.+Front+Endpaper.png?format=750w" width="750"/><figcaption>Front endpaper in place</figcaption></figure>
+<figure><img alt="The back endpaper inside the finished book." data-protect="" decoding="async" draggable="false" height="750" loading="lazy" src="https://images.squarespace-cdn.com/content/v1/682bc2962e10cb37922634d9/3ff270a1-c4ab-484e-b796-6b4930a57fba/8.+Back+Endpaper.png?format=750w" width="750"/><figcaption>Back endpaper in place</figcaption></figure>
+<figure><img alt="Sprayed metallic gold page edges on the closed book." data-protect="" decoding="async" draggable="false" height="750" loading="lazy" src="https://images.squarespace-cdn.com/content/v1/682bc2962e10cb37922634d9/67896093-14c2-4fab-91e8-29541898738d/5.+Edges%3ACover.png?format=750w" width="750"/><figcaption>Sprayed metallic gold edges</figcaption></figure>
+<figure><img alt="The foiled spine of the finished rebind." data-protect="" decoding="async" draggable="false" height="750" loading="lazy" src="https://images.squarespace-cdn.com/content/v1/682bc2962e10cb37922634d9/d2223691-3f9c-47d3-89a5-98efb6cfe6db/2.+Spine.png?format=750w" width="750"/><figcaption>Foiled spine</figcaption></figure>
+</div>
+</div>
+</section>
+<section class="gfb-section gfb-section--dark">
+<div class="gfb-wrap">
+<h2 class="gfb-rulehead"><span>Built to match</span></h2>
+<p class="gfb-lede gfb-measure-center" style="color:rgba(245,242,236,0.8); margin-bottom:2.5rem;">
+        Each edition is designed to coordinate with the last, so the series reads as one object
+        across five spines. Matching editions are added over time.
+      </p>
+<style>.gfb-set.gfb-set--five{grid-template-columns:repeat(3,1fr)}@media (min-width:48rem){.gfb-set.gfb-set--five{grid-template-columns:repeat(5,1fr)}}</style>
+<div class="gfb-set gfb-set--five" data-reveal="">
+<figure>
+<img alt="A Court of Thorns and Roses, finished cover." data-protect="" decoding="async" draggable="false" height="1250" loading="lazy" src="https://images.squarespace-cdn.com/content/v1/682bc2962e10cb37922634d9/8cd19eea-1acc-4aeb-912a-239d87561681/1.+Cover.png?format=1000w" width="1000"/>
+<figcaption>Book one</figcaption>
+</figure>
+<figure>
+<img alt="A Court of Mist and Fury, finished cover." data-protect="" decoding="async" draggable="false" height="1250" loading="lazy" src="https://images.squarespace-cdn.com/content/v1/682bc2962e10cb37922634d9/30937200-a988-43bd-956e-948ea1eca711/1.+Cover.png?format=1000w" width="1000"/>
+<figcaption>Book two</figcaption>
+</figure>
+<figure>
+<img alt="A Court of Wings and Ruin, finished cover." data-protect="" decoding="async" draggable="false" height="1250" loading="lazy" src="https://images.squarespace-cdn.com/content/v1/682bc2962e10cb37922634d9/bc1c4c0e-1c9e-44ad-acfe-38c57167c559/1.+Cover.jpg?format=1000w" width="1000"/>
+<figcaption>Book three</figcaption>
+</figure>
+<figure>
+<img alt="A Court of Frost and Starlight, finished cover." data-protect="" decoding="async" draggable="false" height="1250" loading="lazy" src="https://images.squarespace-cdn.com/content/v1/682bc2962e10cb37922634d9/48fb51ef-35bc-4acb-95ec-39f6b1d67161/image.png?format=750w" width="1000"/>
+<figcaption>Book four</figcaption>
+</figure>
+<figure>
+<img alt="A Court of Silver Flames, finished cover." data-protect="" decoding="async" draggable="false" height="1778" loading="lazy" src="img/acosf-1-cover.jpg" width="1000"/>
+<figcaption>Book five</figcaption>
+</figure>
+</div>
+<p class="gfb-center" style="margin-top:2.75rem;">
+<a class="gfb-btn gfb-btn--foil" href="https://www.goldfoilbooks.com.au/rebinds"><span>Shop the editions</span></a>
+</p>
+</div>
+</section>
+<section class="gfb-section" data-world="acomaf">
+<div class="gfb-wrap">
+<h2 class="gfb-rulehead"><span>Meet the maker</span></h2>
+<article class="gfb-row" data-reveal="">
+<div>
+<p class="gfb-dropcap">Gold Foil Books started in 2025 with a fabric-covered rebind of ACOTAR.
+          Fabric covers were the obvious starting point, but I wanted to bring my own art into the book,
+          not just wrap it. So I started illustrating the covers myself, drawing the characters and scenes
+          straight from the story I was binding. I&#8217;m Dani, a self-taught bookbinder and digital
+          artist based in Wollongong, Australia, working from a home studio.</p>
+<p>Every illustration is hand-drawn in Procreate, and every rebind is crafted by hand with
+          care, using premium materials and meticulous attention to detail. I believe the stories we
+          love deserve to be celebrated.</p>
+<p>Thank you for being here. I hope you find something that brings a little more magic to
+          your bookshelf or home.</p>
+<p style="margin-top:1.5rem;"><a class="gfb-btn gfb-btn--foil" href="https://www.goldfoilbooks.com.au/about"><span>Read the full story</span></a></p>
+</div>
+<figure style="margin:0;">
+<picture>
+<source sizes="(min-width:56rem) 42vw, 100vw" srcset="https://static1.squarespace.com/static/682bc2962e10cb37922634d9/t/6aaa11e930f50c5c0f0694c4/1789530601524/maker-640.webp 640w, https://static1.squarespace.com/static/682bc2962e10cb37922634d9/t/6aaa146db156c52bdef0d016/1789531245668/maker-852.webp 852w" type="image/webp"/>
+<img alt="Dani at her desk in Wollongong, drawing on an iPad with an Apple Pencil, the work in progress reflected in her glasses." data-protect="" decoding="async" draggable="false" height="1136" loading="lazy" sizes="(min-width:56rem) 42vw, 100vw" src="https://static1.squarespace.com/static/682bc2962e10cb37922634d9/t/6aaa146c236ccc5746852fbb/1789531244345/maker-852.jpg" srcset="https://static1.squarespace.com/static/682bc2962e10cb37922634d9/t/6aaa146a787c8f6bab6dacbf/1789531243039/maker-640.jpg 640w, https://static1.squarespace.com/static/682bc2962e10cb37922634d9/t/6aaa146c236ccc5746852fbb/1789531244345/maker-852.jpg 852w" style="width:100%; border:1px solid var(--rule);" width="852"/>
+</picture>
+</figure>
+</article>
+</div>
+</section>
+<section class="gfb-section gfb-section--deep" id="artwork">
+<div class="gfb-wrap">
+<h2 class="gfb-rulehead"><span>Artwork</span></h2>
+<p class="gfb-lede gfb-measure-center" style="margin-bottom:2.5rem;">
+        The same illustrations as high-resolution digital downloads. Print at home or through your
+        favourite print service.
+      </p>
+<div class="gfb-grid gfb-grid--art">
+<a class="gfb-card gfb-card--art" data-gfb-live="/artwork/p/starfall-in-velaris-fantasy-digital-art" data-reveal="" href="https://www.goldfoilbooks.com.au/artwork/p/starfall-in-velaris-fantasy-digital-art">
+<span class="gfb-card__media"><img alt="The Starfall: a couple embracing on a balcony under a sky of falling stars." data-protect="" decoding="async" draggable="false" height="640" loading="lazy" src="https://static1.squarespace.com/static/682bc2962e10cb37922634d9/t/6aaa143bda65b149c8a9b198/1789531196089/starfall-in-velaris-640.jpg" width="640"/></span>
+<h3 class="gfb-card__title">The Starfall</h3>
+<p class="gfb-card__meta"><span class="gfb-card__price" data-gfb-field="price">$7.99</span> <span class="gfb-card__was" data-gfb-field="was">$9.99</span> <span class="gfb-card__flag" data-gfb-field="flag">Sale</span></p>
+<span class="gfb-btn gfb-card__cta"><span>View artwork</span></span>
+</a>
+<a class="gfb-card gfb-card--art" data-gfb-live="/artwork/p/chapter-54-feyre-rhysand-digital-art" data-reveal="" data-reveal-delay="1" href="https://www.goldfoilbooks.com.au/artwork/p/chapter-54-feyre-rhysand-digital-art">
+<span class="gfb-card__media"><img alt="The Chapter 54: two figures sharing a bowl of soup in a candlelit cabin kitchen." data-protect="" decoding="async" draggable="false" height="493" loading="lazy" src="https://static1.squarespace.com/static/682bc2962e10cb37922634d9/t/6aaa1246236ccc57468508e3/1789530695307/chapter-54-640.jpg" width="640"/></span>
+<h3 class="gfb-card__title">The Chapter 54</h3>
+<p class="gfb-card__meta"><span class="gfb-card__price" data-gfb-field="price">$7.99</span> <span class="gfb-card__was" data-gfb-field="was">$9.99</span> <span class="gfb-card__flag" data-gfb-field="flag">Sale</span></p>
+<span class="gfb-btn gfb-card__cta"><span>View artwork</span></span>
+</a>
+<a class="gfb-card gfb-card--art" data-gfb-live="/artwork/p/the-cabin-digital-art" data-reveal="" data-reveal-delay="2" href="https://www.goldfoilbooks.com.au/artwork/p/the-cabin-digital-art">
+<span class="gfb-card__media"><img alt="The Cabin: a lit log cabin in deep snow beneath jagged mountains." data-protect="" decoding="async" draggable="false" height="905" loading="lazy" src="https://static1.squarespace.com/static/682bc2962e10cb37922634d9/t/6aaa1443484abd419b117286/1789531204498/the-cabin-640.jpg" width="640"/></span>
+<h3 class="gfb-card__title">The Cabin</h3>
+<p class="gfb-card__meta"><span class="gfb-card__price" data-gfb-field="price">$7.99</span> <span class="gfb-card__was" data-gfb-field="was">$9.99</span> <span class="gfb-card__flag" data-gfb-field="flag">Sale</span></p>
+<span class="gfb-btn gfb-card__cta"><span>View artwork</span></span>
+</a>
+<a class="gfb-card gfb-card--art" data-gfb-live="/artwork/p/spring-court-manor-fantasy-digital-art" data-reveal="" data-reveal-delay="3" href="https://www.goldfoilbooks.com.au/artwork/p/spring-court-manor-fantasy-digital-art">
+<span class="gfb-card__media"><img alt="The Spring Court Manor: a domed manor above a flower-lined stone path." data-protect="" decoding="async" draggable="false" height="905" loading="lazy" src="https://static1.squarespace.com/static/682bc2962e10cb37922634d9/t/6aaa14352b6e9a174bedc650/1789531189419/spring-court-manor-640.jpg" width="640"/></span>
+<h3 class="gfb-card__title">The Spring Court Manor</h3>
+<p class="gfb-card__meta"><span class="gfb-card__price" data-gfb-field="price">$7.99</span> <span class="gfb-card__was" data-gfb-field="was">$9.99</span> <span class="gfb-card__flag" data-gfb-field="flag">Sale</span></p>
+<span class="gfb-btn gfb-card__cta"><span>View artwork</span></span>
+</a>
+</div>
+<p class="gfb-center" style="margin-top:2.5rem;">
+<a class="gfb-btn gfb-btn--foil" href="https://www.goldfoilbooks.com.au/artwork"><span>All eight illustrations</span></a>
+</p>
+</div>
+</section>
+<section class="gfb-contact" id="contact">
+<img alt="" class="gfb-contact__bg" data-protect="" decoding="async" draggable="false" height="2000" loading="lazy" src="https://static1.squarespace.com/static/682bc2962e10cb37922634d9/t/6aaa14321169be7a9202a267/1789531186850/spring-court-manor-1000.jpg" width="1414"/>
+<div class="gfb-wrap">
+<h2 class="gfb-rulehead"><span>Contact</span></h2>
+<div class="gfb-contact__panel">
+<div class="gfb-form"><h3 class="gfb-row__title">Send a message</h3>
+<p style="margin-bottom:1.25rem;">
+            Whether you have a question, an idea, or just want to talk about books, feel free to
+            reach out. I will get back to you as soon as I can.
+          </p><div data-gfb-slot="form"><p class="gfb-note">Loading the form&#8230; If it does not appear, email via the <a href="https://www.goldfoilbooks.com.au/contact">contact page</a>.</p></div></div>
+<div>
+<h3 class="gfb-row__title">Good to know</h3>
+<ul class="gfb-deets">
+<li><b>Processing</b><span>Each book is made to order. Approximately 2 to 4 weeks depending on order volume. Contact me before purchasing if you need it by a set date.</span></li>
+<li><b>Shipping</b><span>Free Australia-wide. International orders are welcome: the rate is calculated at checkout before you pay. <a href="https://www.goldfoilbooks.com.au/shipping">Shipping and returns</a></span></li>
+<li><b>Payment</b><span>Afterpay available. Four interest-free payments of <span data-gfb-field="quarter" data-gfb-live="/rebinds/p/a-court-of-thorns-and-roses-handbound" data-gfb-wrap="">A$32.50</span> on a <span data-gfb-field="price" data-gfb-live="/rebinds/p/a-court-of-thorns-and-roses-handbound" data-gfb-wrap="">$130.00</span> edition.</span></li>
+<li><b>Follow along</b><span>
+<ul class="gfb-social">
+<li><a aria-label="Instagram" href="https://instagram.com/goldfoilbooks" rel="me noopener"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" viewbox="0 0 24 24"><rect height="18" rx="5" width="18" x="3" y="3"></rect><circle cx="12" cy="12" r="4.15"></circle><circle cx="17.35" cy="6.65" fill="currentColor" r="1.15" stroke="none"></circle></svg><span class="gfb-vh">Instagram</span></a></li>
+<li><a aria-label="TikTok" href="https://www.tiktok.com/@goldfoilbooks" rel="me noopener"><svg aria-hidden="true" fill="currentColor" viewbox="0 0 24 24"><path d="M16.5 2.2h-3.2v13.4a2.72 2.72 0 1 1-2.35-2.7v-3.26a5.98 5.98 0 1 0 5.55 5.96V9.1a7.2 7.2 0 0 0 4.2 1.35V7.2A4.26 4.26 0 0 1 16.5 2.2Z"></path></svg><span class="gfb-vh">TikTok</span></a></li>
+<li><a aria-label="YouTube" href="https://www.youtube.com/@GoldFoilBooks" rel="me noopener"><svg aria-hidden="true" fill="currentColor" viewbox="0 0 24 24"><path d="M21.6 7.2a2.5 2.5 0 0 0-1.77-1.77C18.25 5 12 5 12 5s-6.25 0-7.83.43A2.5 2.5 0 0 0 2.4 7.2 26 26 0 0 0 2 12a26 26 0 0 0 .4 4.8 2.5 2.5 0 0 0 1.77 1.77C5.75 19 12 19 12 19s6.25 0 7.83-.43a2.5 2.5 0 0 0 1.77-1.77A26 26 0 0 0 22 12a26 26 0 0 0-.4-4.8ZM10 15.5v-7l6 3.5-6 3.5Z" fill-rule="evenodd"></path></svg><span class="gfb-vh">YouTube</span></a></li>
+</ul>
+</span></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+</div>
+
+  
+  
+
+
+
+
+</main>
+<!-- GOLD FOIL BOOKS site chrome. Built from the HTML build by build.py. -->
+<template id="gfb-chrome"><div class="gfb-top" data-header>
+  <div class="gfb-strip">Ships worldwide &middot; free within Australia</div>
+  <header class="gfb-header">
+    <div class="gfb-wrap gfb-header__inner">
+      <a class="gfb-logo" href="/">Gold Foil Books</a>
+      <button class="gfb-burger" type="button" data-burger aria-expanded="false" aria-controls="gfb-nav">Menu</button>
+      <nav class="gfb-nav" id="gfb-nav" data-nav aria-label="Primary">
+        <a href="/">Home</a>
+        <a href="/rebinds">Rebinds</a>
+        <a href="/artwork">Artwork</a>
+        <a href="/process">Process</a>
+        <a href="/about">About</a>
+<a href="/contact">Contact</a>
+        <a class="gfb-nav__account" href="/account/login">Account</a>
+        <a class="gfb-nav__cart" href="/cart" aria-label="Cart, 0 items" data-gfb-cart>Cart (0)</a>
+      </nav>
+    </div>
+  </header>
+</div>
+<footer class="gfb-footer">
+  <div class="gfb-wrap">
+    <div class="gfb-footer__cols">
+      <div>
+        <h2 class="gfb-h2">Made one at a time.</h2>
+        <p style="color:rgba(245,242,236,0.72); max-width:26rem;">
+          Each book is made to order. Current processing time is approximately 2 to 4 weeks
+          depending on order volume.
+        </p>
+        <div class="gfb-newsletter-slot" data-gfb-slot="newsletter"></div>
+      </div>
+      <div>
+        <p class="gfb-footer__head">Shop</p>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/rebinds">Rebinds</a></li>
+          <li><a href="/artwork">Artwork</a></li>
+          <li><a href="/account/login">Account</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="gfb-footer__head">Studio</p>
+        <ul>
+          <li><a href="/about">About</a></li>
+          <li><a href="/shipping">Shipping &amp; returns</a></li>
+          <li><a href="/contact">Contact</a></li>
+          <li><a href="/process">Process</a></li>
+          <li><a href="https://instagram.com/goldfoilbooks" rel="me noopener">Instagram</a></li>
+          <li><a href="https://www.tiktok.com/@goldfoilbooks" rel="me noopener">TikTok</a></li>
+          <li><a href="https://www.youtube.com/@GoldFoilBooks" rel="me noopener">YouTube</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="gfb-footer__base">
+      <span>&copy; <span data-year>2026</span> Gold Foil Books &middot; Wollongong, Australia</span>
+      <span style="max-width:44rem;">
+        Independently created fan-made rebinds. Not affiliated with, endorsed by, sponsored by
+        or associated with Sarah J. Maas, the publisher, or any copyright holder.
+      </span>
+    </div>
+    <p class="gfb-credit">
+      Site by <a href="https://theserviceedit.com" target="_blank" rel="noopener">The Service Edit</a>
+    </p>
+  </div>
+</footer>
+<button class="gfb-totop" type="button" data-totop aria-label="Back to top">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button></template>
+<script>
+(function () {
+  "use strict";
+  /* CUTOVER SWITCH. false: only pages that contain a .gfb-page Code Block get
+     the new header and footer (staging). true: every storefront page does. */
+  var GFB_LIVE = true;
+  /* Preview of the switched-on state, this browser tab only: add
+     ?gfbpreview=1 to any shop or product URL (?gfbpreview=0 turns it off).
+     Nothing is saved anywhere and other visitors are unaffected. */
+  var preview = false;
+  try {
+    var qp = /[?&]gfbpreview=([01])/.exec(location.search);
+    if (qp) window.sessionStorage.setItem("gfb-preview", qp[1]);
+    preview = window.sessionStorage.getItem("gfb-preview") === "1";
+  } catch (e) {}
+  var live = GFB_LIVE || preview;
+
+  var d = document, html = d.documentElement, body = d.body;
+  var page = d.querySelector(".gfb-page");
+  var part = d.querySelector(".gfb-native-part");
+  /* A product part only belongs on its own product page */
+  if (part && part.getAttribute("data-gfb-native") === "product" &&
+      false) part = null;
+  var path0 = location.pathname;
+  if (!page && (!live || /^\/(account|checkout|commerce)(\/|$)/.test(path0))) { html.classList.remove("gfb-js"); return; }
+  html.classList.add("gfb-js");
+  body.classList.add("gfb-site", "gfb-chrome");
+  if (!page) {
+    body.classList.add("gfb-native");
+    if (part) body.classList.add(part.getAttribute("data-gfb-native") === "product" ? "gfb-pdp-page" : "gfb-store-page");
+    else body.classList.add("gfb-native-plain");
+  }
+
+  try {
+    var tpl = d.getElementById("gfb-chrome");
+    var frag = tpl.content.cloneNode(true);
+    var top = frag.querySelector("[data-header]");
+    var foot = frag.querySelector(".gfb-footer");
+    var totop = frag.querySelector("[data-totop]");
+    body.insertBefore(top, body.firstChild);
+    var sqFooter = d.getElementById("footer-sections");
+    (sqFooter ? sqFooter.parentNode : body).insertBefore(foot, sqFooter ? sqFooter.nextSibling : null);
+    body.appendChild(totop);
+
+    /* Hero pages sit under the transparent header; everything else is solid. */
+    var first = page && page.firstElementChild;
+    if (first && /gfb-(inhand|scene)/.test(first.className) && !first.hasAttribute("data-header-trigger")) {
+      first.setAttribute("data-header-trigger", "");
+    }
+
+    /* Current page marker */
+    var path = location.pathname.replace(/\/$/, "") || "/";
+    top.querySelectorAll(".gfb-nav a").forEach(function (a) {
+      var h = a.getAttribute("href");
+      if (h === path || (h !== "/" && path.indexOf(h + "/") === 0)) a.setAttribute("aria-current", "page");
+    });
+
+    /* Cart count mirrors the native header, which Squarespace keeps current. */
+    var cart = top.querySelector("[data-gfb-cart]");
+    function syncCart() {
+      var q = d.querySelector("#header .header-actions-action--cart .cart-quantity, #header .cart-quantity, .sqs-cart-quantity");
+      var n = q ? parseInt(q.textContent.replace(/\D/g, ""), 10) || 0 : 0;
+      cart.textContent = "Cart (" + n + ")";
+      cart.setAttribute("aria-label", "Cart, " + n + (n === 1 ? " item" : " items"));
+    }
+    syncCart();
+    var hdr = d.getElementById("header");
+    if (hdr && "MutationObserver" in window) {
+      new MutationObserver(syncCart).observe(hdr, { subtree: true, childList: true, characterData: true });
+    }
+
+    /* Native blocks into the design's slots. Never while the Squarespace
+       editor is active: blocks go back where Squarespace put them so they
+       stay editable, and move again when editing ends. */
+    var moved = [];
+    function moveInto(slotSel, blockSel, scope) {
+      var slot = d.querySelector(slotSel);
+      var block = (scope || d).querySelector(blockSel);
+      if (!slot || !block || slot.contains(block)) return;
+      var host = block.closest(".page-section") || block.closest("section");
+      var ph = d.createComment("gfb-origin");
+      block.parentNode.insertBefore(ph, block);
+      slot.querySelectorAll(":scope > .gfb-note").forEach(function (n) { n.hidden = true; });
+      slot.appendChild(block);
+      if (host && !host.querySelector(".gfb-page")) host.classList.add("gfb-emptied");
+      moved.push({ block: block, ph: ph, host: host });
+    }
+    function restore() {
+      moved.forEach(function (m) {
+        if (m.ph.parentNode) m.ph.parentNode.replaceChild(m.block, m.ph);
+        if (m.host) m.host.classList.remove("gfb-emptied");
+      });
+      moved = [];
+    }
+    function editing() { return body.classList.contains("sqs-edit-mode-active"); }
+    function place() {
+      if (editing()) { restore(); return; }
+      moveInto("[data-gfb-slot='form']", "#page .sqs-block-form, #sections .sqs-block-form");
+      /* The build's button label, on the copied form only (the old Contact
+         page keeps its own). Label text only; the form itself is untouched. */
+      Array.prototype.forEach.call(d.querySelectorAll("[data-gfb-slot='form']"), function (slot) {
+        var b = slot.querySelector("button[type='submit'], input[type='submit']");
+        if (!b) return;
+        var label = slot.getAttribute("data-gfb-submit") || "Send message";
+        if (b.tagName === "INPUT") b.value = label;
+        else { var inner = b.querySelector("span, div") || b; if (inner.children.length === 0) inner.textContent = label; }
+      });
+      /* Marketing opt-in on the contact form starts ticked; visitors can untick it.
+         A real click, so Squarespace's form records the value. Once per box. */
+      (function tick(n) {
+        var boxes = d.querySelectorAll("[data-gfb-slot='form'] .form-item.email input[type='checkbox']");
+        if (!boxes.length && d.querySelector("[data-gfb-slot='form']") && n < 50) { setTimeout(function () { tick(n + 1); }, 200); return; }
+        Array.prototype.forEach.call(boxes, function (cb) {
+          if (cb.getAttribute("data-gfb-ticked")) return;
+          cb.setAttribute("data-gfb-ticked", "1");
+          if (!cb.checked) cb.click();
+        });
+      })(0);
+      moveInto("[data-gfb-slot='newsletter']", ".sqs-block-newsletter", sqFooter);
+      if (part && part.getAttribute("data-gfb-native") === "product") {
+        /* Squarespace binds Add to Cart when its ProductDetail controller
+           starts. Moving the button before that leaves it dead, so wait. */
+        var pd = d.querySelector(".product-detail");
+        if (!pd || !/ProductDetail/.test(pd.getAttribute("data-controllers-bound") || "")) {
+          if ((place.waits = (place.waits || 0) + 1) < 150) setTimeout(place, 100);
+          return;
+        }
+        moveInto("[data-gfb-slot='cart']", ".product-detail .product-add-to-cart");
+        var slot = d.querySelector("[data-gfb-slot='cart']");
+        if (slot) slot.classList.toggle("gfb-has-native", !!slot.querySelector(".product-add-to-cart"));
+      }
+    }
+    place();
+    if ("MutationObserver" in window) {
+      new MutationObserver(place).observe(body, { attributes: true, attributeFilter: ["class"] });
+    }
+
+    /* Live product data. Prices, sale state and stock are written into the
+       build's markup from the product records, so nothing on the page goes
+       stale when a price changes. The hard-coded values are the fallback. */
+    var cache = {};
+    function product(url) {
+      if (!cache[url]) {
+        cache[url] = fetch(url + "?format=json", { credentials: "same-origin" })
+          .then(function (r) { return r.ok ? r.json() : null; })
+          .then(function (j) { return j && (j.item || null); })
+          .catch(function () { return null; });
+      }
+      return cache[url];
+    }
+    var money = function (n) {
+      try { return new Intl.NumberFormat("en-AU", { style: "currency", currency: "AUD" }).format(n); }
+      catch (e) { return "$" + Number(n).toFixed(2); }
+    };
+    function model(it) {
+      var v = it.variants && it.variants[0];
+      var physical = it.productType === 1 && v;
+      var src = physical ? v : it;
+      var onSale = !!src.onSale;
+      var base = src.priceMoney ? parseFloat(src.priceMoney.value) : NaN;
+      var sale = src.salePriceMoney ? parseFloat(src.salePriceMoney.value) : NaN;
+      return {
+        price: onSale ? sale : base,
+        was: onSale ? base : null,
+        onSale: onSale,
+        inStock: physical ? (v.unlimited || v.qtyInStock > 0) : true
+      };
+    }
+    function paint(el, m) {
+      var f = el.getAttribute("data-gfb-field");
+      if (!(m.price >= 0)) return;
+      if (f === "price") el.textContent = money(m.price);
+      else if (f === "was") { el.hidden = !m.was; if (m.was) el.textContent = money(m.was); }
+      else if (f === "flag") el.hidden = !m.onSale;
+      else if (f === "quarter") el.textContent = "A" + money(m.price / 4);
+      else if (f === "afterpay") el.textContent = "or 4 interest-free payments of A" + money(m.price / 4) + " with Afterpay";
+      else if (f === "pdp-price" || f === "bar-price") {
+        var small = el.querySelector("small");
+        var was = m.was ? ' <span class="gfb-was"><span class="gfb-vh">Was </span>' + money(m.was) + "</span>" : "";
+        el.innerHTML = money(m.price) + was;
+        if (small) el.appendChild(small);
+      }
+      else if (f === "stock") {
+        var card = el.closest(".gfb-card");
+        if (card) { el.textContent = m.inStock ? "In stock" : "Sold out"; card.classList.toggle("gfb-card--soldout", !m.inStock); }
+        else if (el.classList.contains("gfb-stock")) {
+          if (!m.inStock) { el.classList.add("gfb-stock--out"); el.innerHTML = "<b>Sold out</b> &middot; next binding not yet scheduled"; }
+        }
+        else el.textContent = m.inStock ? "In stock" : "Sold out";
+      }
+    }
+    var targets = d.querySelectorAll("[data-gfb-field][data-gfb-live], [data-gfb-live] [data-gfb-field]");
+    Array.prototype.forEach.call(targets, function (el) {
+      var host = el.hasAttribute("data-gfb-live") ? el : el.closest("[data-gfb-live]");
+      var url = host && host.getAttribute("data-gfb-live");
+      if (!url || !/^\/(rebinds|artwork)\/p\//.test(url)) return;
+      product(url).then(function (it) { if (it) paint(el, model(it)); });
+    });
+
+    /* Product pages: review count from the native summary, and the sticky
+       bar's button presses the native Add to cart. */
+    if (part && part.getAttribute("data-gfb-native") === "product") {
+      var rv = part.querySelector("[data-gfb-field='reviews']");
+      var tries = 0;
+      (function reviews() {
+        if (!rv) return;
+        /* The summary in the (hidden) native detail section never finishes
+           loading, so read the count from the reviews section tabs. */
+        var n = "";
+        Array.prototype.forEach.call(d.querySelectorAll(".product-review-summary .summaryText, .reviewsTabButton"), function (el) {
+          var m = !n && el.textContent.match(/(\d+)\s*product review/i);
+          if (m) n = m[1];
+        });
+        if (n) {
+          var stars = rv.querySelector(".gfb-stars");
+          rv.textContent = "";
+          if (stars) rv.appendChild(stars);
+          rv.appendChild(d.createTextNode("\u00a0 " + n + (n === "1" ? " product review" : " product reviews")));
+        } else if (++tries < 40) setTimeout(reviews, 250);
+      })();
+      Array.prototype.forEach.call(d.querySelectorAll("[data-gfb-buy]"), function (b) {
+        b.addEventListener("click", function () {
+          var nb = d.querySelector(".product-add-to-cart .sqs-add-to-cart-button, .product-add-to-cart button");
+          if (nb) nb.click();
+        });
+      });
+    }
+  } catch (err) {
+    html.classList.remove("gfb-js");
+    body.classList.remove("gfb-chrome");
+    if (window.console) console.error("[gfb] chrome failed", err);
+  }
+})();
+</script>
+<script>
+if (document.body.classList.contains("gfb-chrome")) {
+/* ==========================================================================
+   GOLD FOIL BOOKS
+   Vanilla JS only. No dependencies, no build step, no routing.
+   Every behaviour degrades to a working page if this file fails to load.
+   ========================================================================== */
+(function () {
+  "use strict";
+
+  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+  /* ----------------------------------------------------------------------
+     Header. Turns solid once the first full bleed scene is behind it.
+     ---------------------------------------------------------------------- */
+  function header() {
+    var el = document.querySelector("[data-header]");
+    if (!el) return;
+    var trigger = document.querySelector("[data-header-trigger]");
+    var offset = trigger ? trigger.offsetHeight - el.offsetHeight : 40;
+
+    function update() {
+      /* Pages with no full bleed hero have no trigger, so the header must be
+         solid from the first paint. Without this the white wordmark and nav
+         sit on cream until the page is scrolled 40px. */
+      el.classList.toggle("is-solid", !trigger || window.scrollY > offset);
+    }
+    update();
+    window.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", function () {
+      offset = trigger ? trigger.offsetHeight - el.offsetHeight : 40;
+      update();
+    }, { passive: true });
+  }
+
+  /* ----------------------------------------------------------------------
+     Mobile navigation.
+     ---------------------------------------------------------------------- */
+  function nav() {
+    var btn = document.querySelector("[data-burger]");
+    var menu = document.querySelector("[data-nav]");
+    if (!btn || !menu) return;
+
+    function setOpen(open) {
+      menu.classList.toggle("is-open", open);
+      btn.setAttribute("aria-expanded", String(open));
+      btn.textContent = open ? "Close" : "Menu";
+      document.documentElement.style.overflow = open ? "hidden" : "";
+    }
+
+    btn.addEventListener("click", function () {
+      setOpen(btn.getAttribute("aria-expanded") !== "true");
+    });
+    menu.addEventListener("click", function (e) {
+      if (e.target.tagName === "A") setOpen(false);
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") setOpen(false);
+    });
+  }
+
+  /* ----------------------------------------------------------------------
+     Reveal on scroll. Purely additive.
+     ---------------------------------------------------------------------- */
+  function reveal() {
+    var items = document.querySelectorAll("[data-reveal]");
+    if (!items.length) return;
+
+    if (reduceMotion.matches || !("IntersectionObserver" in window)) {
+      items.forEach(function (n) { n.classList.add("is-in"); });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("is-in");
+        io.unobserve(entry.target);
+      });
+    }, { rootMargin: "0px 0px -12% 0px", threshold: 0.08 });
+
+    items.forEach(function (n) { io.observe(n); });
+  }
+
+  /* ----------------------------------------------------------------------
+     Compare. Drag, click or arrow keys move the divide between the original
+     illustration and the finished book.
+     ---------------------------------------------------------------------- */
+  function compare() {
+    document.querySelectorAll("[data-compare]").forEach(function (root) {
+      var grip = root.querySelector("[data-compare-grip]");
+      var dragging = false;
+
+      function set(pct) {
+        pct = Math.max(2, Math.min(98, pct));
+        root.style.setProperty("--pos", pct + "%");
+        if (grip) grip.setAttribute("aria-valuenow", Math.round(pct));
+      }
+
+      function fromEvent(e) {
+        var rect = root.getBoundingClientRect();
+        var x = (e.touches ? e.touches[0].clientX : e.clientX) - rect.left;
+        set((x / rect.width) * 100);
+      }
+
+      root.addEventListener("pointerdown", function (e) {
+        dragging = true;
+        root.setPointerCapture(e.pointerId);
+        fromEvent(e);
+      });
+      root.addEventListener("pointermove", function (e) {
+        if (dragging) fromEvent(e);
+      });
+      ["pointerup", "pointercancel"].forEach(function (t) {
+        root.addEventListener(t, function () { dragging = false; });
+      });
+
+      if (grip) {
+        grip.addEventListener("keydown", function (e) {
+          var now = parseFloat(root.style.getPropertyValue("--pos")) || 50;
+          if (e.key === "ArrowLeft") { set(now - 4); e.preventDefault(); }
+          if (e.key === "ArrowRight") { set(now + 4); e.preventDefault(); }
+          if (e.key === "Home") { set(2); e.preventDefault(); }
+          if (e.key === "End") { set(98); e.preventDefault(); }
+        });
+      }
+      set(50);
+    });
+  }
+
+  /* ----------------------------------------------------------------------
+     Process video. Muted, inline, poster first, paused when out of view.
+     Reduced motion keeps the poster and offers a manual play.
+     ---------------------------------------------------------------------- */
+  function video() {
+    document.querySelectorAll("[data-video]").forEach(function (wrap) {
+      var vid = wrap.querySelector("video");
+      var toggle = wrap.querySelector("[data-video-toggle]");
+      if (!vid) return;
+
+      var wanted = !reduceMotion.matches;
+
+      function play() {
+        var p = vid.play();
+        if (p && p.catch) p.catch(function () { /* autoplay refused, poster stays */ });
+      }
+      function label() {
+        if (toggle) toggle.textContent = vid.paused ? "Play" : "Pause";
+      }
+
+      if ("IntersectionObserver" in window) {
+        new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting && wanted) { play(); }
+            else { vid.pause(); }
+            label();
+          });
+        }, { threshold: 0.35 }).observe(wrap);
+      } else if (wanted) {
+        play();
+      }
+
+      if (toggle) {
+        toggle.addEventListener("click", function () {
+          if (vid.paused) { wanted = true; play(); } else { wanted = false; vid.pause(); }
+          label();
+        });
+        label();
+      }
+
+      /* data-video-link: clicking the video itself opens that URL (TikTok).
+         The Play/Pause button keeps its own job. */
+      var link = wrap.getAttribute("data-video-link");
+      if (link) {
+        vid.addEventListener("click", function () {
+          window.open(link, "_blank", "noopener");
+        });
+      }
+    });
+  }
+
+  /* ----------------------------------------------------------------------
+     Product gallery. Thumbnails swap the main image.
+     ---------------------------------------------------------------------- */
+  function gallery() {
+    document.querySelectorAll("[data-gallery]").forEach(function (root) {
+      var main = root.querySelector("[data-gallery-main]");
+      if (!main) return;
+      root.querySelectorAll("[data-gallery-thumb]").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          var img = btn.querySelector("img");
+          if (!img) return;
+          main.src = img.src;
+          main.alt = img.alt;
+          root.querySelectorAll("[data-gallery-thumb]").forEach(function (b) {
+            b.setAttribute("aria-current", String(b === btn));
+          });
+        });
+      });
+    });
+  }
+
+  /* ----------------------------------------------------------------------
+     SQUARESPACE ADD TO CART
+     The mockup only demonstrates presentation. On the live site this button
+     is replaced by the native Squarespace product block, which owns
+     inventory, variants, cart state and checkout.
+     ---------------------------------------------------------------------- */
+  function cartStub() {
+    document.querySelectorAll("[data-add-to-cart]").forEach(function (btn) {
+      btn.addEventListener("click", function (e) {
+        e.preventDefault();
+        var note = btn.parentNode.querySelector("[data-cart-note]");
+        if (note) {
+          note.hidden = false;
+          note.textContent = "Prototype only. Squarespace commerce handles the cart on the live site.";
+        }
+      });
+    });
+  }
+
+  /* ----------------------------------------------------------------------
+     Sticky buy bar. Rises once the main add to cart button leaves the screen.
+     ---------------------------------------------------------------------- */
+  function buybar() {
+    var bar = document.querySelector("[data-buybar]");
+    var anchor = document.querySelector("[data-buybar-anchor]");
+    if (!bar || !anchor || !("IntersectionObserver" in window)) return;
+
+    new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        bar.classList.toggle("is-up", !entry.isIntersecting && entry.boundingClientRect.top < 0);
+      });
+    }, { threshold: 0 }).observe(anchor);
+  }
+
+  /* ----------------------------------------------------------------------
+     Artwork protection.
+     The illustrations are sold as downloads, so the site should not hand them
+     over on a right click. This blocks the context menu, dragging and the iOS
+     save sheet on artwork only, and never on product photography or text.
+
+     Be clear about the limits: this stops casual saving. It does not stop a
+     screenshot, developer tools, or a direct request to the image URL. The
+     real protection is that the served files are capped at 1400px on the long
+     edge, which looks correct on screen and prints badly.
+     ---------------------------------------------------------------------- */
+  function protectArt() {
+    var art = document.querySelectorAll("[data-protect]");
+    if (!art.length) return;
+
+    art.forEach(function (img) {
+      img.setAttribute("draggable", "false");
+      var host = img.closest("picture, figure, a, span, div") || img.parentNode;
+      if (host && !host.classList.contains("gfb-guard")) host.classList.add("gfb-guard");
+    });
+
+    function inArtwork(target) {
+      if (!target || !target.closest) return false;
+      return !!target.closest(".gfb-guard");
+    }
+
+    document.addEventListener("contextmenu", function (e) {
+      if (inArtwork(e.target)) e.preventDefault();
+    });
+    document.addEventListener("dragstart", function (e) {
+      if (e.target && e.target.hasAttribute && e.target.hasAttribute("data-protect")) e.preventDefault();
+    });
+  }
+
+  /* ----------------------------------------------------------------------
+     Back to top. Appears once the first screen is behind you.
+     ---------------------------------------------------------------------- */
+  function totop() {
+    var btn = document.querySelector("[data-totop]");
+    if (!btn) return;
+
+    function update() { btn.classList.toggle("is-up", window.scrollY > window.innerHeight * 0.9); }
+    update();
+    window.addEventListener("scroll", update, { passive: true });
+
+    btn.addEventListener("click", function () {
+      window.scrollTo({
+        top: 0,
+        behavior: reduceMotion.matches ? "auto" : "smooth"
+      });
+    });
+  }
+
+  /* ----------------------------------------------------------------------
+     Year stamp.
+     ---------------------------------------------------------------------- */
+  function year() {
+    document.querySelectorAll("[data-year]").forEach(function (n) {
+      n.textContent = String(new Date().getFullYear());
+    });
+  }
+
+  function init() {
+    header(); nav(); reveal(); compare(); video(); gallery(); /* cartStub removed on Squarespace */ buybar(); protectArt(); totop(); year();
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
+  }
+})();
+
+}
+</script>
+
+
+
+<script>
+(function(){
+  var sels=[].slice.call(document.querySelectorAll('.gfb-size select'));
+  if(!sels.length) return;
+  var table=JSON.parse(document.querySelector('[data-gfb-prices]').getAttribute('data-gfb-prices'));
+  function upd(){
+    var key=sels.map(function(s){return s.value}).join(' / ');
+    var p=table[key]; if(p==null) return;
+    var t='$'+p.toFixed(2);
+    var pr=document.querySelector('.gfb-pdp__buy .gfb-price'); if(pr) pr.textContent=t;
+    [].forEach.call(document.querySelectorAll('.gfb-pdp__buy .gfb-note'),function(n){
+      if(/afterpay/i.test(n.textContent)) n.textContent='or 4 interest-free payments of A$'+(p/4).toFixed(2)+' with Afterpay';});
+    var bar=document.querySelector('.gfb-buybar__price'); if(bar){var sm=bar.querySelector('small'); bar.textContent=t; if(sm) bar.appendChild(sm);}
+  }
+  sels.forEach(function(s){s.addEventListener('change',upd)}); upd();
+})();
+</script>
+</body>
+</html>

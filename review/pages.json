@@ -45,6 +45,12 @@
    "group": "Monday launch \u00b7 26 Oct"
   },
   {
+   "id": "launch-home.html",
+   "path": "../launch/home.html",
+   "title": "Home page \u00b7 Monday changes",
+   "group": "Monday launch \u00b7 26 Oct"
+  },
+  {
    "id": "launch-book-1-acotar.html",
    "path": "../launch/book-1-acotar.html",
    "title": "Book one \u00b7 Monday changes",

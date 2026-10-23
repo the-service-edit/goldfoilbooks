@@ -1,7 +1,73 @@
 {
- "generated": "2026-09-07",
+ "generated": "2026-10-23",
  "note": "The 16 linked pages. collection.html, collection-acomaf.html and collection-acowar.html are parked and unlinked (see gold-foil-books-collections-parked), so they are not in the review. Add them back here if that changes.",
  "pages": [
+  {
+   "id": "launch-index.html",
+   "path": "../launch/index.html",
+   "title": "Start here \u00b7 what goes live Monday",
+   "group": "Monday launch \u00b7 26 Oct"
+  },
+  {
+   "id": "launch-book-5-acosf.html",
+   "path": "../launch/book-5-acosf.html",
+   "title": "Book five \u00b7 A Court of Silver Flames",
+   "group": "Monday launch \u00b7 26 Oct"
+  },
+  {
+   "id": "launch-set.html",
+   "path": "../launch/set.html",
+   "title": "ACOTAR Book Set",
+   "group": "Monday launch \u00b7 26 Oct"
+  },
+  {
+   "id": "launch-art-the-training.html",
+   "path": "../launch/art-the-training.html",
+   "title": "The Training",
+   "group": "Monday launch \u00b7 26 Oct"
+  },
+  {
+   "id": "launch-art-the-ultimatum.html",
+   "path": "../launch/art-the-ultimatum.html",
+   "title": "The Ultimatum",
+   "group": "Monday launch \u00b7 26 Oct"
+  },
+  {
+   "id": "launch-art-the-hike.html",
+   "path": "../launch/art-the-hike.html",
+   "title": "The Hike",
+   "group": "Monday launch \u00b7 26 Oct"
+  },
+  {
+   "id": "launch-art-the-stairs.html",
+   "path": "../launch/art-the-stairs.html",
+   "title": "The Stairs",
+   "group": "Monday launch \u00b7 26 Oct"
+  },
+  {
+   "id": "launch-book-1-acotar.html",
+   "path": "../launch/book-1-acotar.html",
+   "title": "Book one \u00b7 Monday changes",
+   "group": "Monday launch \u00b7 26 Oct"
+  },
+  {
+   "id": "launch-book-2-acomaf.html",
+   "path": "../launch/book-2-acomaf.html",
+   "title": "Book two \u00b7 Monday changes",
+   "group": "Monday launch \u00b7 26 Oct"
+  },
+  {
+   "id": "launch-book-3-acowar.html",
+   "path": "../launch/book-3-acowar.html",
+   "title": "Book three \u00b7 Monday changes",
+   "group": "Monday launch \u00b7 26 Oct"
+  },
+  {
+   "id": "launch-book-4-acofas.html",
+   "path": "../launch/book-4-acofas.html",
+   "title": "Book four \u00b7 Monday changes",
+   "group": "Monday launch \u00b7 26 Oct"
+  },
   {
    "id": "index.html",
    "path": "../index.html",

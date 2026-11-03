@@ -1,7 +1,31 @@
 {
- "generated": "2026-10-23",
+ "generated": "2026-11-03",
  "note": "The 16 linked pages. collection.html, collection-acomaf.html and collection-acowar.html are parked and unlinked (see gold-foil-books-collections-parked), so they are not in the review. Add them back here if that changes.",
  "pages": [
+  {
+   "id": "bf-index.html",
+   "path": "../blackfriday/index.html",
+   "title": "Start here \u00b7 Black Friday",
+   "group": "Black Friday \u00b7 26\u201330 Nov"
+  },
+  {
+   "id": "bf-early-access.html",
+   "path": "../blackfriday/early-access.html",
+   "title": "Early access pop-up (now to 25 Nov)",
+   "group": "Black Friday \u00b7 26\u201330 Nov"
+  },
+  {
+   "id": "bf-home.html",
+   "path": "../blackfriday/home.html",
+   "title": "Home page \u00b7 sale weekend",
+   "group": "Black Friday \u00b7 26\u201330 Nov"
+  },
+  {
+   "id": "bf-set.html",
+   "path": "../blackfriday/set.html",
+   "title": "ACOTAR Book Set \u00b7 sale weekend",
+   "group": "Black Friday \u00b7 26\u201330 Nov"
+  },
   {
    "id": "launch-index.html",
    "path": "../launch/index.html",
